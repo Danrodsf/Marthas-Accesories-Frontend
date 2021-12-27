@@ -4,15 +4,23 @@ import logo from "../../img/logo.png";
 
 const Header = () => {
   const [click, setClick] = useState(false);
+  const [width, setWidth] = useState();
 
   const clickHandler = () => setClick(!click);
 
+  useEffect(() => {
+    window.addEventListener("resize", () => setWidth(window.innerWidth));
+    if (width >= 500) {
+      setClick(false);
+    }
+  }, [width]);
+
   return (
-    <div className="navbar">
-      <div className="navbar-container container ">
+    <div className="nav">
+      <div className="nav-container container ">
         <div>
           <Link to="/">
-            <img className="navbar-logo" src={logo} alt="Martha's Accesories" />
+            <img className="nav-logo" src={logo} alt="Martha's Accesories" />
           </Link>
         </div>
         <div className="menu-icon" onClick={clickHandler}>

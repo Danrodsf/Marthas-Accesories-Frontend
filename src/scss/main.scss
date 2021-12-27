@@ -8,26 +8,15 @@ html {
 }
 
 ///// Color Palette /////
-$bg: #eef0f2;
-$title: #4f3824;
-$section: #d9b7a0;
-$button: #6a66a3;
-$hover: #542e71;
-$black: #222222;
+$bg: #f5f5f5;
+$light-green: #d8e1a3;
+$dark-green: #2a2e0f;
+$light-brown: #cfc3b5;
+$medium-brown: #887159;
+$dark-brown: #372806;
+$dark: #222222;
 
 ///// Global Classes /////
-a {
-  text-decoration: none;
-  color: $title;
-  font-weight: 1000;
-  transition: all 0.5s ease;
-}
-
-a:hover {
-  color: $bg;
-  transition: all 0.5s ease;
-}
-
 @mixin flex($direction, $justify, $align) {
   display: flex;
   flex-direction: $direction;
@@ -35,8 +24,9 @@ a:hover {
   align-items: $align;
 }
 
-.body {
-  height: 85vh;
+.main {
+  height: calc(100vh - 10rem);
+  overflow: hidden;
 }
 
 .container {

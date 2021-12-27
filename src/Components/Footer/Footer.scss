@@ -1,5 +1,34 @@
 .footer {
-  height: 5vh;
-  background-color: $title;
-  color: $bg;
+  height: 5rem;
+  background-color: $light-brown;
+  color: $medium-brown;
+}
+
+.footer-container {
+  @include flex(column, space-evenly, center);
+  height: 100%;
+  max-width: 1080px;
+}
+
+.social {
+  @include flex(row, space-evenly, center);
+  width: 50%;
+  font-size: 1.5rem;
+}
+
+.copyright {
+  font-size: 0.8rem;
+}
+
+.footer-links {
+  text-decoration: none;
+  color: $medium-brown;
+  font-weight: 1000;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.footer-links:hover {
+  color: $dark-brown;
+  transition: all 0.5s ease;
 }
