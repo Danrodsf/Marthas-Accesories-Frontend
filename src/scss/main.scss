@@ -1,0 +1,45 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+///// Color Palette /////
+$bg: #eef0f2;
+$title: #4f3824;
+$section: #d9b7a0;
+$button: #6a66a3;
+$hover: #542e71;
+$black: #222222;
+
+///// Global Classes /////
+a {
+  text-decoration: none;
+  color: $title;
+  font-weight: 1000;
+  transition: all 0.5s ease;
+}
+
+a:hover {
+  color: $bg;
+  transition: all 0.5s ease;
+}
+
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+.body {
+  height: 85vh;
+}
+
+.container {
+  width: 95%;
+  margin: 0 auto;
+}
