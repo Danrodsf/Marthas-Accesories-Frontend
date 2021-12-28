@@ -5,19 +5,21 @@
 }
 
 .footer-container {
-  @include flex(column, space-evenly, center);
+  @include flex(column, flex-end, center);
   height: 100%;
   max-width: 1080px;
 }
 
 .social {
   @include flex(row, space-evenly, center);
-  width: 50%;
+  width: 10rem;
   font-size: 1.5rem;
 }
 
 .copyright {
   font-size: 0.8rem;
+  line-height: 0.2rem;
+  text-align: center;
 }
 
 .footer-links {

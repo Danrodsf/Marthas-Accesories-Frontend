@@ -1,0 +1,36 @@
+.formInput {
+  label {
+    font-size: 0.7rem;
+    color: $medium-brown;
+  }
+
+  input {
+    background-color: unset;
+    border: none;
+    border-bottom: 1px solid $light-brown;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  input:-webkit-autofill {
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+
+  span {
+    font-size: 0.7rem;
+    color: rgb(146, 0, 0);
+    display: none;
+    position: absolute;
+  }
+
+  input:invalid[focused="true"] {
+    border-bottom: 1px solid rgb(146, 0, 0);
+  }
+
+  input:invalid[focused="true"] ~ span {
+    display: block;
+  }
+}

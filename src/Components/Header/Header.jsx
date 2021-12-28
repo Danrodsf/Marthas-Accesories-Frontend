@@ -24,32 +24,36 @@ const Header = () => {
           </Link>
         </div>
         <div className="menu-icon" onClick={clickHandler}>
-          {click ? <i class="fa fa-times"></i> : <i class="fa fa-bars"></i>}
+          {click ? (
+            <i className="fa fa-times"></i>
+          ) : (
+            <i className="fa fa-bars"></i>
+          )}
         </div>
         <div className={click ? "nav-menu active" : "nav-menu"}>
           <div className="nav-item">
-            <Link to="/" className="nav-links" onClick={clickHandler}>
-              Home
-            </Link>
-          </div>
-          <div className="nav-item">
-            <Link to="/" className="nav-links" onClick={clickHandler}>
+            <Link to="/shop" className="nav-links" onClick={clickHandler}>
               Prendas
             </Link>
           </div>
           <div className="nav-item">
-            <Link to="/" className="nav-links" onClick={clickHandler}>
+            <Link to="/customize" className="nav-links" onClick={clickHandler}>
               Personaliza
             </Link>
           </div>
           <div className="nav-item">
-            <Link to="/" className="nav-links" onClick={clickHandler}>
-              Iniciar sesión
+            <Link to="/contact" className="nav-links" onClick={clickHandler}>
+              Contáctanos
             </Link>
           </div>
           <div className="nav-item">
-            <Link to="/" className="nav-links" onClick={clickHandler}>
-              Registrarse
+            <Link to="/signIn" className="nav-links" onClick={clickHandler}>
+              Inicia Sesión
+            </Link>
+          </div>
+          <div className="nav-item">
+            <Link to="/signUp" className="nav-links" onClick={clickHandler}>
+              Regístrate
             </Link>
           </div>
         </div>

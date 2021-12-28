@@ -3,9 +3,10 @@
 @import "Components/Header/Header.scss";
 @import "Components/Footer/Footer.scss";
 @import "Components/Button/Button.scss";
-@import "Components/Login/Login.scss";
+@import "Containers/Login/Login.scss";
 @import "Containers/Profile/Profile.scss";
 @import "Containers/Register/Register.scss";
+@import "Components/FormInput/FormInput.scss";
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 body {

@@ -1,0 +1,49 @@
+.signUp-container {
+  @include flex(column, center, center);
+  height: 100%;
+
+  h3 {
+    margin: 0;
+  }
+
+  .form {
+    @include flex(column, space-evenly, center);
+    height: 100%;
+  }
+
+  input {
+    width: 18rem;
+  }
+
+  .signUp {
+    @include flex(column, center, center);
+    height: 100%;
+    margin: 1rem;
+  }
+
+  button {
+    all: unset;
+  }
+
+  .button {
+    background-color: $light-brown;
+    padding: 0.5rem;
+    margin: 1rem 0 0 0;
+    width: 80%;
+    color: $bg;
+    border-radius: 0.1rem;
+    text-align: center;
+  }
+
+  @media screen and (min-width: 700px) {
+    input {
+      width: 30rem;
+    }
+  }
+
+  @media screen and (max-height: 620px) {
+    .signUp {
+      overflow: auto;
+    }
+  }
+}
