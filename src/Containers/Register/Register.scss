@@ -3,22 +3,24 @@
   height: 100%;
 
   h3 {
-    margin: 0;
+    margin: 1rem 0 0 0;
   }
 
   .form {
     @include flex(column, space-evenly, center);
-    height: 100%;
+    width: 90%;
   }
 
   input {
-    width: 18rem;
+    width: 100%;
+    padding: 0.5rem;
   }
 
   .signUp {
-    @include flex(column, center, center);
-    height: 100%;
+    @include flex(column, space-between, center);
+    width: 100%;
     margin: 1rem;
+    overflow: auto;
   }
 
   button {
@@ -28,22 +30,30 @@
   .button {
     background-color: $light-brown;
     padding: 0.5rem;
-    margin: 1rem 0 0 0;
+    margin: 1rem 0 1rem 0;
     width: 80%;
     color: $bg;
     border-radius: 0.1rem;
     text-align: center;
+    transition: all 0.5s ease;
+    cursor: pointer;
+  }
+
+  .button:hover {
+    background-color: $medium-brown;
+    transition: all 0.5s ease;
+  }
+
+  .button:active {
+    background-color: $dark-brown;
+    transition: 0.3s;
   }
 
   @media screen and (min-width: 700px) {
-    input {
-      width: 30rem;
-    }
-  }
-
-  @media screen and (max-height: 620px) {
     .signUp {
-      overflow: auto;
+      border-radius: 0.3rem;
+      border: 1px solid $medium-brown;
+      width: 30rem;
     }
   }
 }
