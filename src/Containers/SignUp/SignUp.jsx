@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FormInput from "../../Components/FormInput/FormInput";
 
-const Register = () => {
+const SignUp = () => {
   let navigate = useNavigate();
 
   const [creds, setCreds] = useState({
@@ -170,4 +170,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default SignUp;
