@@ -1,6 +1,6 @@
 .nav {
   height: 5rem;
-  background-color: $light-brown;
+  background: $fourth;
 }
 
 .nav-container {
@@ -24,19 +24,14 @@
 
 .nav-links {
   text-decoration: none;
-  color: $medium-brown;
-  font-weight: 1000;
-  padding: 1rem;
+  font-size: 1.1rem;
+  padding: 0.5rem;
   transition: all 0.5s ease;
 }
 
 .nav-links:hover {
-  color: $dark-brown;
+  font-weight: bold;
   transition: all 0.5s ease;
-}
-
-.nav-item:hover {
-  border: none;
 }
 
 @media screen and (max-width: 700px) {
@@ -44,11 +39,6 @@
     display: block;
     cursor: pointer;
     font-size: 1.5rem;
-    color: $medium-brown;
-  }
-
-  .menu-icon:hover {
-    color: $dark-brown;
   }
 
   .nav-menu {
@@ -59,8 +49,7 @@
     bottom: 0;
     left: -100%;
     width: 100%;
-
-    background-color: $light-brown;
+    background-color: $fourth;
     transition: all 1s ease;
     z-index: 1;
     opacity: 0;

@@ -14,8 +14,8 @@ const Footer = () => {
           </a>
         </div>
         <div className="copyright">
-          <p>© 2021, Martha's Accesorios.</p>
-          <p>Web diseñada por: Daniel Rodriguez</p>
+          <p>© 2021, MARTHA'S ACCESORIOS.</p>
+          <p>WEB DISEÑADA POR: DANIEL RODRIGUEZ</p>
         </div>
       </div>
     </div>

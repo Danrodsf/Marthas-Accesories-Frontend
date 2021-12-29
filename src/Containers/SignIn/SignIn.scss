@@ -2,25 +2,25 @@
   @include flex(column, center, center);
   height: 100%;
 
-  h3 {
-    margin: 1rem 0 0 0;
-  }
-
   .form {
     @include flex(column, space-evenly, center);
     width: 90%;
+    height: 100%;
   }
 
-  input {
-    width: 100%;
-    padding: 0.5rem;
+  .inputs {
+    margin-bottom: 1rem;
+    input {
+      width: 100%;
+      padding-top: 1rem;
+      font-size: 1.2rem;
+    }
   }
 
   .signIn {
-    @include flex(column, space-between, center);
+    @include flex(column, space-evenly, center);
     width: 100%;
-    margin: 1rem;
-    overflow: auto;
+    height: 100%;
   }
 
   button {
@@ -28,32 +28,39 @@
   }
 
   .button {
-    background-color: $light-brown;
+    background-color: $third;
     padding: 0.5rem;
     margin: 1rem 0 1rem 0;
-    width: 80%;
-    color: $bg;
+    width: 100%;
     border-radius: 0.1rem;
+    font-weight: bold;
     text-align: center;
     transition: all 0.5s ease;
     cursor: pointer;
   }
 
   .button:hover {
-    background-color: $medium-brown;
+    background-color: $fourth;
     transition: all 0.5s ease;
   }
 
   .button:active {
-    background-color: $dark-brown;
+    transform: scale(0.98);
     transition: 0.3s;
+  }
+
+  .error {
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.9rem;
   }
 
   @media screen and (min-width: 700px) {
     .signIn {
       border-radius: 0.3rem;
-      border: 1px solid $medium-brown;
+      border: 0.5rem solid $third;
       width: 30rem;
+      height: 30rem;
     }
   }
 }

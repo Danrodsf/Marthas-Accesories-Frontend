@@ -40,7 +40,7 @@ const Header = (props) => {
           <div className={click ? "nav-menu active" : "nav-menu"}>
             <div className="nav-item">
               <Link to="/shop" className="nav-links" onClick={clickHandler}>
-                Prendas
+                PRENDAS
               </Link>
             </div>
             <div className="nav-item">
@@ -49,22 +49,27 @@ const Header = (props) => {
                 className="nav-links"
                 onClick={clickHandler}
               >
-                Personaliza
+                PERSONALIZA
               </Link>
             </div>
             <div className="nav-item">
               <Link to="/contact" className="nav-links" onClick={clickHandler}>
-                Contáctanos
+                CONTÁCTANOS
               </Link>
             </div>
             <div className="nav-item">
               <Link to="/cart" className="nav-links" onClick={clickHandler}>
-                Ver Carrito
+                CARRITO
+              </Link>
+            </div>
+            <div className="nav-item">
+              <Link to="/profile" className="nav-links" onClick={clickHandler}>
+                PERFIL
               </Link>
             </div>
             <div className="nav-item">
               <div className="nav-links" onClick={logOut}>
-                Cerrar Sesión
+                CERRAR SESIÓN
               </div>
             </div>
           </div>
@@ -90,7 +95,7 @@ const Header = (props) => {
           <div className={click ? "nav-menu active" : "nav-menu"}>
             <div className="nav-item">
               <Link to="/shop" className="nav-links" onClick={clickHandler}>
-                Prendas
+                PRENDAS
               </Link>
             </div>
             <div className="nav-item">
@@ -99,22 +104,22 @@ const Header = (props) => {
                 className="nav-links"
                 onClick={clickHandler}
               >
-                Personaliza
+                PERSONALIZA
               </Link>
             </div>
             <div className="nav-item">
               <Link to="/contact" className="nav-links" onClick={clickHandler}>
-                Contáctanos
+                CONTÁCTANOS
               </Link>
             </div>
             <div className="nav-item">
               <Link to="/signIn" className="nav-links" onClick={clickHandler}>
-                Inicia Sesión
+                INICIA SESIÓN
               </Link>
             </div>
             <div className="nav-item">
               <Link to="/signUp" className="nav-links" onClick={clickHandler}>
-                Regístrate
+                REGÍSTRATE
               </Link>
             </div>
           </div>

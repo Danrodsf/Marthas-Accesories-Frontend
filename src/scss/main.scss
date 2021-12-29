@@ -8,13 +8,12 @@ html {
 }
 
 ///// Color Palette /////
-$bg: #f5f5f5;
-$light-green: #d8e1a3;
-$dark-green: #2a2e0f;
-$light-brown: #cfc3b5;
-$medium-brown: #887159;
-$dark-brown: #372806;
-$dark: #222222;
+$white: white;
+$first: #f6f1ec;
+$second: #f1ece3;
+$third: #eee6db;
+$fourth: #d3c0b2;
+$fifth: #1f1f1f;
 
 ///// Global Classes /////
 @mixin flex($direction, $justify, $align) {
@@ -24,9 +23,13 @@ $dark: #222222;
   align-items: $align;
 }
 
+a {
+  color: $fifth;
+}
+
 .main {
   height: calc(100vh - 10rem);
-  background-color: $bg;
+  background-color: $white;
 }
 
 .container {

@@ -1,0 +1,15 @@
+.profile-container {
+  @include flex(row, center, center);
+  height: 100%;
+
+  .profile {
+    @include flex(column, space-between, center);
+    width: 100%;
+  }
+
+  .profile-info {
+    @include flex(row, space-between, center);
+    text-align: center;
+    width: 100%;
+  }
+}

@@ -20,6 +20,7 @@ const SignIn = (props) => {
   };
 
   const login = async () => {
+    setmsgError("");
     let body = {
       email: creds.email,
       password: creds.password,
@@ -30,13 +31,17 @@ const SignIn = (props) => {
         "https://drs-marthas-accesories.herokuapp.com/user/signIn",
         body
       );
-      setmsgError(`Hey! ${res.data.user.firstName}`);
+      if (res.data.user.firstName !== null) {
+        setmsgError(`HEY! ${res.data.user.firstName.toUpperCase()}`);
+      } else {
+        setmsgError(`HEY! BIENVENIDX`);
+      }
       props.dispatch({ type: LOGIN, payload: res.data });
       setTimeout(() => {
         navigate("/");
       }, 2000);
     } catch (error) {
-      setmsgError("Hubo un error al intentar iniciar tu sesión");
+      setmsgError("HUBO UN ERROR AL INTENTAR INICIAR TU SESIÓN");
     }
   };
 
@@ -50,20 +55,18 @@ const SignIn = (props) => {
       id: 1,
       name: "email",
       type: "email",
-      placeholder: "Email",
+      placeholder: "EMAIL",
       value: "",
-      errorMessage: "Email de de ser una dirección valida",
-      label: "Email",
+      errorMessage: "EMAIL DEBE SER UNA DIRECCIÓN VALIDA.",
       required: true,
     },
     {
       id: 2,
       name: "password",
       type: "password",
-      placeholder: "Contraseña",
+      placeholder: "CONTRASEÑA",
       value: "",
-      errorMessage: "Contraseña deberia de contener entre 4 y 20 caracteres",
-      label: "Contraseña",
+      errorMessage: "CONTRASEÑA DEBERIA CONTENER ENTRE 4 Y 20 CARACTERES.",
       pattern: "^.{4,20}$",
       required: true,
     },
@@ -73,7 +76,7 @@ const SignIn = (props) => {
     <div className="main">
       <div className="signIn-container container">
         <div className="signIn">
-          <h3>Inicia tu sesión</h3>
+          <h2>INICIAR SESION</h2>
           <form className="form" onSubmit={handleSubmit}>
             {inputs.map((input) => (
               <FormInput
@@ -83,9 +86,9 @@ const SignIn = (props) => {
                 onChange={inputHandler}
               />
             ))}
-            <button className="button">Enviar</button>
+            <button className="button">ENVIAR</button>
           </form>
-          <div>{msgError}</div>
+          <div className="error">{msgError}</div>
         </div>
       </div>
     </div>

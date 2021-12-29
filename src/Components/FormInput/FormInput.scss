@@ -1,15 +1,10 @@
 .formInput {
   width: 100%;
 
-  label {
-    font-size: 0.7rem;
-    color: $medium-brown;
-  }
-
   input {
     background-color: unset;
     border: none;
-    border-bottom: 1px solid $light-brown;
+    border-bottom: 1px solid $third;
   }
 
   input:focus {
@@ -22,14 +17,14 @@
   }
 
   span {
-    font-size: 0.7rem;
-    color: rgb(146, 0, 0);
+    font-size: 0.8rem;
+    color: $fourth;
     display: none;
     text-align: center;
   }
 
   input:invalid[focused="true"] {
-    border-bottom: 1px solid rgb(146, 0, 0);
+    border-bottom: 2px solid $fourth;
   }
 
   input:invalid[focused="true"] ~ span {

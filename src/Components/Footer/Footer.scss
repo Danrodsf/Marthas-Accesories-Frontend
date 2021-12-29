@@ -1,7 +1,6 @@
 .footer {
   height: 5rem;
-  background-color: $light-brown;
-  color: $medium-brown;
+  background-color: $second;
 }
 
 .footer-container {
@@ -24,13 +23,13 @@
 
 .footer-links {
   text-decoration: none;
-  color: $medium-brown;
+  color: $fifth;
   font-weight: 1000;
   transition: all 0.5s ease;
   cursor: pointer;
 }
 
 .footer-links:hover {
-  color: $dark-brown;
+  transform: scale(1.1);
   transition: all 0.5s ease;
 }
