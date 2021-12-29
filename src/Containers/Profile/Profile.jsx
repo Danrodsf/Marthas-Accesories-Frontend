@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { useState, useEffect } from "react";
 import { UPDATE_USER } from "../../redux/types";
+import FormInput from "../../Components/FormInput/FormInput";
 import axios from "axios";
 
 const Profile = (props) => {
@@ -11,7 +12,7 @@ const Profile = (props) => {
   const [creds, setCreds] = useState(props.credentials.user);
   const [msgError, setmsgError] = useState("");
 
-  const profileHandler = (e) => {
+  const inputHandler = (e) => {
     setCreds({ ...creds, [e.target.name]: e.target.value });
   };
 
@@ -26,19 +27,17 @@ const Profile = (props) => {
 
   const update = async () => {
     let body = {
+      id: creds.id,
       firstName: creds.firstName,
       lastName: creds.lastName,
       age: creds.age,
       address: creds.address,
       phone: creds.phone,
-      email: creds.email,
-      password: creds.password,
-      confirmPassword: creds.confirmPassword,
     };
 
     try {
       let res = await axios.put(
-        `https://drs-marthas-accesories.herokuapp.com/user/`,
+        `https://drs-marthas-accesories.herokuapp.com/user/update`,
         body,
         token
       );
@@ -48,6 +47,7 @@ const Profile = (props) => {
       }, 1000);
     } catch (error) {
       setmsgError("Hubo un error al intentar actualizar datos");
+      console.log(creds)
       return;
     }
   };
@@ -59,52 +59,86 @@ const Profile = (props) => {
     return formattedDate;
   };
 
-  const edit = (info) => {
-    switch (info) {
-      case "firstName":
-        break;
-
-      default:
-        break;
-    }
-  };
+  const inputs = [
+    {
+      id: 1,
+      name: "firstName",
+      type: "text",
+      placeholder: "Nombre",
+      value: "",
+      errorMessage:
+        "Nombre debe de contener solo letras y entre 3 y 20 caracteres",
+      label: "Nombre",
+      pattern: "^[A-Za-z]{3,20}$",
+      required: true,
+    },
+    {
+      id: 2,
+      name: "lastName",
+      type: "text",
+      placeholder: "Apellidos",
+      value: "",
+      errorMessage:
+        "Apellidos debe de contener solo letras y entre 3 y 50 caracteres",
+      label: "Apellidos",
+      pattern: "^[A-Za-z ]{3,50}$",
+      required: true,
+    },
+    {
+      id: 3,
+      name: "age",
+      type: "number",
+      placeholder: "Edad",
+      value: 0,
+      label: "Edad",
+      min: 18,
+      max: 99,
+      errorMessage: "Edad debe de ser entre 18 y 99 años",
+      required: true,
+    },
+    {
+      id: 4,
+      name: "address",
+      type: "text",
+      placeholder: "Dirección",
+      value: "",
+      errorMessage: "Dirección deber contener entre 5 y 50 caracteres",
+      label: "Dirección",
+      pattern: "^[A-Za-z0-9 .,-]{5,50}$",
+      required: true,
+    },
+    {
+      id: 5,
+      name: "phone",
+      type: "text",
+      placeholder: "Teléfono",
+      value: "",
+      errorMessage: "Teléfono debe de contener 9 dígitos",
+      label: "Teléfono",
+      pattern: "^[0-9]{9}$",
+      required: true,
+    },
+  ];
 
   if (props.credentials.token !== "") {
     return (
       <div className="main">
         <div className="profile-container container">
-          <div className="profile">
-            <h3>Tu perfil</h3>
-            <div className="profile-info">
-              <p>Nombre:</p>
-              {props.credentials.user.firstName}
-              <button onClick={edit("firstName")}>Editar</button>
-            </div>
-            <div className="profile-info">
-              <p>Apellido:</p>
-              {props.credentials.user.lastName}
-              <button onClick={edit("lastName")}>Editar</button>
-            </div>
-            <div className="profile-info">
-              <p>Edad:</p>
-              {props.credentials.user.age}
-              <button onClick={edit("age")}>Editar</button>
-            </div>
-            <div className="profile-info">
-              <p>Dirección:</p>
-              {props.credentials.user.address}
-              <button onClick={edit("address")}>Editar</button>
-            </div>
-            <div className="profile-info">
-              <p>Teléfono</p>
-              {props.credentials.user.phone}
-              <button onClick={edit("phone")}>Editar</button>
-            </div>
-            <div className="profile-info">
-              <p>Miembro desde:</p>
-              {formatDate(props.credentials.user.createdAt)}
-            </div>
-          </div>
+        <div className="profile">
+          <h2>Perfil</h2>
+          <form className="form" onSubmit={handleSubmit}>
+            {inputs.map((input) => (
+              <FormInput
+                key={input.id}
+                {...input}
+                value={creds[input.name]}
+                onChange={inputHandler}
+              />
+            ))}
+            <button className="button">ACTUALIZAR</button>
+          </form>
+          <div>{msgError}</div>
+        </div>
         </div>
       </div>
     );
