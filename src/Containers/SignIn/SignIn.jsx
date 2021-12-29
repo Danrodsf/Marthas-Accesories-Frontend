@@ -1,9 +1,10 @@
 import axios from "axios";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { LOGIN } from "../../redux/types";
 import FormInput from "../../Components/FormInput/FormInput";
+import Button from '../../Components/Button/Button'
 
 const SignIn = (props) => {
   let navigate = useNavigate();
@@ -86,7 +87,7 @@ const SignIn = (props) => {
                 onChange={inputHandler}
               />
             ))}
-            <button className="button">ENVIAR</button>
+            <Button></Button>
           </form>
           <div className="error">{msgError}</div>
         </div>

@@ -27,6 +27,10 @@ a {
   color: $fifth;
 }
 
+button {
+  all: unset;
+}
+
 .main {
   height: calc(100vh - 10rem);
   background-color: $white;

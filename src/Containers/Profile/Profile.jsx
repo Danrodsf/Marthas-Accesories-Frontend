@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import { useState, useEffect } from "react";
 import { UPDATE_USER } from "../../redux/types";
 import FormInput from "../../Components/FormInput/FormInput";
+import Button from '../../Components/Button/Button'
 import axios from "axios";
 
 const Profile = (props) => {
@@ -135,7 +136,7 @@ const Profile = (props) => {
                 onChange={inputHandler}
               />
             ))}
-            <button className="button">ACTUALIZAR</button>
+            <Button></Button>
           </form>
           <div>{msgError}</div>
         </div>

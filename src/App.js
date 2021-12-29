@@ -5,6 +5,7 @@ import Home from "./Containers/Home/Home";
 import Profile from "./Containers/Profile/Profile";
 import SignIn from "./Containers/SignIn/SignIn";
 import SignUp from "./Containers/SignUp/SignUp";
+import Contact from "./Containers/Contact/Contact";
 import "./App.scss";
 import "./scss/main.scss";
 
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/signIn" element={<SignIn />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/signUp" element={<SignUp />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -1,0 +1,20 @@
+.message-container {
+    @include flex(column, center, center);
+    height: 100%;
+
+    .message{
+        @include flex(column, center, center);
+        height: 100%;
+        width: 90%;
+    }
+
+    .text{
+        height: 30%;
+        width: 100%;
+        border: 2px solid $third;
+        resize: none;
+    }
+
+    
+
+}

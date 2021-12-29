@@ -1,7 +1,8 @@
 import axios from "axios";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FormInput from "../../Components/FormInput/FormInput";
+import Button from '../../Components/Button/Button'
 
 const SignUp = () => {
   let navigate = useNavigate();
@@ -90,7 +91,7 @@ const SignUp = () => {
                 onChange={inputHandler}
               />
             ))}
-            <button className="button">Regístrate</button>
+            <Button></Button>
           </form>
           <div>{msgError}</div>
         </div>

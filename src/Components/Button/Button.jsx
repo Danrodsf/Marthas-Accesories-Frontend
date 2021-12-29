@@ -1,8 +1,7 @@
 const Button = () => {
+
   return (
-    <div>
-      <div></div>
-    </div>
+    <button className="button">ENVIAR</button>
   );
 };
 
