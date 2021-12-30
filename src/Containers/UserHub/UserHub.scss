@@ -1,0 +1,30 @@
+.userHub-container {
+  @include flex(row, center, center);
+  height: 100%;
+
+  .userHub {
+    @include flex(column, space-evenly, center);
+    margin: 1rem;
+    overflow: auto;
+    height: 100%;
+  }
+
+  .info{
+    margin-top: 1rem;
+    @include flex(column, space-between,center);
+    height: 30%;
+  }
+
+  .menu {
+    @include flex(column, space-evenly, flex-start);
+    height: 70%;
+
+    .links{
+      text-decoration: none;
+      margin-left: 1rem;
+    }
+    .links:hover {
+      font-weight: 1000;
+    }
+  }
+}

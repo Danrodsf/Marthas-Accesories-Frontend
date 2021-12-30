@@ -33,7 +33,7 @@ button {
 
 .main {
   height: calc(100vh - 7rem);
-  background-color: $white;
+  background-color: $first;
   overflow: auto;
 }
 
@@ -41,3 +41,18 @@ button {
   width: 95%;
   margin: 0 auto;
 }
+
+.logo{
+  width: 50%;
+}
+
+.error {
+  margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 700px) {
+  .logo{
+    width: 20rem;
+  }
+}
+

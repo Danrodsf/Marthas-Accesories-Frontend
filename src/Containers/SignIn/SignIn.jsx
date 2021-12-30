@@ -39,7 +39,7 @@ const SignIn = (props) => {
       }
       props.dispatch({ type: LOGIN, payload: res.data });
       setTimeout(() => {
-        navigate("/profile");
+        navigate("/userHub");
       }, 2000);
     } catch (error) {
       setmsgError("HUBO UN ERROR AL INTENTAR INICIAR TU SESIÓN");

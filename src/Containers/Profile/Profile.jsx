@@ -4,6 +4,7 @@ import { UPDATE_USER } from "../../redux/types";
 import FormInput from "../../Components/FormInput/FormInput";
 import Button from '../../Components/Button/Button'
 import axios from "axios";
+import Logo from '../../img/logo-black.png'
 
 const Profile = (props) => {
   let token = {
@@ -51,13 +52,6 @@ const Profile = (props) => {
       console.log(creds)
       return;
     }
-  };
-
-  const formatDate = (initialDate) => {
-    let splitDate = initialDate.split(/[- : T .]/);
-    let arrayDate = [splitDate[2], splitDate[1], splitDate[0]];
-    let formattedDate = arrayDate.join("-");
-    return formattedDate;
   };
 
   const inputs = [
@@ -136,17 +130,23 @@ const Profile = (props) => {
                 onChange={inputHandler}
               />
             ))}
-            <Button></Button>
+            <Button></Button> 
+             
           </form>
-          <div>{msgError}</div>
+          <div className="error">{msgError}</div>
         </div>
         </div>
       </div>
     );
   } else {
     return (
-      <div>
-        <div>No estas logueado</div>
+      <div className="main">
+        <div className="userHub-container container">
+          <div className="userHub">
+            <img className="logo" src={Logo} alt="martha's accesorios"/>
+            <div>DEBE INICIAR SESION PARA VER SU PERFIL</div>
+          </div>
+        </div>
       </div>
     );
   }

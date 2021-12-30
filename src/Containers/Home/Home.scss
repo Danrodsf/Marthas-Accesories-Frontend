@@ -1,3 +1,4 @@
-.hero {
+.home-container{
+  @include flex(row, center, center);
   height: 100%;
 }

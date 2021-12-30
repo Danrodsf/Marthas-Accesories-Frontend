@@ -6,9 +6,10 @@ const Header = (props) => {
     return (
       <div className="nav">
         <div className="nav-container container ">
+        <Link to="/"><i className="fa fa-home"></i></Link>
           <Link to="/"><i className="fa fa-search"></i></Link>
           {props.credentials.user.id ? (
-          <Link to="/profile"><i className="fa fa-user"></i></Link>
+          <Link to="/userHub"><i className="fa fa-user"></i></Link>
           ) : (
           <Link to="/signIn"><i className="fa fa-user"></i></Link>
           )}
