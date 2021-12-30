@@ -47,12 +47,21 @@ button {
 }
 
 .error {
-  margin-bottom: 2rem;
+  margin: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
 }
 
 @media screen and (min-width: 700px) {
   .logo{
     width: 20rem;
+  }
+}
+
+@media screen and (max-width: 290px) {
+  h1{
+    font-size: 1.7rem;
+    margin: 0;
   }
 }
 

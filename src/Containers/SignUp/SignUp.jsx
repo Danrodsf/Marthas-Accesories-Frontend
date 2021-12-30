@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FormInput from "../../Components/FormInput/FormInput";
 import Button from '../../Components/Button/Button'
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   let navigate = useNavigate();
@@ -31,12 +32,12 @@ const SignUp = () => {
         "https://drs-marthas-accesories.herokuapp.com/user/signup",
         body
       );
-      setmsgError("Registro exitoso");
+      setmsgError("REGISTRO EXITOSO");
       setTimeout(() => {
         navigate("/");
       }, 2000);
     } catch (error) {
-      setmsgError("Hubo un error al intentar registrarte");
+      setmsgError("HUBO UN ERROR AL INTENTAR REGISTRARTE");
     }
   };
 
@@ -52,7 +53,7 @@ const SignUp = () => {
       type: "email",
       placeholder: "Email",
       value: "",
-      errorMessage: "Email de de ser una dirección valida",
+      errorMessage: "EMAIL DEBE SER UNA DIRECCIÓN VALIDA",
       required: true,
     },
     {
@@ -61,7 +62,7 @@ const SignUp = () => {
       type: "password",
       placeholder: "Contraseña",
       value: "",
-      errorMessage: "Contraseña deberia de contener entre 4 y 20 caracteres",
+      errorMessage: "CONTRASEÑA DEBERIA CONTENER ENTRE 4 Y 20 CARACTERES",
       pattern: "^.{4,20}$",
       required: true,
     },
@@ -71,7 +72,7 @@ const SignUp = () => {
       type: "password",
       placeholder: "Repetir Contraseña",
       value: "",
-      errorMessage: "las contraseñas no coinciden",
+      errorMessage: "LAS CONTRASEÑAS NO COINCIDEN",
       pattern: creds.password,
       required: true,
     },
@@ -81,7 +82,7 @@ const SignUp = () => {
     <div className="main">
       <div className="signUp-container container">
         <div className="signUp">
-          <h2>Regístrate</h2>
+          <h2>REGÍSTRATE</h2>
           <form className="form" onSubmit={handleSubmit}>
             {inputs.map((input) => (
               <FormInput
@@ -91,9 +92,13 @@ const SignUp = () => {
                 onChange={inputHandler}
               />
             ))}
-            <Button></Button>
+            <Button text="REGÍSTRATE"></Button>
+            <div className="signIn-link">
+            <p>YA TIENES UNA CUENTA?</p>
+            <Link to="/signIn">INICIA SESIÓN</Link>
+            </div>
           </form>
-          <div>{msgError}</div>
+          <div className="error">{msgError}</div>
         </div>
       </div>
     </div>

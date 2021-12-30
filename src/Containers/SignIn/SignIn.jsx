@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { LOGIN } from "../../redux/types";
 import FormInput from "../../Components/FormInput/FormInput";
 import Button from '../../Components/Button/Button'
+import { Link } from "react-router-dom";
 
 const SignIn = (props) => {
   let navigate = useNavigate();
@@ -77,7 +78,7 @@ const SignIn = (props) => {
     <div className="main">
       <div className="signIn-container container">
         <div className="signIn">
-          <h2>INICIAR SESION</h2>
+          <h2>INICIAR SESIÓN</h2>
           <form className="form" onSubmit={handleSubmit}>
             {inputs.map((input) => (
               <FormInput
@@ -87,7 +88,11 @@ const SignIn = (props) => {
                 onChange={inputHandler}
               />
             ))}
-            <Button></Button>
+            <Button text="INICIA SESIÓN"></Button>
+            <div className="signUp-link">
+            <p>NO TIENES UNA CUENTA?</p>
+            <Link to="/signUp">REGÍSTRATE</Link>
+            </div>
           </form>
           <div className="error">{msgError}</div>
         </div>

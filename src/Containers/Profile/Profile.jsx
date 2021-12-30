@@ -121,6 +121,7 @@ const Profile = (props) => {
         <div className="profile-container container">
         <div className="profile">
           <h2>Perfil</h2>
+          <p className="description">EDITA TUS DATOS PULSANDO SOBRE CADA UNO, AL RELLENAR TODO, GUARDA PRESIONANDO EL BOTON ENVIAR</p>
           <form className="form" onSubmit={handleSubmit}>
             {inputs.map((input) => (
               <FormInput
@@ -130,7 +131,7 @@ const Profile = (props) => {
                 onChange={inputHandler}
               />
             ))}
-            <Button></Button> 
+            <Button text="EDITAR"></Button> 
              
           </form>
           <div className="error">{msgError}</div>

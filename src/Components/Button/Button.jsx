@@ -1,7 +1,7 @@
-const Button = () => {
+const Button = (props) => {
 
   return (
-    <button className="button">ENVIAR</button>
+    <button className="button">{props.text}</button>
   );
 };
 

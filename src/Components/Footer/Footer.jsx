@@ -33,15 +33,6 @@ const Footer = (props) => {
         )}
       </div>
         <div className={click ? "nav-menu active" : "nav-menu"}>
-          <div className={location.pathname === "/" ? "nav-item active" : "nav-item"}>
-            <Link
-              to="/"
-              className="nav-links"
-              onClick={clickHandler}
-            >
-              INICIO
-            </Link>
-          </div>
           <div className={location.pathname === "/shop" ? "nav-item active" : "nav-item"}>
             <Link to="/shop" className="nav-links" onClick={clickHandler}>
               PRENDAS

@@ -6,6 +6,14 @@
     margin: 0.7rem;
   }
 
+  .signUp {
+    @include flex(column, space-evenly, center);
+    width: 100%;
+    height: 100%;
+    margin: 1rem;
+    overflow: auto;
+  }
+
   .form {
     @include flex(column, space-evenly, center);
     width: 90%;
@@ -21,12 +29,10 @@
     }
   }
 
-  .signUp {
-    @include flex(column, space-evenly, center);
-    width: 100%;
-    height: 100%;
-    margin: 1rem;
-    overflow: auto;
+  .signIn-link {
+    font-size: 0.8rem;
+    text-align: center;
+    line-height: 5px;
   }
 
   @media screen and (min-width: 700px) {
