@@ -1,25 +1,76 @@
-const Footer = () => {
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { useLocation } from "react-router";
+
+const Footer = (props) => {
+  let location = useLocation();
+
+  const [click, setClick] = useState(false);
+  const [width, setWidth] = useState();
+
+  const clickHandler = () => setClick(!click);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => setWidth(window.innerWidth));
+    if (width >= 500) {
+      setClick(false);
+    }
+  }, [width]);
+
+  useEffect(() => {
+    setClick(false)
+  }, [location.pathname])
+
   return (
     <div className="footer">
       <div className="footer-container container">
-        <div className="social">
-          <a
-            href="https://www.instagram.com/marthasaccesorios/"
-            className="footer-links"
-          >
+      <div className="menu-icon" onClick={clickHandler}>
+        {click ? (
+          <i className="fa fa-times"></i>
+        ) : (
+          <i className="fa fa-bars"></i>
+        )}
+      </div>
+        <div className={click ? "nav-menu active" : "nav-menu"}>
+          <div className={location.pathname === "/shop" ? "nav-item active" : "nav-item"}>
+            <Link to="/shop" className="nav-links" onClick={clickHandler}>
+              PRENDAS
+            </Link>
+          </div>
+          <div className={location.pathname === "/customize" ? "nav-item active" : "nav-item"}>
+            <Link
+              to="/customize"
+              className="nav-links"
+              onClick={clickHandler}
+            >
+              PERSONALIZA
+            </Link>
+          </div>
+          <div className={location.pathname === "/contact" ? "nav-item active" : "nav-item"}>
+            <Link to="/contact" className="nav-links" onClick={clickHandler}>
+              CONTÁCTANOS
+            </Link>
+          </div>
+        </div>
+        <div className="footer-info">
+          <a href="https://www.instagram.com/marthasaccesorios/" className="footer-links">
             <i className="fa fa-instagram"></i>
           </a>
+          <div className="copyright">
+            <p>© 2021, MARTHA'S ACCESORIOS.</p>
+            <p>WEB DISEÑADA POR: <a href="https://www.linkedin.com/in/danielrodriguezserafin/">DANIEL RODRIGUEZ</a></p>
+          </div>
           <a href="mailto:mrthcst12@gmail.com" className="footer-links">
-            @
+          <i className="fa fa-envelope"></i>
           </a>
-        </div>
-        <div className="copyright">
-          <p>© 2021, MARTHA'S ACCESORIOS.</p>
-          <p>WEB DISEÑADA POR: DANIEL RODRIGUEZ</p>
         </div>
       </div>
     </div>
   );
 };
 
-export default Footer;
+
+export default connect((state) => ({
+  credentials: state.credentials,
+}))(Footer);

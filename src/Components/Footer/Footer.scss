@@ -1,35 +1,99 @@
 .footer {
   height: 5rem;
-  background-color: $second;
+  background-color: $fourth;
 }
 
 .footer-container {
-  @include flex(column, flex-end, center);
+  @include flex(column, flex-start, center);
   height: 100%;
   max-width: 1080px;
 }
 
-.social {
-  @include flex(row, space-evenly, center);
-  width: 10rem;
-  font-size: 1.5rem;
+.menu-icon {
+    display: none;
+}
+  
+.nav-menu {
+@include flex(row, space-evenly, center);
+list-style-type: none;
+    .active{
+        border-bottom: 2px solid $fifth;
+    }
 }
 
-.copyright {
-  font-size: 0.8rem;
-  line-height: 0.2rem;
-  text-align: center;
+.nav-links {
+text-decoration: none;
+font-size: 1.1rem;
+padding: 0.5rem;
+transition: all 0.5s ease;
 }
 
-.footer-links {
-  text-decoration: none;
-  color: $fifth;
-  font-weight: 1000;
-  transition: all 0.5s ease;
-  cursor: pointer;
+.nav-links:hover {
+font-weight: bold;
+transition: all 0.5s ease;
 }
 
-.footer-links:hover {
-  transform: scale(1.1);
-  transition: all 0.5s ease;
+.footer-info{
+    @include flex(row, space-between, center);
+    width: 100%;
+    .copyright{
+        width: 100%;
+        font-size: 0.6rem;
+        text-align: center;
+        position: relative;
+    }
+
+    .footer-links{
+        font-size: 1.3rem;
+    }
+
+}
+
+@media screen and (max-width: 700px) {
+    .menu-icon {
+        display: flex;
+        cursor: pointer;
+        font-size: 1.2rem;
+        z-index: 999;
+        position: fixed;
+        bottom: 55px;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        background-color: $fourth;
+        color: $fifth;
+        i{
+            position: relative;
+            top: 10px;
+            left:12px;
+            
+        }
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        justify-content: space-evenly;
+        position: absolute;
+        top: 2rem;
+        bottom: 5rem;
+        left: -100%;
+        width: 100%;
+        background-color: $fourth;
+        transition: all 1s ease;
+        z-index: 1;
+        opacity: 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+        opacity: 1;
+        transition: all 1s ease;
+    }
+
+    .copyright{
+        margin-top: 1.6rem;
+    }
+
+    
+
 }

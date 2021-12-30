@@ -1,134 +1,24 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { LOGOUT } from "../../redux/types";
-import logo from "../../img/logo.png";
 
 const Header = (props) => {
-  const [click, setClick] = useState(false);
-  const [width, setWidth] = useState();
 
-  const clickHandler = () => setClick(!click);
-
-  useEffect(() => {
-    window.addEventListener("resize", () => setWidth(window.innerWidth));
-    if (width >= 500) {
-      setClick(false);
-    }
-  }, [width]);
-
-  const logOut = () => {
-    props.dispatch({ type: LOGOUT });
-  };
-
-  if (props.credentials.token !== "") {
     return (
       <div className="nav">
         <div className="nav-container container ">
-          <div>
-            <Link to="/">
-              <img className="nav-logo" src={logo} alt="Martha's Accesories" />
-            </Link>
-          </div>
-          <div className="menu-icon" onClick={clickHandler}>
-            {click ? (
-              <i className="fa fa-times"></i>
-            ) : (
-              <i className="fa fa-bars"></i>
-            )}
-          </div>
-          <div className={click ? "nav-menu active" : "nav-menu"}>
-            <div className="nav-item">
-              <Link to="/shop" className="nav-links" onClick={clickHandler}>
-                PRENDAS
-              </Link>
-            </div>
-            <div className="nav-item">
-              <Link
-                to="/customize"
-                className="nav-links"
-                onClick={clickHandler}
-              >
-                PERSONALIZA
-              </Link>
-            </div>
-            <div className="nav-item">
-              <Link to="/contact" className="nav-links" onClick={clickHandler}>
-                CONTÁCTANOS
-              </Link>
-            </div>
-            <div className="nav-item">
-              <Link to="/cart" className="nav-links" onClick={clickHandler}>
-                CARRITO
-              </Link>
-            </div>
-            <div className="nav-item">
-              <Link to="/profile" className="nav-links" onClick={clickHandler}>
-                PERFIL
-              </Link>
-            </div>
-            <div className="nav-item">
-              <div className="nav-links" onClick={logOut}>
-                CERRAR SESIÓN
-              </div>
-            </div>
-          </div>
+          <Link to="/"><i className="fa fa-search"></i></Link>
+          {props.credentials.user.id ? (
+          <Link to="/profile"><i className="fa fa-user"></i></Link>
+          ) : (
+          <Link to="/signIn"><i className="fa fa-user"></i></Link>
+          )}
+          <Link to="/cart"><i className="fa fa-shopping-basket"></i></Link>
+          <Link to="/wishlist"><i className="fa fa-heart-o"></i></Link>
         </div>
       </div>
     );
-  } else {
-    return (
-      <div className="nav">
-        <div className="nav-container container ">
-          <div>
-            <Link to="/">
-              <img className="nav-logo" src={logo} alt="Martha's Accesories" />
-            </Link>
-          </div>
-          <div className="menu-icon" onClick={clickHandler}>
-            {click ? (
-              <i className="fa fa-times"></i>
-            ) : (
-              <i className="fa fa-bars"></i>
-            )}
-          </div>
-          <div className={click ? "nav-menu active" : "nav-menu"}>
-            <div className="nav-item">
-              <Link to="/shop" className="nav-links" onClick={clickHandler}>
-                PRENDAS
-              </Link>
-            </div>
-            <div className="nav-item">
-              <Link
-                to="/customize"
-                className="nav-links"
-                onClick={clickHandler}
-              >
-                PERSONALIZA
-              </Link>
-            </div>
-            <div className="nav-item">
-              <Link to="/contact" className="nav-links" onClick={clickHandler}>
-                CONTÁCTANOS
-              </Link>
-            </div>
-            <div className="nav-item">
-              <Link to="/signIn" className="nav-links" onClick={clickHandler}>
-                INICIA SESIÓN
-              </Link>
-            </div>
-            <div className="nav-item">
-              <Link to="/signUp" className="nav-links" onClick={clickHandler}>
-                REGÍSTRATE
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-};
+  } 
 
-export default connect((state) => ({
-  credentials: state.credentials,
-}))(Header);
+  export default connect((state) => ({
+    credentials: state.credentials,
+  }))(Header);
