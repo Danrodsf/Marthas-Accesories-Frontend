@@ -34,7 +34,7 @@ button {
 .main {
   height: calc(100vh - 7rem);
   background-color: $white;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .container {
