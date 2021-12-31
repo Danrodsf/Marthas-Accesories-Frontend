@@ -2,9 +2,9 @@ import { connect } from "react-redux";
 import { useState, useEffect } from "react";
 import { UPDATE_USER } from "../../redux/types";
 import FormInput from "../../Components/FormInput/FormInput";
-import Button from '../../Components/Button/Button'
+import Button from "../../Components/Button/Button";
 import axios from "axios";
-import Logo from '../../img/logo-black.png'
+import Logo from "../../img/logo-black.png";
 
 const Profile = (props) => {
   let token = {
@@ -48,8 +48,8 @@ const Profile = (props) => {
         props.dispatch({ type: UPDATE_USER, payload: creds });
       }, 1000);
     } catch (error) {
-      setmsgError("Hubo un error al intentar actualizar datos");
-      console.log(creds)
+      setmsgError("HUBO UN ERROR AL INTENTAR ACTUALIZAR DATOS ");
+      console.log(creds);
       return;
     }
   };
@@ -59,11 +59,11 @@ const Profile = (props) => {
       id: 1,
       name: "firstName",
       type: "text",
-      placeholder: "Nombre",
+      placeholder: "NOMBRE",
       value: "",
       errorMessage:
-        "Nombre debe de contener solo letras y entre 3 y 20 caracteres",
-      label: "Nombre",
+        "NOMBRE DEBE DE CONTENER SOLO LETRAS Y ENTRE 3 Y 20 CARACTERES",
+      label: "NOMBRE",
       pattern: "^[A-Za-z]{3,20}$",
       required: true,
     },
@@ -71,11 +71,11 @@ const Profile = (props) => {
       id: 2,
       name: "lastName",
       type: "text",
-      placeholder: "Apellidos",
+      placeholder: "APELLIDOS",
       value: "",
       errorMessage:
-        "Apellidos debe de contener solo letras y entre 3 y 50 caracteres",
-      label: "Apellidos",
+        "APELLIDOS DEBE DE CONTENER SOLO LETRAS Y ENTRE 3 Y 50 CARACTERES",
+      label: "APELLIDOS",
       pattern: "^[A-Za-z ]{3,50}$",
       required: true,
     },
@@ -83,22 +83,22 @@ const Profile = (props) => {
       id: 3,
       name: "age",
       type: "number",
-      placeholder: "Edad",
+      placeholder: "EDAD",
       value: 0,
-      label: "Edad",
+      label: "EDAD",
       min: 18,
       max: 99,
-      errorMessage: "Edad debe de ser entre 18 y 99 años",
+      errorMessage: "EDAD DEBE DE SER ENTRE 18 Y 99 AÑOS",
       required: true,
     },
     {
       id: 4,
       name: "address",
       type: "text",
-      placeholder: "Dirección",
+      placeholder: "DIRECCIÓN",
       value: "",
-      errorMessage: "Dirección deber contener entre 5 y 50 caracteres",
-      label: "Dirección",
+      errorMessage: "DIRECCIÓN DEBER CONTENER ENTRE 5 Y 50 CARACTERES",
+      label: "DIRECCIÓN",
       pattern: "^[A-Za-z0-9 .,-]{5,50}$",
       required: true,
     },
@@ -106,10 +106,10 @@ const Profile = (props) => {
       id: 5,
       name: "phone",
       type: "text",
-      placeholder: "Teléfono",
+      placeholder: "TELEFONO",
       value: "",
-      errorMessage: "Teléfono debe de contener 9 dígitos",
-      label: "Teléfono",
+      errorMessage: "TELÉFONO DEBE DE CONTENER 9 DÍGITOS ",
+      label: "TELEFONO",
       pattern: "^[0-9]{9}$",
       required: true,
     },
@@ -119,23 +119,25 @@ const Profile = (props) => {
     return (
       <div className="main">
         <div className="profile-container container">
-        <div className="profile">
-          <h2>Perfil</h2>
-          <p className="description">EDITA TUS DATOS PULSANDO SOBRE CADA UNO, AL RELLENAR TODO, GUARDA PRESIONANDO EL BOTON ENVIAR</p>
-          <form className="form" onSubmit={handleSubmit}>
-            {inputs.map((input) => (
-              <FormInput
-                key={input.id}
-                {...input}
-                value={creds[input.name]}
-                onChange={inputHandler}
-              />
-            ))}
-            <Button text="EDITAR"></Button> 
-             
-          </form>
-          <div className="error">{msgError}</div>
-        </div>
+          <div className="profile">
+            <h2>PERFIL</h2>
+            <p className="description">
+              EDITA TUS DATOS PULSANDO SOBRE CADA UNO, AL RELLENAR TODO, GUARDA
+              PRESIONANDO EL BOTON EDITAR
+            </p>
+            <form className="form" onSubmit={handleSubmit}>
+              {inputs.map((input) => (
+                <FormInput
+                  key={input.id}
+                  {...input}
+                  value={creds[input.name]}
+                  onChange={inputHandler}
+                />
+              ))}
+              <Button text="EDITAR"></Button>
+            </form>
+            <div className="error">{msgError}</div>
+          </div>
         </div>
       </div>
     );
@@ -144,7 +146,7 @@ const Profile = (props) => {
       <div className="main">
         <div className="userHub-container container">
           <div className="userHub">
-            <img className="logo" src={Logo} alt="martha's accesorios"/>
+            <img className="logo" src={Logo} alt="martha's accesorios" />
             <div>DEBE INICIAR SESION PARA VER SU PERFIL</div>
           </div>
         </div>

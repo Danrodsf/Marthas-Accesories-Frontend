@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FormInput from "../../Components/FormInput/FormInput";
-import Button from '../../Components/Button/Button'
+import Button from "../../Components/Button/Button";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
@@ -94,8 +94,8 @@ const SignUp = () => {
             ))}
             <Button text="REGÍSTRATE"></Button>
             <div className="signIn-link">
-            <p>YA TIENES UNA CUENTA?</p>
-            <Link to="/signIn">INICIA SESIÓN</Link>
+              <p>YA TIENES UNA CUENTA?</p>
+              <Link to="/signIn">INICIA SESIÓN</Link>
             </div>
           </form>
           <div className="error">{msgError}</div>

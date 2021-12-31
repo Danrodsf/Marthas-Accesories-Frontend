@@ -7,6 +7,7 @@ import Profile from "./Containers/Profile/Profile";
 import SignIn from "./Containers/SignIn/SignIn";
 import SignUp from "./Containers/SignUp/SignUp";
 import Contact from "./Containers/Contact/Contact";
+import Messages from "./Containers/Messages/Messages";
 import "./App.scss";
 import "./scss/main.scss";
 
@@ -14,7 +15,7 @@ const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
-      <Header />
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signIn" element={<SignIn />} />
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/signUp" element={<SignUp />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/messages" element={<Messages />} />
         </Routes>
         <Footer />
       </BrowserRouter>

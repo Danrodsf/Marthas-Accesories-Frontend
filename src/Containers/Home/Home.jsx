@@ -1,4 +1,4 @@
-import Logo from '../../img/logo-black.png';
+import Logo from "../../img/logo-black.png";
 const Home = () => {
   return (
     <div className="main">

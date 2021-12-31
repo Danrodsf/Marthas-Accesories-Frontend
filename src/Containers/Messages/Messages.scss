@@ -1,0 +1,30 @@
+.messages-container {
+  @include flex(column, center, center);
+
+  .messages {
+    text-align: center;
+  }
+
+  .messages-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    background-color: $third;
+    margin-bottom: 1.5rem;
+    :nth-child(even) {
+      background-color: $first;
+    }
+    p {
+      border: 1px solid $fourth;
+      margin: 0;
+      padding: 0.5rem;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    .messages-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(8, auto);
+    }
+  }
+}

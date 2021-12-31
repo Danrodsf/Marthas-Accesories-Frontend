@@ -9,9 +9,9 @@
     height: 100%;
   }
 
-  .info{
+  .info {
     margin-top: 1rem;
-    @include flex(column, space-between,center);
+    @include flex(column, space-between, center);
     height: 30%;
   }
 
@@ -19,7 +19,7 @@
     @include flex(column, space-evenly, flex-start);
     height: 70%;
 
-    .links{
+    .links {
       text-decoration: none;
       margin-left: 1rem;
     }

@@ -42,7 +42,7 @@ button {
   margin: 0 auto;
 }
 
-.logo{
+.logo {
   width: 50%;
 }
 
@@ -53,15 +53,14 @@ button {
 }
 
 @media screen and (min-width: 700px) {
-  .logo{
+  .logo {
     width: 20rem;
   }
 }
 
 @media screen and (max-width: 290px) {
-  h1{
+  h1 {
     font-size: 1.7rem;
     margin: 0;
   }
 }
-
