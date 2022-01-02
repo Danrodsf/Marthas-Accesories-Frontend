@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import Button from "../../Components/Button/Button";
 
@@ -50,13 +50,18 @@ const Contact = (props) => {
       <div className="message-container container">
         <form className="message" onSubmit={handleSubmit}>
           <h1>Contáctanos</h1>
+          <p className="description">
+            AQUÍ PODRÁS CONTACTARNOS, EN LA MAYOR BREVEDAD POSIBLE TE DAREMOS
+            RESPUESTA, PUEDES REVISAR LOS MENSAJES ENVIADOS Y NUESTRAS
+            RESPUESTAS EN TU <Link to="/messages">SECCIÓN DE MENSAJES</Link>
+          </p>
           <textarea
-            className="text"
+            className="text md"
             placeholder="TU MENSAJE"
             onChange={inputHandler}
           />
-          <Button></Button>
-          <div>{msgError}</div>
+          <Button text="ENVIAR"></Button>
+          <div className="error">{msgError}</div>
         </form>
       </div>
     </div>

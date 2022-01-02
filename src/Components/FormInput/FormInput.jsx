@@ -11,8 +11,9 @@ const FormInputs = (props) => {
   return (
     <div className="formInput">
       <div className="inputs">
-        <label className="label">{label}</label>
+        <label className="label sm">{label}</label>
         <input
+          className="md"
           {...inputProps}
           onChange={onChange}
           onBlur={handleFocus}
@@ -21,7 +22,7 @@ const FormInputs = (props) => {
           }
           focused={focused.toString()}
         />
-        <span>{errorMessage}</span>
+        <span className="sm">{errorMessage}</span>
       </div>
     </div>
   );

@@ -1,17 +1,20 @@
 .message-container {
-  @include flex(column, center, center);
-  height: 100%;
-
+  @include flex(row, center, center);
+  min-height: 100%;
   .message {
-    @include flex(column, center, center);
-    height: 100%;
-    width: 90%;
-  }
-
-  .text {
-    height: 30%;
-    width: 100%;
-    border: 2px solid $third;
-    resize: none;
+    text-align: center;
+    width: min(100%, 40rem);
+    .text {
+      min-height: 10rem;
+      height: 10rem;
+      width: 100%;
+      border: 2px solid $third;
+      resize: none;
+      margin-bottom: 1rem;
+    }
+    .description {
+      white-space: normal;
+      text-align: justify;
+    }
   }
 }

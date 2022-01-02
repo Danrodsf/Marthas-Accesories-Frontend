@@ -89,12 +89,12 @@ const SignIn = (props) => {
               />
             ))}
             <Button text="INICIA SESIÓN"></Button>
-            <div className="signUp-link">
+            <div className="signUp-link sm">
               <p>NO TIENES UNA CUENTA?</p>
               <Link to="/signUp">REGÍSTRATE</Link>
             </div>
+            <div className="error sm">{msgError}</div>
           </form>
-          <div className="error">{msgError}</div>
         </div>
       </div>
     </div>

@@ -93,12 +93,12 @@ const SignUp = () => {
               />
             ))}
             <Button text="REGÍSTRATE"></Button>
-            <div className="signIn-link">
+            <div className="signIn-link sm">
               <p>YA TIENES UNA CUENTA?</p>
               <Link to="/signIn">INICIA SESIÓN</Link>
             </div>
+            <div className="error sm">{msgError}</div>
           </form>
-          <div className="error">{msgError}</div>
         </div>
       </div>
     </div>

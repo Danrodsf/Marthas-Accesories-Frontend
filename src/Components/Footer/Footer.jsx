@@ -70,7 +70,7 @@ const Footer = (props) => {
           >
             <i className="fa fa-instagram"></i>
           </a>
-          <div className="copyright">
+          <div className="copyright sm">
             <p>© 2021, MARTHA'S ACCESORIOS.</p>
             <p>
               WEB DISEÑADA POR:{" "}

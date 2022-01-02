@@ -16,11 +16,15 @@ $fourth: #d3c0b2;
 $fifth: #1f1f1f;
 
 ///// Global Classes /////
-@mixin flex($direction, $justify, $align) {
+@mixin flex($direction: row, $justify: unset, $align: unset) {
   display: flex;
   flex-direction: $direction;
   justify-content: $justify;
   align-items: $align;
+}
+
+body {
+  background-color: $first;
 }
 
 a {
@@ -31,9 +35,12 @@ button {
   all: unset;
 }
 
+img {
+  max-width: 100%;
+}
+
 .main {
-  height: calc(100vh - 7rem);
-  background-color: $first;
+  height: calc(100vh - 8rem);
   overflow: auto;
 }
 
@@ -49,18 +56,23 @@ button {
 .error {
   margin: 1rem;
   text-align: center;
-  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.lg {
+  font-size: 1.5em;
+}
+
+.md {
+  font-size: 1em;
+}
+
+.sm {
+  font-size: 0.8em;
 }
 
 @media screen and (min-width: 700px) {
   .logo {
     width: 20rem;
-  }
-}
-
-@media screen and (max-width: 290px) {
-  h1 {
-    font-size: 1.7rem;
-    margin: 0;
   }
 }

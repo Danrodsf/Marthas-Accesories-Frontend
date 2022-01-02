@@ -1,6 +1,7 @@
 import axios from "axios";
 import { connect } from "react-redux";
 import { useState, useEffect } from "react";
+import Logo from "../../img/logo-black.png";
 
 const Messages = (props) => {
   const token = {
@@ -12,7 +13,7 @@ const Messages = (props) => {
   const [msgError, setmsgError] = useState("");
 
   useEffect(() => {
-    getByUserId();
+    getByUserId(); //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const formatDate = (initialDate) => {
@@ -34,55 +35,68 @@ const Messages = (props) => {
         token
       );
       if (res.data.length === 0) {
-        setmsgError(`Messages not Found`);
+        setmsgError(`NO SE HA ENCONTRADO NINGÚN MENSAJE`);
       } else {
         setMessages(res.data);
       }
     } catch (error) {
-      setmsgError("Message not found");
+      setmsgError("NO SE HA ENCONTRADO NINGÚN MENSAJE");
     }
   };
 
-  return (
-    <div className="main">
-      <div className="messages-container container">
-        <div className="messages">
-          <h1>MENSAJES</h1>
-          <p>
-            AQUÍ PUEDES REVISAR LOS MENSAJES QUE HAS ENVIADO A UN ADMINISTRADOR
-            Y LAS RESPUESTAS RECIBIDAS DE LOS MISMOS.
-          </p>
-        </div>
-        <div>
-          {messages.map((message) => {
-            return (
-              <div key={message.id} className="show-messages-container">
-                <div className="messages-grid">
-                  <p>Fecha del Mensaje:</p>
-                  <p>{formatDate(message?.createdAt)}</p>
-                  <p>Mensaje:</p>
-                  <p>{message?.message}</p>
-                  <p>Fecha de respuesta:</p>
-                  <p>
-                    {message?.updatedAt === message?.createdAt
-                      ? "SIN RESPUESTA"
-                      : ` ${formatDate(message?.updatedAt)}`}
-                  </p>
-                  <p>Respuesta:</p>
-                  <p>
-                    {message?.response === null
-                      ? "SIN RESPUESTA"
-                      : `${message?.response}`}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-          {msgError}
+  if (props.credentials.token !== "") {
+    return (
+      <div className="main">
+        <div className="messages-container container">
+          <div className="messages">
+            <h1>MENSAJES</h1>
+            <p>
+              AQUÍ PUEDES REVISAR LOS MENSAJES QUE HAS ENVIADO A UN
+              ADMINISTRADOR Y LAS RESPUESTAS RECIBIDAS DE LOS MISMOS.
+            </p>
+            <div>
+              {messages.map((message) => {
+                return (
+                  <div key={message.id} className="show-messages-container">
+                    <div className="messages-grid">
+                      <p>FECHA DEL MENSAJE:</p>
+                      <p>{formatDate(message?.createdAt)}</p>
+                      <p>MENSAJE:</p>
+                      <p>{message?.message.toUpperCase()}</p>
+                      <p>FECHA DE RESPUESTA:</p>
+                      <p>
+                        {message?.updatedAt === message?.createdAt
+                          ? "SIN RESPUESTA"
+                          : ` ${formatDate(message?.updatedAt)}`}
+                      </p>
+                      <p>RESPUESTA:</p>
+                      <p>
+                        {message?.response === null
+                          ? "SIN RESPUESTA"
+                          : `${message?.response.toUpperCase()}`}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+              {msgError}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className="main">
+        <div className="messages-container container">
+          <div className="messages">
+            <img className="logo" src={Logo} alt="martha's accesorios" />
+            <p>DEBES INICIAR SESION PARA VER TUS MENSAJES</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 };
 
 export default connect((state) => ({

@@ -5,8 +5,11 @@ import FormInput from "../../Components/FormInput/FormInput";
 import Button from "../../Components/Button/Button";
 import axios from "axios";
 import Logo from "../../img/logo-black.png";
+import { useNavigate } from "react-router-dom";
 
 const Profile = (props) => {
+  let navigate = useNavigate();
+
   let token = {
     headers: { Authorization: `Bearer ${props.credentials.token}` },
   };
@@ -46,6 +49,7 @@ const Profile = (props) => {
       setmsgError(res.data.message);
       setTimeout(() => {
         props.dispatch({ type: UPDATE_USER, payload: creds });
+        navigate("/userHub");
       }, 1000);
     } catch (error) {
       setmsgError("HUBO UN ERROR AL INTENTAR ACTUALIZAR DATOS ");
@@ -135,8 +139,8 @@ const Profile = (props) => {
                 />
               ))}
               <Button text="EDITAR"></Button>
+              <div className="error sm">{msgError}</div>
             </form>
-            <div className="error">{msgError}</div>
           </div>
         </div>
       </div>
@@ -144,10 +148,10 @@ const Profile = (props) => {
   } else {
     return (
       <div className="main">
-        <div className="userHub-container container">
-          <div className="userHub">
+        <div className="profile-container container">
+          <div className="profile">
             <img className="logo" src={Logo} alt="martha's accesorios" />
-            <div>DEBE INICIAR SESION PARA VER SU PERFIL</div>
+            <p>DEBE INICIAR SESION PARA VER SU PERFIL</p>
           </div>
         </div>
       </div>
