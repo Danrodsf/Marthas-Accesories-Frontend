@@ -16,4 +16,9 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: $fifth;
+  height: 100%;
+}
+.App {
+  height: 100vh;
+  position: fixed;
 }
