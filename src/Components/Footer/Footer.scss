@@ -1,6 +1,9 @@
 .footer {
   height: 5rem;
   background-color: $fourth;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }
 
 .footer-container {
@@ -59,14 +62,14 @@
     i {
       position: relative;
       top: 10px;
-      left: 12px;
+      left: 13px;
     }
   }
 
   .nav-menu {
     flex-direction: column;
     justify-content: space-evenly;
-    position: absolute;
+    position: fixed;
     top: 3rem;
     bottom: 5rem;
     left: -100%;
