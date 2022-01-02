@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
+import Card from "./Components/Card/Card";
 import Home from "./Containers/Home/Home";
 import UserHub from "./Containers/UserHub/UserHub";
 import Profile from "./Containers/Profile/Profile";
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/signUp" element={<SignUp />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/messages" element={<Messages />} />
+          <Route path="/card" element={<Card />} />
         </Routes>
         <Footer />
       </BrowserRouter>
