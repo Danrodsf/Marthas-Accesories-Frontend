@@ -1,0 +1,27 @@
+.product-details-container {
+  @include flex(row, center, center);
+  min-height: 100%;
+  padding: 1rem;
+  .product-details {
+    @include flex(row, space-around, center);
+    width: min(100%, 1080px);
+    flex-wrap: wrap;
+    background: $first;
+    border: 1px solid $fourth;
+    .product-details-img {
+      width: min(30em, 100%);
+      padding: 0;
+      margin: 0;
+      .buttons {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 0.5rem;
+      }
+    }
+    .product-details-info {
+      .product-details-item {
+        @include flex(row);
+      }
+    }
+  }
+}

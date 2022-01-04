@@ -9,6 +9,8 @@ import SignIn from "./Containers/SignIn/SignIn";
 import SignUp from "./Containers/SignUp/SignUp";
 import Contact from "./Containers/Contact/Contact";
 import Messages from "./Containers/Messages/Messages";
+import Products from "./Containers/Products/Products";
+import Product from "./Containers/Product/Product";
 import "./App.scss";
 import "./scss/main.scss";
 
@@ -26,6 +28,8 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/messages" element={<Messages />} />
           <Route path="/card" element={<Card />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/product" element={<Product />} />
         </Routes>
         <Footer />
       </BrowserRouter>

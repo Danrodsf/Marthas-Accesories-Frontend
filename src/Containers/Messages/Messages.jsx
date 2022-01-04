@@ -29,7 +29,7 @@ const Messages = (props) => {
     };
 
     try {
-      let res = await axios.post(
+      const res = await axios.post(
         `https://drs-marthas-accesories.herokuapp.com/message/getByUser`,
         body,
         token
@@ -57,25 +57,23 @@ const Messages = (props) => {
             <div>
               {messages.map((message) => {
                 return (
-                  <div key={message.id} className="show-messages-container">
-                    <div className="messages-grid">
-                      <p>FECHA DEL MENSAJE:</p>
-                      <p>{formatDate(message?.createdAt)}</p>
-                      <p>MENSAJE:</p>
-                      <p>{message?.message.toUpperCase()}</p>
-                      <p>FECHA DE RESPUESTA:</p>
-                      <p>
-                        {message?.updatedAt === message?.createdAt
-                          ? "SIN RESPUESTA"
-                          : ` ${formatDate(message?.updatedAt)}`}
-                      </p>
-                      <p>RESPUESTA:</p>
-                      <p>
-                        {message?.response === null
-                          ? "SIN RESPUESTA"
-                          : `${message?.response.toUpperCase()}`}
-                      </p>
-                    </div>
+                  <div key={message.id} className="messages-grid">
+                    <p>FECHA DEL MENSAJE:</p>
+                    <p>{formatDate(message?.createdAt)}</p>
+                    <p>MENSAJE:</p>
+                    <p>{message?.message.toUpperCase()}</p>
+                    <p>FECHA DE RESPUESTA:</p>
+                    <p>
+                      {message?.updatedAt === message?.createdAt
+                        ? "SIN RESPUESTA"
+                        : ` ${formatDate(message?.updatedAt)}`}
+                    </p>
+                    <p>RESPUESTA:</p>
+                    <p>
+                      {message?.response === null
+                        ? "SIN RESPUESTA"
+                        : `${message?.response.toUpperCase()}`}
+                    </p>
                   </div>
                 );
               })}

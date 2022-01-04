@@ -62,6 +62,15 @@ const Footer = (props) => {
               CONTÁCTANOS
             </Link>
           </div>
+          <div
+            className={
+              location.pathname === "/products" ? "nav-item active" : "nav-item"
+            }
+          >
+            <Link to="/products" className="nav-links" onClick={clickHandler}>
+              PRODUCTS
+            </Link>
+          </div>
         </div>
         <div className="footer-info">
           <a

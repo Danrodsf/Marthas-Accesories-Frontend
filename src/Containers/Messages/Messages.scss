@@ -4,7 +4,8 @@
   padding: 1rem 0;
   .messages {
     @include flex(column, center, center);
-    width: min(100%, 50rem);
+    width: min(100%, 1080px);
+    text-align: justify;
     .messages-grid {
       display: grid;
       grid-template-columns: auto 1fr;

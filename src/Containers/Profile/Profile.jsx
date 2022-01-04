@@ -41,7 +41,7 @@ const Profile = (props) => {
     };
 
     try {
-      let res = await axios.put(
+      const res = await axios.put(
         `https://drs-marthas-accesories.herokuapp.com/user/update`,
         body,
         token
