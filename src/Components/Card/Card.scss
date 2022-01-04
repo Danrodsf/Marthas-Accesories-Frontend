@@ -1,6 +1,6 @@
 .card {
   text-align: center;
-  width: 12rem;
+  width: 100%;
   background-color: $second;
   outline: 1px solid $fourth;
   border-radius: 0.5rem;
@@ -17,8 +17,6 @@
     border-bottom-left-radius: 0.5rem;
   }
   img {
-    height: 200px;
-    width: 100%;
     border-bottom: 1px solid $fourth;
   }
 }

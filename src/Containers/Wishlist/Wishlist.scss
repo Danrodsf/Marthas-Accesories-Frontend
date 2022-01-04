@@ -1,0 +1,17 @@
+.wishlist-container {
+  @include flex(column, center, center);
+  min-height: 100%;
+  padding: 1rem 0;
+  width: 100%;
+  .wishlist {
+    @include flex(column, center, center);
+  }
+  .wishlist-items {
+    width: 100%;
+    @include flex(column, center, center);
+    .wishlist-items2 {
+      width: min(100%, 1080px);
+      @include flex(row, space-between, center);
+    }
+  }
+}
