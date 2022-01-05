@@ -1,10 +1,13 @@
 import axios from "axios";
 import { connect } from "react-redux";
 import { useState, useEffect } from "react";
+import Logo from "../../img/logo-black.png";
 
 const Wishlist = (props) => {
-  const token = {
-    headers: { Authorization: `Bearer ${props.credentials.token}` },
+  let token = {
+    headers: {
+      Authorization: `Bearer ${props.credentials.token}`,
+    },
   };
 
   const creds = props.credentials.user;
@@ -26,14 +29,35 @@ const Wishlist = (props) => {
         body,
         token
       );
-      if (res.data.length === 0) {
-        setmsgError(`NO SE HA ENCONTRADO NINGÚN MENSAJE`);
-      } else {
-        setWishlist(res.data);
-        console.log(res.data);
-      }
+      setWishlist(res.data);
     } catch (error) {
-      setmsgError("NO SE HA ENCONTRADO NINGÚN MENSAJE");
+      setmsgError("NO SE HA ENCONTRADO NINGÚN PRODUCTO");
+    }
+  };
+
+  const removeFromWishlist = async (itemId) => {
+    const body = {
+      id: itemId,
+      userId: creds.id,
+    };
+
+    try {
+      await axios({
+        method: "delete",
+        url: "https://drs-marthas-accesories.herokuapp.com/wishlist/delete",
+        data: body,
+        headers: {
+          Authorization: `Bearer ${props.credentials.token}`,
+        },
+      });
+      const res = await axios.post(
+        `https://drs-marthas-accesories.herokuapp.com/wishlist/getByUser`,
+        body,
+        token
+      );
+      setWishlist(res.data);
+    } catch (error) {
+      setmsgError(error.message);
     }
   };
 
@@ -57,7 +81,10 @@ const Wishlist = (props) => {
                     alt={product.Product.name}
                   />
                   <p>{product.Product.name}</p>
-                  <i class="fa fa-trash" aria-hidden="true"></i>
+                  <i
+                    className="fa fa-trash"
+                    onClick={() => removeFromWishlist(product.id)}
+                  ></i>
                 </div>
               );
             })}
@@ -69,12 +96,12 @@ const Wishlist = (props) => {
   } else {
     return (
       <div className="main">
-        {/* <div className="wishlist-container container">
+        <div className="wishlist-container container">
           <div className="wishlist">
             <img className="logo" src={Logo} alt="martha's accesorios" />
-            <p>DEBES INICIAR SESION PARA VER TUS MENSAJES</p>
+            <p>DEBES INICIAR SESION PARA VER TUS PRODUCTOS</p>
           </div>
-        </div> */}
+        </div>
       </div>
     );
   }

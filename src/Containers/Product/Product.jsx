@@ -1,15 +1,39 @@
 import { connect } from "react-redux";
 import { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import axios from "axios";
 
 function Product(props) {
   const location = useLocation();
+
+  const token = {
+    headers: {
+      Authorization: `Bearer ${props.credentials.token}`,
+    },
+  };
+
+  const creds = props.credentials.user;
   const [product, setProduct] = useState(location.state);
   console.log(product);
 
   const addToCart = () => {};
 
-  const addToWishlist = () => {};
+  const addToWishlist = async () => {
+    const body = {
+      userId: creds.id,
+      productId: product.id,
+    };
+
+    try {
+      await axios.post(
+        "https://drs-marthas-accesories.herokuapp.com/wishlist/create",
+        body,
+        token
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="main">
@@ -25,23 +49,23 @@ function Product(props) {
           <div className="product-details-info">
             <h3>{product.name}</h3>
             <div className="product-details-item">
-              <p>Categoria: </p>
+              <h4>Categoria:</h4>
               <p>{product.category}</p>
             </div>
             <div className="product-details-item">
-              <p>Material: </p>
+              <h4>Material: </h4>
               <p>{product.material}</p>
             </div>
             <div className="product-details-item">
-              <p>Color:</p>
+              <h4>Color:</h4>
               <p>{product.color}</p>
             </div>
             <div className="product-details-item">
-              <p>Precio:</p>
+              <h4>Precio:</h4>
               <p>{product.price}€</p>
             </div>
             <div className="product-details-item">
-              <p>Descripción: </p>
+              <h4>Descripción: </h4>
               <p>{product.description}</p>
             </div>
           </div>

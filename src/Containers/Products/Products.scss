@@ -1,12 +1,11 @@
 .products-container {
   @include flex(row, center, center);
-  max-width: 1080px;
   min-height: 100%;
   padding-top: 1rem;
   .products {
     width: min(100%, 1080px);
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     .product-card {
       width: 100%;

@@ -4,19 +4,25 @@
   background-color: $second;
   outline: 1px solid $fourth;
   border-radius: 0.5rem;
-  h4,
-  p {
-    margin: 0.3rem;
+  // h4,
+  // p {
+  //   margin: 0.3rem;
+  // }
+  .card-info {
+    min-height: 5rem;
   }
   .buttons {
     display: flex;
     justify-content: space-evenly;
     background-color: $fourth;
-    padding: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
+    padding: 1rem;
+    border-radius: 0 0 0.5rem 0.5rem;
   }
   img {
     border-bottom: 1px solid $fourth;
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+  i:active {
+    font-size: 0.8rem;
   }
 }
