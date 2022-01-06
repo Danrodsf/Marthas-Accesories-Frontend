@@ -1,9 +1,12 @@
 import axios from "axios";
 import { connect } from "react-redux";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Logo from "../../img/logo-black.png";
 
 const Orders = (props) => {
+  const navigate = useNavigate();
+
   const token = {
     headers: { Authorization: `Bearer ${props.credentials.token}` },
   };
@@ -21,6 +24,10 @@ const Orders = (props) => {
     let arrayDate = [splitDate[2], splitDate[1], splitDate[0]];
     let formattedDate = arrayDate.join("-");
     return formattedDate;
+  };
+
+  const viewProduct = (product) => {
+    navigate("/product", { state: product });
   };
 
   const getByUserId = async () => {
@@ -68,12 +75,15 @@ const Orders = (props) => {
                       {order.OrderDetails.map((detail) => {
                         return (
                           <div key={detail.id} className="product-detail">
-                            <p>{detail.Product.name}</p>
+                            <p onClick={() => viewProduct(detail.Product)}>
+                              {detail.Product.name}
+                            </p>
                             <p>{detail.Product.price}€</p>
                             <img
                               src={detail.Product.imgUrl}
                               className="img"
-                              alt=""
+                              onClick={() => viewProduct(detail.Product)}
+                              alt={detail.Product.name}
                             />
                           </div>
                         );

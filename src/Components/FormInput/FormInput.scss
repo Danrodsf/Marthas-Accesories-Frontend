@@ -9,9 +9,10 @@
   }
 
   input {
-    background-color: unset;
+    background-color: $first;
+    padding: 1rem;
     border: none;
-    border-bottom: 1px solid $third;
+    border: 1px solid $fourth;
   }
 
   input:focus {
