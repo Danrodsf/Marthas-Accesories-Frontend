@@ -13,7 +13,7 @@
         display: block;
       }
       .buttons {
-        @include flex(row, space-evenly);
+        @include flex(row, space-evenly, center);
         padding: 0.5rem;
         background-color: $third;
       }

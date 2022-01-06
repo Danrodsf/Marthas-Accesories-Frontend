@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ADD } from "../../redux/types";
 import axios from "axios";
 
 function Card(props) {
@@ -13,10 +14,22 @@ function Card(props) {
   };
 
   const creds = props.credentials.user;
-  const [product, setProduct] = useState(props.prod);
-  const [wishlist, setWishlist] = useState([]);
+  const product = props.prod;
+  const [msgError, setMsgError] = useState("");
 
-  const addToCart = () => {};
+  const addToCart = () => {
+    // check if item isn't already in Cart.
+
+    for (let item of props.cart) {
+      if (product.name === item.name) {
+        setMsgError("Este producto ya se encuentra en la cesta de compra");
+        return;
+      }
+    }
+    // if not, we add the item to the cart.
+    props.dispatch({ type: ADD, payload: product });
+    setMsgError("Has añadido este producto a tu cesta de compra");
+  };
 
   const addToWishlist = async () => {
     const body = {
@@ -51,10 +64,12 @@ function Card(props) {
         <i className="fa fa-shopping-basket" onClick={addToCart}></i>
         <i className="fa fa-search" onClick={viewProduct}></i>
       </div>
+      <div>{msgError}</div>
     </div>
   );
 }
 
 export default connect((state) => ({
   credentials: state.credentials,
+  cart: state.cart.cart,
 }))(Card);

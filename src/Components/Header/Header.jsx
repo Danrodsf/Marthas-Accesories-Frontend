@@ -8,9 +8,9 @@ const Header = (props) => {
         <Link to="/">
           <i className="fa fa-home"></i>
         </Link>
-        <Link to="/">
+        {/* <Link to="/">
           <i className="fa fa-search"></i>
-        </Link>
+        </Link> */}
         {props.credentials.user.id ? (
           <Link to="/userHub">
             <i className="fa fa-user"></i>

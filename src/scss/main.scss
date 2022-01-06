@@ -36,6 +36,13 @@ button {
   all: unset;
 }
 
+i {
+  cursor: pointer;
+}
+i:active {
+  font-size: 0.8rem;
+}
+
 img {
   max-width: 100%;
 }

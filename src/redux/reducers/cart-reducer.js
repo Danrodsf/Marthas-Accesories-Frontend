@@ -10,24 +10,26 @@ const cartReducer = (state = initialState, action) => {
     case ADD:
       return {
         ...state,
-
         cart: [...state.cart, action.payload],
       };
 
     case REMOVE:
       return {
         ...state,
-        cart: action.payload,
+        cart: [
+          ...state.cart.slice(0, action.payload),
+          ...state.cart.slice(action.payload + 1),
+        ],
       };
 
     case EDIT:
-      let newCart = state.cart.map((_x) => {
-        if (_x.name === action.payload.nombre) {
+      let newCart = state.cart.map((product) => {
+        if (product.name === action.payload.name) {
           //if exists
-          _x.inCart = action.payload.nuevaCantidad; // edit
+          product.inCart = action.payload.newQuantity; // edit
         }
 
-        return _x;
+        return product;
       });
 
       return {

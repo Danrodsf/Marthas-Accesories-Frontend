@@ -75,7 +75,7 @@ const Wishlist = (props) => {
           <div className="wishlist-items">
             {wishlist.map((product) => {
               return (
-                <div key={product.id} className="wishlist-items2">
+                <div key={product.id} className="wishlist-items-detail">
                   <img
                     src={product.Product.imgUrl}
                     alt={product.Product.name}

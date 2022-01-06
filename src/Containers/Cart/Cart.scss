@@ -1,0 +1,29 @@
+.cart-container {
+  @include flex(column, center, center);
+  min-height: 100%;
+  padding: 1rem 0;
+  width: 100%;
+  .cart {
+    @include flex(column, center, center);
+  }
+  .cart-items {
+    max-width: 1080px;
+    .cart-items-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      margin-bottom: 1px;
+    }
+    .cart-items-details > * {
+      justify-self: center;
+      align-self: center;
+    }
+    i {
+      font-size: 2rem;
+      flex-basis: 5%;
+      color: rgb(78, 78, 78);
+    }
+  }
+  .order {
+    text-align: center;
+  }
+}

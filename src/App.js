@@ -12,6 +12,7 @@ import Messages from "./Containers/Messages/Messages";
 import Products from "./Containers/Products/Products";
 import Product from "./Containers/Product/Product";
 import Wishlist from "./Containers/Wishlist/Wishlist";
+import Cart from "./Containers/Cart/Cart";
 import "./App.scss";
 import "./scss/main.scss";
 
@@ -32,6 +33,7 @@ const App = () => {
           <Route path="/products" element={<Products />} />
           <Route path="/product" element={<Product />} />
           <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
         <Footer />
       </BrowserRouter>
