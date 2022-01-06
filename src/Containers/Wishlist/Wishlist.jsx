@@ -1,9 +1,12 @@
 import axios from "axios";
 import { connect } from "react-redux";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Logo from "../../img/logo-black.png";
 
 const Wishlist = (props) => {
+  const navigate = useNavigate();
+
   let token = {
     headers: {
       Authorization: `Bearer ${props.credentials.token}`,
@@ -17,6 +20,10 @@ const Wishlist = (props) => {
   useEffect(() => {
     getByUserId(); //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const viewProduct = (product) => {
+    navigate("/product", { state: product });
+  };
 
   const getByUserId = async () => {
     const body = {
@@ -79,8 +86,11 @@ const Wishlist = (props) => {
                   <img
                     src={product.Product.imgUrl}
                     alt={product.Product.name}
+                    onClick={() => viewProduct(product.Product)}
                   />
-                  <p>{product.Product.name}</p>
+                  <p onClick={() => viewProduct(product.Product)}>
+                    {product.Product.name}
+                  </p>
                   <i
                     className="fa fa-trash"
                     onClick={() => removeFromWishlist(product.id)}

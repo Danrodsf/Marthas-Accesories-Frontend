@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { ADD } from "../../redux/types";
 import axios from "axios";
 
 function Product(props) {
@@ -13,10 +14,21 @@ function Product(props) {
   };
 
   const creds = props.credentials.user;
-  const [product, setProduct] = useState(location.state);
-  console.log(product);
+  const product = location.state;
+  const [msgError, setMsgError] = useState("");
 
-  const addToCart = () => {};
+  const addToCart = () => {
+    // check if item isn't already in Cart.
+    for (let item of props.cart) {
+      if (product.name === item.name) {
+        setMsgError("ESTE PRODUCTO YA SE ENCUENTRA EN LA CESTA DE COMPRA");
+        return;
+      }
+    }
+    // if not, we add the item to the cart.
+    props.dispatch({ type: ADD, payload: product });
+    setMsgError("HAS AÑADIDO ESTE PRODUCTO A TU CESTA DE COMPRA");
+  };
 
   const addToWishlist = async () => {
     const body = {
@@ -30,8 +42,9 @@ function Product(props) {
         body,
         token
       );
+      setMsgError("HAS AÑADIDO ESTE PRODUCTO A TU LISTA DE FAVORITOS");
     } catch (error) {
-      console.log(error);
+      setMsgError(error.message);
     }
   };
 
@@ -70,6 +83,7 @@ function Product(props) {
             </div>
           </div>
         </div>
+        <div className="error sm">{msgError}</div>
       </div>
     </div>
   );
@@ -77,4 +91,5 @@ function Product(props) {
 
 export default connect((state) => ({
   credentials: state.credentials,
+  cart: state.cart.cart,
 }))(Product);

@@ -19,16 +19,15 @@ function Card(props) {
 
   const addToCart = () => {
     // check if item isn't already in Cart.
-
     for (let item of props.cart) {
       if (product.name === item.name) {
-        setMsgError("Este producto ya se encuentra en la cesta de compra");
+        setMsgError("ESTE PRODUCTO YA SE ENCUENTRA EN LA CESTA DE COMPRA");
         return;
       }
     }
     // if not, we add the item to the cart.
     props.dispatch({ type: ADD, payload: product });
-    setMsgError("Has añadido este producto a tu cesta de compra");
+    setMsgError("HAS AÑADIDO ESTE PRODUCTO A TU CESTA DE COMPRA");
   };
 
   const addToWishlist = async () => {
@@ -38,13 +37,14 @@ function Card(props) {
     };
 
     try {
-      const res = await axios.post(
+      await axios.post(
         "https://drs-marthas-accesories.herokuapp.com/wishlist/create",
         body,
         token
       );
+      setMsgError("HAS AÑADIDO ESTE PRODUCTO A TU LISTA DE FAVORITOS");
     } catch (error) {
-      console.log(error);
+      setMsgError(error.message);
     }
   };
 
@@ -53,18 +53,27 @@ function Card(props) {
   };
 
   return (
-    <div className="card">
-      <img className="img" src={product.imgUrl} alt="" />
-      <div className="card-info">
-        <h4 className="title">{product.name}</h4>
-        <p className="price">{product.price}€</p>
+    <div>
+      <div className="card">
+        <img
+          className="img"
+          src={product.imgUrl}
+          alt={product.name}
+          onClick={viewProduct}
+        />
+        <div className="card-info">
+          <h4 className="title" onClick={viewProduct}>
+            {product.name}
+          </h4>
+          <p className="price">{product.price}€</p>
+        </div>
+        <div className="buttons">
+          <i className="fa fa-heart" onClick={addToWishlist}></i>
+          <i className="fa fa-shopping-basket" onClick={addToCart}></i>
+          <i className="fa fa-search" onClick={viewProduct}></i>
+        </div>
       </div>
-      <div className="buttons">
-        <i className="fa fa-heart" onClick={addToWishlist}></i>
-        <i className="fa fa-shopping-basket" onClick={addToCart}></i>
-        <i className="fa fa-search" onClick={viewProduct}></i>
-      </div>
-      <div>{msgError}</div>
+      <div className="error sm">{msgError}</div>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 .product-details-container {
-  @include flex(row, center, center);
+  @include flex(column, center, center);
   min-height: 100%;
   padding-top: 1rem;
   .product-details {

@@ -7,6 +7,9 @@
   .card-info {
     min-height: 5rem;
   }
+  .title {
+    cursor: pointer;
+  }
   .buttons {
     @include flex(row, space-evenly, center);
     background-color: $fourth;
@@ -16,5 +19,6 @@
   img {
     border-bottom: 1px solid $fourth;
     border-radius: 0.5rem 0.5rem 0 0;
+    cursor: pointer;
   }
 }

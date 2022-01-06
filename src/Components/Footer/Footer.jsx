@@ -42,17 +42,6 @@ const Footer = (props) => {
               PRENDAS
             </Link>
           </div>
-          {/* <div
-            className={
-              location.pathname === "/customize"
-                ? "nav-item active"
-                : "nav-item"
-            }
-          >
-            <Link to="/customize" className="nav-links" onClick={clickHandler}>
-              PERSONALIZA
-            </Link>
-          </div> */}
           <div
             className={
               location.pathname === "/contact" ? "nav-item active" : "nav-item"

@@ -13,6 +13,7 @@ import Products from "./Containers/Products/Products";
 import Product from "./Containers/Product/Product";
 import Wishlist from "./Containers/Wishlist/Wishlist";
 import Cart from "./Containers/Cart/Cart";
+import Orders from "./Containers/Orders/Orders";
 import "./App.scss";
 import "./scss/main.scss";
 
@@ -34,6 +35,7 @@ const App = () => {
           <Route path="/product" element={<Product />} />
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/orders" element={<Orders />} />
         </Routes>
         <Footer />
       </BrowserRouter>

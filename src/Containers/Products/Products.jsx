@@ -12,7 +12,7 @@ const Product = (props) => {
   const [msgError, setmsgError] = useState("");
 
   useEffect(() => {
-    getAllProducts();
+    getAllProducts(); //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getAllProducts = async () => {
@@ -25,7 +25,6 @@ const Product = (props) => {
         setmsgError(`NO SE HA ENCONTRADO NINGÚN PRODUCTO`);
       } else {
         setProducts(res.data);
-        console.log(res.data);
       }
     } catch (error) {
       setmsgError("NO SE HA ENCONTRADO NINGÚN PRODUCTO");
@@ -44,6 +43,7 @@ const Product = (props) => {
             );
           })}
         </div>
+        <div className="error sm">{msgError}</div>
       </div>
     </div>
   );

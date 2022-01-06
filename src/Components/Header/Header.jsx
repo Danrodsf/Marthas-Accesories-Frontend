@@ -1,31 +1,25 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 import { connect } from "react-redux";
 
 const Header = (props) => {
+  const navigate = useNavigate();
   return (
     <div className="nav">
       <div className="nav-container container ">
-        <Link to="/">
-          <i className="fa fa-home"></i>
-        </Link>
-        {/* <Link to="/">
-          <i className="fa fa-search"></i>
-        </Link> */}
+        <i className="fa fa-home" onClick={() => navigate("/")}></i>
+        {/* <i className="fa fa-search"></i> */}
         {props.credentials.user.id ? (
-          <Link to="/userHub">
-            <i className="fa fa-user"></i>
-          </Link>
+          <i className="fa fa-user" onClick={() => navigate("/userHub")}></i>
         ) : (
-          <Link to="/signIn">
-            <i className="fa fa-user"></i>
-          </Link>
+          <i className="fa fa-user" onClick={() => navigate("/signIn")}></i>
         )}
-        <Link to="/cart">
-          <i className="fa fa-shopping-basket"></i>
-        </Link>
-        <Link to="/wishlist">
-          <i className="fa fa-heart-o"></i>
-        </Link>
+        <i
+          className="fa fa-shopping-basket"
+          onClick={() => navigate("/cart")}
+        ></i>
+        <i className="fa fa-heart-o" onClick={() => navigate("/wishlist")}></i>
+        <i className="fa fa-undo" onClick={() => navigate(-1)}></i>
       </div>
     </div>
   );

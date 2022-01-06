@@ -4,8 +4,10 @@ import { useState, useEffect } from "react";
 import { REMOVE, CLEAN } from "../../redux/types";
 import Logo from "../../img/logo-black.png";
 import Button from "../../Components/Button/Button";
+import { useNavigate } from "react-router-dom";
 
 const Cart = (props) => {
+  const navigate = useNavigate();
   const token = {
     headers: {
       Authorization: `Bearer ${props.credentials.token}`,
@@ -15,11 +17,10 @@ const Cart = (props) => {
   const creds = props.credentials.user;
   const [cart, setCart] = useState(props.cart.cart);
   const [total, setTotal] = useState(0);
-  const [shipping, setShipping] = useState(0);
   const [msgError, setmsgError] = useState("");
 
-  useEffect(async () => {
-    totalCart();
+  useEffect(() => {
+    totalCart(); //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -46,13 +47,17 @@ const Cart = (props) => {
     props.dispatch({ type: CLEAN, payload: [] });
   };
 
+  const viewProduct = (product) => {
+    navigate("/product", { state: product });
+  };
+
   //////////////////////////////////////////////////////////////////////// CREATE ORDER ////////////////////////////////////////////////////////////////////////
 
   const createOrder = async () => {
     const body = {
       userId: creds.id,
       ammount: total,
-      shipping: shipping,
+      shipping: 0,
     };
 
     try {
@@ -81,6 +86,12 @@ const Cart = (props) => {
           body,
           token
         );
+        setmsgError("Pedido realizado con éxito");
+
+        setTimeout(() => {
+          props.dispatch({ type: CLEAN, payload: [] });
+          navigate("/orders");
+        }, 1000);
       } catch (error) {
         setmsgError(error.message);
       }
@@ -99,11 +110,7 @@ const Cart = (props) => {
               AQUÍ PUEDES REVISAR Y MODIFICAR LOS ARTÍCULOS QUE HAS AÑADIDO A TU
               CESTA DE COMPRA.
             </p>
-            <Button
-              text="Vaciar Cesta"
-              className="clean"
-              click={cleanCart}
-            ></Button>
+            <Button text="Vaciar Cesta" click={cleanCart}></Button>
           </div>
           {cart.length === 0 ? (
             <h3>NO HAY NINGÚN PRODUCTO EN LA CESTA PARA MOSTRAR</h3>
@@ -112,8 +119,12 @@ const Cart = (props) => {
               {cart.map((product, index) => {
                 return (
                   <div key={product.id} className="cart-items-details">
-                    <img src={product.imgUrl} alt={product.name} />
-                    <p>{product.name}</p>
+                    <img
+                      src={product.imgUrl}
+                      alt={product.name}
+                      onClick={() => viewProduct(product)}
+                    />
+                    <p onClick={() => viewProduct(product)}>{product.name}</p>
                     <p>{product.price}€</p>
                     <i
                       className="fa fa-trash"

@@ -2,9 +2,14 @@
   @include flex(column, center, center);
   min-height: 100%;
   padding: 1rem 0;
-  width: 100%;
   .cart {
     @include flex(column, center, center);
+    .hide {
+      border: 3px solid black;
+    }
+    .clean {
+      border: 2px solid black;
+    }
   }
   .cart-items {
     max-width: 1080px;
@@ -19,11 +24,14 @@
     }
     i {
       font-size: 2rem;
-      flex-basis: 5%;
       color: rgb(78, 78, 78);
     }
   }
   .order {
-    text-align: center;
+    @include flex(column, center, center);
+    width: 100%;
+    .buy {
+      width: 30%;
+    }
   }
 }
