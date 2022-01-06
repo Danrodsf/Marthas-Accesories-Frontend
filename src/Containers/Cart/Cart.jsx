@@ -57,7 +57,7 @@ const Cart = (props) => {
 
     try {
       const res = await axios.post(
-        "http://localhost:3005/order/create",
+        "https://drs-marthas-accesories.herokuapp.com/order/create",
         body,
         token
       );
@@ -77,7 +77,7 @@ const Cart = (props) => {
 
       try {
         await axios.post(
-          "http://localhost:3005/orderDetail/create",
+          "https://drs-marthas-accesories.herokuapp.com/orderDetail/create",
           body,
           token
         );
