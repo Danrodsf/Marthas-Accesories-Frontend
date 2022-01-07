@@ -70,7 +70,6 @@ function Card(props) {
         <div className="buttons">
           <i className="fa fa-heart" onClick={addToWishlist}></i>
           <i className="fa fa-shopping-basket" onClick={addToCart}></i>
-          <i className="fa fa-search" onClick={viewProduct}></i>
         </div>
       </div>
       <div className="error sm">{msgError}</div>

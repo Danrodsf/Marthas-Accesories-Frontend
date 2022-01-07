@@ -46,6 +46,12 @@ img {
   max-width: 100%;
 }
 
+h1,
+h2 {
+  font-family: "amethyst";
+  font-size: 4rem;
+}
+
 .main {
   height: calc(100vh - 8rem);
   overflow: auto;
@@ -58,7 +64,7 @@ img {
 }
 
 .logo {
-  width: 50%;
+  width: 70%;
 }
 
 .error {

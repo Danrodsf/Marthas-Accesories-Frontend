@@ -39,7 +39,7 @@ const Footer = (props) => {
             }
           >
             <Link to="/products" className="nav-links" onClick={clickHandler}>
-              PRENDAS
+              COLECCIÓN
             </Link>
           </div>
           <div

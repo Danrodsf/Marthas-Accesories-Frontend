@@ -1,8 +1,8 @@
 import Logo from "../../img/logo-black.png";
 import Hero from "../../img/hero.jpg";
-import Girl from "../../img/bg-girl.jpg";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Button from "../../Components/Button/Button";
 import axios from "axios";
 
 const Home = () => {
@@ -32,10 +32,10 @@ const Home = () => {
   return (
     <div className="main">
       <div className="home-container">
-        <img className="logo" src={Logo} alt="martha's accesorios" />
         <img className="hero" src={Hero} alt="hero" />
+        <img className="logo" src={Logo} alt="martha's accesorios" />
         <div className="top-10">
-          <h3>UN POCO DE NOSOTROS</h3>
+          <h1>UN POCO DE NOSOTROS</h1>
           <div className="random">
             {products.map((product) => {
               return (
@@ -50,6 +50,10 @@ const Home = () => {
               );
             })}
           </div>
+          <Button
+            text="VER COLECCIÓN"
+            click={() => navigate("/products")}
+          ></Button>
         </div>
         <div className="bg">
           <div className="about">

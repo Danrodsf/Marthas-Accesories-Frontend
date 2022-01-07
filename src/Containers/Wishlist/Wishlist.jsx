@@ -73,7 +73,7 @@ const Wishlist = (props) => {
       <div className="main">
         <div className="wishlist-container container">
           <div className="wishlist">
-            <h1>Favoritos</h1>
+            <h1>FAVORITOS</h1>
             <p>
               AQUÍ PUEDES REVISAR Y MODIFICAR LOS ARTÍCULOS QUE HAS AÑADIDO COMO
               FAVORITOS.

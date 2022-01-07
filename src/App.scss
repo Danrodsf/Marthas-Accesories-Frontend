@@ -18,6 +18,13 @@
 @import "Containers/Orders/Orders.scss";
 
 @import url(https://fonts.googleapis.com/css?family=Roboto);
+
+@font-face {
+  font-family: "amethyst";
+  src: url("./fonts/amethyst.woff2") format("woff2"),
+    url("./fonts/amethyst.woff") format("woff");
+}
+
 body {
   font-family: "Roboto", sans-serif;
   color: $fifth;
