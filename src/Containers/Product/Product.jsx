@@ -18,33 +18,45 @@ function Product(props) {
   const [msgError, setMsgError] = useState("");
 
   const addToCart = () => {
-    // check if item isn't already in Cart.
-    for (let item of props.cart) {
-      if (product.name === item.name) {
-        setMsgError("ESTE PRODUCTO YA SE ENCUENTRA EN LA CESTA DE COMPRA");
-        return;
+    if (creds.id) {
+      // check if item isn't already in Cart.
+      for (let item of props.cart) {
+        if (product.name === item.name) {
+          setMsgError("ESTE PRODUCTO YA SE ENCUENTRA EN LA CESTA DE COMPRA");
+          return;
+        }
       }
+      // if not, we add the item to the cart.
+      props.dispatch({ type: ADD, payload: product });
+      setMsgError("HAS AÑADIDO ESTE PRODUCTO A TU CESTA DE COMPRA");
+    } else {
+      setMsgError(
+        "DEBES INICIAR SESIÓN PARA AGREGAR UN PRODUCTO A TU CESTA DE COMPRA"
+      );
     }
-    // if not, we add the item to the cart.
-    props.dispatch({ type: ADD, payload: product });
-    setMsgError("HAS AÑADIDO ESTE PRODUCTO A TU CESTA DE COMPRA");
   };
 
   const addToWishlist = async () => {
-    const body = {
-      userId: creds.id,
-      productId: product.id,
-    };
+    if (creds.id) {
+      const body = {
+        userId: creds.id,
+        productId: product.id,
+      };
 
-    try {
-      await axios.post(
-        "https://drs-marthas-accesories.herokuapp.com/wishlist/create",
-        body,
-        token
+      try {
+        await axios.post(
+          "https://drs-marthas-accesories.herokuapp.com/wishlist/create",
+          body,
+          token
+        );
+        setMsgError("HAS AÑADIDO ESTE PRODUCTO A TU LISTA DE FAVORITOS");
+      } catch (error) {
+        setMsgError(error.message);
+      }
+    } else {
+      setMsgError(
+        "DEBES INICIAR SESIÓN PARA AGREGAR UN PRODUCTO A TUS FAVORITOS"
       );
-      setMsgError("HAS AÑADIDO ESTE PRODUCTO A TU LISTA DE FAVORITOS");
-    } catch (error) {
-      setMsgError(error.message);
     }
   };
 
@@ -60,26 +72,26 @@ function Product(props) {
             </div>
           </div>
           <div className="product-details-info">
-            <h3>{product.name}</h3>
+            <h3>{product.name.toUpperCase()}</h3>
             <div className="product-details-item">
-              <h4>Categoria:</h4>
-              <p>{product.category}</p>
+              <h4>CATEGORIA:</h4>
+              <p>{product.category.toUpperCase()}</p>
             </div>
             <div className="product-details-item">
-              <h4>Material: </h4>
-              <p>{product.material}</p>
+              <h4>MATERIAL: </h4>
+              <p>{product.material.toUpperCase()}</p>
             </div>
             <div className="product-details-item">
-              <h4>Color:</h4>
-              <p>{product.color}</p>
+              <h4>COLOR:</h4>
+              <p>{product.color.toUpperCase()}</p>
             </div>
             <div className="product-details-item">
-              <h4>Precio:</h4>
+              <h4>PRECIO:</h4>
               <p>{product.price}€</p>
             </div>
             <div className="product-details-item">
-              <h4>Descripción: </h4>
-              <p>{product.description}</p>
+              <h4>DESCRIPCIÓN: </h4>
+              <p>{product.description.toUpperCase()}</p>
             </div>
           </div>
         </div>

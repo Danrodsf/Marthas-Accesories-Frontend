@@ -18,9 +18,9 @@ const UserHub = (props) => {
             <div className="info">
               <img className="logo" src={Logo} alt="martha's accesorios" />
               {creds.firstName !== null ? (
-                <h2>Welcome {creds.firstName}</h2>
+                <h2>WELCOME {creds.firstName.toUpperCase()}</h2>
               ) : (
-                <h2>Welcome</h2>
+                <h2>WELCOME</h2>
               )}
             </div>
             <div className="menu">
@@ -65,7 +65,7 @@ const UserHub = (props) => {
         <div className="userHub-container container">
           <div className="userHub">
             <img className="logo" src={Logo} alt="martha's accesorios" />
-            <p>DEBES INICIAR SESION PARA VER TU PERFIL</p>
+            <p>DEBES INICIAR SESIÓN PARA VER TU PERFIL</p>
           </div>
         </div>
       </div>

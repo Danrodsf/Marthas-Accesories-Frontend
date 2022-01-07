@@ -109,7 +109,7 @@ const Wishlist = (props) => {
         <div className="wishlist-container container">
           <div className="wishlist">
             <img className="logo" src={Logo} alt="martha's accesorios" />
-            <p>DEBES INICIAR SESION PARA VER TUS PRODUCTOS</p>
+            <p>DEBES INICIAR SESIÓN PARA VER TUS PRODUCTOS FAVORITOS</p>
           </div>
         </div>
       </div>

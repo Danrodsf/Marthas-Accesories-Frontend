@@ -1,6 +1,10 @@
 .userHub-container {
+  @include flex(row, center, center);
   height: 100%;
   padding: 1rem 0;
+  h2 {
+    margin: 1rem;
+  }
   .userHub {
     @include flex(column, unset, center);
     height: 100%;

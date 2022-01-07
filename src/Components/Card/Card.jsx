@@ -18,33 +18,45 @@ function Card(props) {
   const [msgError, setMsgError] = useState("");
 
   const addToCart = () => {
-    // check if item isn't already in Cart.
-    for (let item of props.cart) {
-      if (product.name === item.name) {
-        setMsgError("ESTE PRODUCTO YA SE ENCUENTRA EN LA CESTA DE COMPRA");
-        return;
+    if (creds.id) {
+      // check if item isn't already in Cart.
+      for (let item of props.cart) {
+        if (product.name === item.name) {
+          setMsgError("ESTE PRODUCTO YA SE ENCUENTRA EN LA CESTA DE COMPRA");
+          return;
+        }
       }
+      // if not, we add the item to the cart.
+      props.dispatch({ type: ADD, payload: product });
+      setMsgError("HAS AÑADIDO ESTE PRODUCTO A TU CESTA DE COMPRA");
+    } else {
+      setMsgError(
+        "DEBES INICIAR SESIÓN PARA AGREGAR UN PRODUCTO A TU CESTA DE COMPRA"
+      );
     }
-    // if not, we add the item to the cart.
-    props.dispatch({ type: ADD, payload: product });
-    setMsgError("HAS AÑADIDO ESTE PRODUCTO A TU CESTA DE COMPRA");
   };
 
   const addToWishlist = async () => {
-    const body = {
-      userId: creds.id,
-      productId: product.id,
-    };
+    if (creds.id) {
+      const body = {
+        userId: creds.id,
+        productId: product.id,
+      };
 
-    try {
-      await axios.post(
-        "https://drs-marthas-accesories.herokuapp.com/wishlist/create",
-        body,
-        token
+      try {
+        await axios.post(
+          "https://drs-marthas-accesories.herokuapp.com/wishlist/create",
+          body,
+          token
+        );
+        setMsgError("HAS AÑADIDO ESTE PRODUCTO A TU LISTA DE FAVORITOS");
+      } catch (error) {
+        setMsgError(error.message);
+      }
+    } else {
+      setMsgError(
+        "DEBES INICIAR SESIÓN PARA AGREGAR UN PRODUCTO A TUS FAVORITOS"
       );
-      setMsgError("HAS AÑADIDO ESTE PRODUCTO A TU LISTA DE FAVORITOS");
-    } catch (error) {
-      setMsgError(error.message);
     }
   };
 

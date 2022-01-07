@@ -127,7 +127,7 @@ const Profile = (props) => {
             <h2>PERFIL</h2>
             <p className="description">
               EDITA TUS DATOS PULSANDO SOBRE CADA UNO, AL RELLENAR TODO, GUARDA
-              PRESIONANDO EL BOTON EDITAR
+              PRESIONANDO EL BOTÓN EDITAR
             </p>
             <form className="form" onSubmit={handleSubmit}>
               {inputs.map((input) => (
@@ -151,7 +151,7 @@ const Profile = (props) => {
         <div className="profile-container container">
           <div className="profile">
             <img className="logo" src={Logo} alt="martha's accesorios" />
-            <p>DEBE INICIAR SESION PARA VER SU PERFIL</p>
+            <p>DEBE INICIAR SESIÓN PARA VER SU PERFIL</p>
           </div>
         </div>
       </div>

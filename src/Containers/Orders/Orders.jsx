@@ -103,8 +103,8 @@ const Orders = (props) => {
   } else {
     return (
       <div className="main">
-        <div className="Orders-container container">
-          <div className="Orders">
+        <div className="orders-container container">
+          <div className="orders">
             <img className="logo" src={Logo} alt="martha's accesorios" />
             <p>DEBES INICIAR SESION PARA VER TUS PEDIDOS</p>
           </div>

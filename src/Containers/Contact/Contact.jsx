@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import Button from "../../Components/Button/Button";
+import Logo from "../../img/logo-black.png";
 
 const Contact = (props) => {
   let navigate = useNavigate();
@@ -45,27 +46,40 @@ const Contact = (props) => {
     }
   };
 
-  return (
-    <div className="main">
-      <div className="message-container container">
-        <form className="message" onSubmit={handleSubmit}>
-          <h1>Contáctanos</h1>
-          <p className="description">
-            AQUÍ PODRÁS CONTACTARNOS, EN LA MAYOR BREVEDAD POSIBLE TE DAREMOS
-            RESPUESTA, PUEDES REVISAR LOS MENSAJES ENVIADOS Y NUESTRAS
-            RESPUESTAS EN TU <Link to="/messages">SECCIÓN DE MENSAJES</Link>
-          </p>
-          <textarea
-            className="text md"
-            placeholder="TU MENSAJE"
-            onChange={inputHandler}
-          />
-          <Button text="ENVIAR"></Button>
-          <div className="error">{msgError}</div>
-        </form>
+  if (props.credentials.token !== "") {
+    return (
+      <div className="main">
+        <div className="message-container container">
+          <form className="message" onSubmit={handleSubmit}>
+            <h1>Contáctanos</h1>
+            <p className="description">
+              AQUÍ PODRÁS CONTACTARNOS, EN LA MAYOR BREVEDAD POSIBLE TE DAREMOS
+              RESPUESTA, PUEDES REVISAR LOS MENSAJES ENVIADOS Y NUESTRAS
+              RESPUESTAS EN TU <Link to="/messages">SECCIÓN DE MENSAJES</Link>
+            </p>
+            <textarea
+              className="text md"
+              placeholder="TU MENSAJE"
+              onChange={inputHandler}
+            />
+            <Button text="ENVIAR"></Button>
+            <div className="error">{msgError}</div>
+          </form>
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className="main">
+        <div className="message-container container">
+          <div className="message">
+            <img className="logo" src={Logo} alt="martha's accesorios" />
+            <p>DEBES INICIAR SESIÓN PARA PODER ENVIARNOS UN MENSAJE</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 };
 
 export default connect((state) => ({

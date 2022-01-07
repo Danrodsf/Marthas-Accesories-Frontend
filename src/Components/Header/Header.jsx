@@ -8,7 +8,6 @@ const Header = (props) => {
     <div className="nav">
       <div className="nav-container container ">
         <i className="fa fa-home" onClick={() => navigate("/")}></i>
-        {/* <i className="fa fa-search"></i> */}
         {props.credentials.user.id ? (
           <i className="fa fa-user" onClick={() => navigate("/userHub")}></i>
         ) : (
