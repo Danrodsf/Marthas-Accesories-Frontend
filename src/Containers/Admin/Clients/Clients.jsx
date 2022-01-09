@@ -1,8 +1,10 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function Clients(props) {
+  const navigate = useNavigate();
   const token = {
     headers: {
       Authorization: `Bearer ${props.admin.token}`,
@@ -54,6 +56,10 @@ function Clients(props) {
     setClients(res.data);
   };
 
+  const viewClient = (client) => {
+    navigate("/admin/clientDetails", { state: client });
+  };
+
   const formatDate = (initialDate) => {
     let splitDate = initialDate.split(/[- : T .]/);
     let arrayDate = [splitDate[2], splitDate[1], splitDate[0]];
@@ -81,7 +87,11 @@ function Clients(props) {
             </thead>
             {clients.map((client) => {
               return (
-                <tbody className="clients-table-data" key={client.id}>
+                <tbody
+                  className="clients-table-data"
+                  key={client.id}
+                  onClick={() => viewClient(client)}
+                >
                   <tr>
                     <td>{client.id}</td>
                     <td>{client.firstName?.toUpperCase()}</td>
