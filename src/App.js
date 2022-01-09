@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomeApp from "./HomeApp";
-import AdminApp from "./AdminApp";
+import HomeApp from "./HomeApp.js";
+import AdminApp from "./AdminApp.js";
 import "./App.scss";
 import "./scss/main.scss";
 

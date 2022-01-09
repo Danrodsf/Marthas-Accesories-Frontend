@@ -1,0 +1,14 @@
+.signIn-container {
+  height: 100%;
+  @include flex(column, center, center);
+  h2 {
+    margin: 0;
+  }
+  .signIn {
+    width: min(100%, 20rem);
+    .form {
+      @include flex(column, center, center);
+      width: 100%;
+    }
+  }
+}

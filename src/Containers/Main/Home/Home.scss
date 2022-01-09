@@ -1,0 +1,57 @@
+.home-container {
+  @include flex(column, center, center);
+  margin: 0;
+  width: 100%;
+  .logo {
+    padding: 1rem;
+  }
+  .hero {
+    width: 100%;
+  }
+  .top-10 {
+    width: 60%;
+    text-align: center;
+    .random {
+      margin-bottom: 1rem;
+      img {
+        display: block;
+      }
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+    }
+    .random > * {
+      border: 1px solid $fourth;
+    }
+  }
+  .bg {
+    background-image: url(../../../img/bg-girl.jpg);
+    background-size: cover;
+    background-position: center;
+    margin: 1rem 0;
+  }
+  .about {
+    @include flex(column, space-evenly, center);
+    background-color: rgba($color: #d6d6d6, $alpha: 0.5);
+    height: 100%;
+    padding: 10rem;
+  }
+
+  @media screen and (max-width: 700px) {
+    .hero {
+      width: 100em;
+    }
+    .about {
+      padding: 1rem;
+    }
+    .top-10 {
+      width: 100%;
+      .random {
+        grid-template-columns: 1fr 1fr 1fr;
+        :last-child {
+          grid-column-start: 2;
+        }
+      }
+    }
+  }
+}

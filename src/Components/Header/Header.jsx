@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
-
 import { connect } from "react-redux";
 
 const Header = (props) => {
   const navigate = useNavigate();
+
   return (
     <div className="nav">
-      <div className="nav-container container ">
+      <div className="nav-container container">
         <i className="fa fa-home" onClick={() => navigate("/")}></i>
         {props.credentials.user.id ? (
           <i className="fa fa-user" onClick={() => navigate("/userHub")}></i>

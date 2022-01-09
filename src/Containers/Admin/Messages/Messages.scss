@@ -1,0 +1,10 @@
+.admin-messages {
+  .table {
+    tr {
+      :nth-child(3),
+      :nth-child(5) {
+        min-width: 20rem;
+      }
+    }
+  }
+}

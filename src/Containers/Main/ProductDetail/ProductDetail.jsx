@@ -1,11 +1,11 @@
 import { connect } from "react-redux";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { ADD } from "../../redux/types";
+import { useLocation } from "react-router-dom";
+import { ADD } from "../../../redux/types";
 import axios from "axios";
 
-function Card(props) {
-  const navigate = useNavigate();
+function Product(props) {
+  const location = useLocation();
 
   const token = {
     headers: {
@@ -14,7 +14,7 @@ function Card(props) {
   };
 
   const creds = props.credentials.user;
-  const product = props.prod;
+  const product = location.state;
   const [msgError, setMsgError] = useState("");
 
   const addToCart = () => {
@@ -60,31 +60,43 @@ function Card(props) {
     }
   };
 
-  const viewProduct = () => {
-    navigate("/productDetail", { state: product });
-  };
-
   return (
-    <div>
-      <div className="card">
-        <img
-          className="img"
-          src={product.imgUrl}
-          alt={product.name}
-          onClick={viewProduct}
-        />
-        <div className="card-info">
-          <h4 className="title" onClick={viewProduct}>
-            {product.name}
-          </h4>
-          <p className="price">{product.price}€</p>
+    <div className="main">
+      <div className="product-details-container container">
+        <div className="product-details">
+          <div className="product-details-img">
+            <img src={product.imgUrl} alt={product.name} />
+            <div className="buttons">
+              <i className="fa fa-heart" onClick={addToWishlist}></i>
+              <i className="fa fa-shopping-basket" onClick={addToCart}></i>
+            </div>
+          </div>
+          <div className="product-details-info">
+            <h3>{product.name.toUpperCase()}</h3>
+            <div className="product-details-item">
+              <h4>CATEGORIA:</h4>
+              <p>{product.category.toUpperCase()}</p>
+            </div>
+            <div className="product-details-item">
+              <h4>MATERIAL: </h4>
+              <p>{product.material.toUpperCase()}</p>
+            </div>
+            <div className="product-details-item">
+              <h4>COLOR:</h4>
+              <p>{product.color.toUpperCase()}</p>
+            </div>
+            <div className="product-details-item">
+              <h4>PRECIO:</h4>
+              <p>{product.price}€</p>
+            </div>
+            <div className="product-details-item">
+              <h4>DESCRIPCIÓN: </h4>
+              <p>{product.description.toUpperCase()}</p>
+            </div>
+          </div>
         </div>
-        <div className="buttons">
-          <i className="fa fa-heart" onClick={addToWishlist}></i>
-          <i className="fa fa-shopping-basket" onClick={addToCart}></i>
-        </div>
+        <div className="error sm">{msgError}</div>
       </div>
-      <div className="error sm">{msgError}</div>
     </div>
   );
 }
@@ -92,4 +104,4 @@ function Card(props) {
 export default connect((state) => ({
   credentials: state.credentials,
   cart: state.cart.cart,
-}))(Card);
+}))(Product);

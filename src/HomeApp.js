@@ -1,23 +1,23 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import Card from "./Components/Card/Card";
-import Home from "./Containers/Home/Home";
-import UserHub from "./Containers/UserHub/UserHub";
-import Profile from "./Containers/Profile/Profile";
-import SignIn from "./Containers/SignIn/SignIn";
-import SignUp from "./Containers/SignUp/SignUp";
-import Contact from "./Containers/Contact/Contact";
-import Messages from "./Containers/Messages/Messages";
-import Products from "./Containers/Products/Products";
-import Product from "./Containers/Product/Product";
-import Wishlist from "./Containers/Wishlist/Wishlist";
-import Cart from "./Containers/Cart/Cart";
-import Orders from "./Containers/Orders/Orders";
+import Home from "./Containers/Main/Home/Home";
+import UserHub from "./Containers/Main/UserHub/UserHub";
+import Profile from "./Containers/Main/Profile/Profile";
+import SignIn from "./Containers/Main/SignIn/SignIn";
+import SignUp from "./Containers/Main/SignUp/SignUp";
+import Contact from "./Containers/Main/Contact/Contact";
+import Messages from "./Containers/Main/Messages/Messages";
+import Products from "./Containers/Main/Products/Products";
+import ProductDetail from "./Containers/Main/ProductDetail/ProductDetail";
+import Wishlist from "./Containers/Main/Wishlist/Wishlist";
+import Cart from "./Containers/Main/Cart/Cart";
+import Orders from "./Containers/Main/Orders/Orders";
 import "./App.scss";
 import "./scss/main.scss";
 
-const HomeApp = (props) => {
+const HomeApp = () => {
   return (
     <div className="App">
       <Header />
@@ -31,7 +31,7 @@ const HomeApp = (props) => {
         <Route path="/messages" element={<Messages />} />
         <Route path="/card" element={<Card />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/product" element={<Product />} />
+        <Route path="/productDetail" element={<ProductDetail />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/orders" element={<Orders />} />

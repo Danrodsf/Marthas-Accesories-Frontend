@@ -1,0 +1,9 @@
+.admin-products {
+  .table {
+    tr {
+      :nth-child(5) {
+        min-width: 20rem;
+      }
+    }
+  }
+}

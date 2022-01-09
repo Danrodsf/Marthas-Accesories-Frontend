@@ -19,20 +19,22 @@
     outline: none;
   }
 
-  input:-webkit-autofill {
-    background-clip: text;
-    -webkit-background-clip: text;
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
   }
 
   span {
-    color: $fourth;
+    color: red;
     display: none;
     text-align: center;
     margin-bottom: 1rem;
   }
 
   input:invalid[focused="true"] {
-    border-bottom: 2px solid $fourth;
+    border-bottom: 1px solid red;
   }
 
   input:invalid[focused="true"] ~ span {

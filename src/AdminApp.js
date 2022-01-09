@@ -1,12 +1,28 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Admin from "./Containers/Admin/Admin";
+import { Routes, Route } from "react-router-dom";
+import Menu from "./Components/Menu/Menu";
+import SignIn from "./Containers/Admin/SignIn/SignIn";
+import Main from "./Containers/Admin/Main/Main";
+import Clients from "./Containers/Admin/Clients/Clients";
+import Orders from "./Containers/Admin/Orders/Orders";
+import Products from "./Containers/Admin/Products/Products";
+import Messages from "./Containers/Admin/Messages/Messages";
 import "./App.scss";
+import { useLocation } from "react-router-dom";
 
-const AdminApp = (props) => {
+const AdminApp = () => {
+  const location = useLocation();
   return (
-    <div className="App">
+    <div className="adminApp">
+      {location.pathname !== "/admin" && location.pathname !== "/admin/" ? (
+        <Menu />
+      ) : null}
       <Routes>
-        <Route exact path="/" element={<Admin />} />
+        <Route exact path="/" element={<SignIn />} />
+        <Route exact path="/main" element={<Main />} />
+        <Route exact path="/clients" element={<Clients />} />
+        <Route exact path="/orders" element={<Orders />} />
+        <Route exact path="/products" element={<Products />} />
+        <Route exact path="/messages" element={<Messages />} />
       </Routes>
     </div>
   );
