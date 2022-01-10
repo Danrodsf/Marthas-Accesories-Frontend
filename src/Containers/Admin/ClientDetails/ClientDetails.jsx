@@ -1,10 +1,11 @@
 import axios from "axios";
 import { connect } from "react-redux";
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function ClientDetails(props) {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const token = {
     headers: {
@@ -16,7 +17,7 @@ function ClientDetails(props) {
   const [msgError, setmsgError] = useState("");
 
   useEffect(() => {
-    getUserById();
+    getUserById(); //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getUserById = async () => {
@@ -34,6 +35,14 @@ function ClientDetails(props) {
     } catch (error) {
       setmsgError("NO SE HA ENCONTRADO EL USUARIO");
     }
+  };
+
+  const viewProduct = (product) => {
+    navigate("/admin/productDetails", { state: product });
+  };
+
+  const viewOrder = (order) => {
+    navigate("/admin/orderDetails", { state: order });
   };
 
   const formatDate = (initialDate) => {
@@ -89,7 +98,7 @@ function ClientDetails(props) {
                 </thead>
                 {client.Orders?.map((order) => {
                   return (
-                    <tbody className="a" key={order.id}>
+                    <tbody key={order.id} onClick={() => viewOrder(order)}>
                       <tr>
                         <td>{order.id}</td>
                         <td>{order.userId}</td>
@@ -153,7 +162,11 @@ function ClientDetails(props) {
                 </thead>
                 {client.Wishlists?.map((product) => {
                   return (
-                    <tbody className="a" key={product.id}>
+                    <tbody
+                      className="a"
+                      key={product.id}
+                      onClick={() => viewProduct(product.productId)}
+                    >
                       <tr>
                         <td>{product.id}</td>
                         <td>{product.userId}</td>
@@ -167,6 +180,7 @@ function ClientDetails(props) {
               </table>
             </div>
           </div>
+          {msgError}
         </div>
       </div>
     </div>

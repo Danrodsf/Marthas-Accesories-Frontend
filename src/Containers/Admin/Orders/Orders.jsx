@@ -1,8 +1,11 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function Orders(props) {
+  const navigate = useNavigate();
+
   const token = {
     headers: {
       Authorization: `Bearer ${props.admin.token}`,
@@ -13,7 +16,7 @@ function Orders(props) {
   const [msgError, setmsgError] = useState("");
 
   useEffect(() => {
-    getAllOrders();
+    getAllOrders(); //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getAllOrders = async () => {
@@ -23,10 +26,13 @@ function Orders(props) {
         token
       );
       setOrders(res.data);
-      console.log(res.data);
     } catch (error) {
       setmsgError("HUBO UN ERROR AL INTENTAR OBTENER TODOS LOS CLIENTES");
     }
+  };
+
+  const viewOrder = (order) => {
+    navigate("/admin/orderDetails", { state: order });
   };
 
   const formatDate = (initialDate) => {
@@ -54,7 +60,11 @@ function Orders(props) {
             </thead>
             {orders.map((order) => {
               return (
-                <tbody className="orders-table-data" key={order.id}>
+                <tbody
+                  className="orders-table-data"
+                  key={order.id}
+                  onClick={() => viewOrder(order)}
+                >
                   <tr>
                     <td>{order.id}</td>
                     <td>{order.userId}</td>
@@ -68,6 +78,7 @@ function Orders(props) {
               );
             })}
           </table>
+          {msgError}
         </div>
       </div>
     </div>

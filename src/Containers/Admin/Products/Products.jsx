@@ -1,8 +1,10 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function Products(props) {
+  const navigate = useNavigate();
   const token = {
     headers: {
       Authorization: `Bearer ${props.admin.token}`,
@@ -13,7 +15,7 @@ function Products(props) {
   const [msgError, setmsgError] = useState("");
 
   useEffect(() => {
-    getAllProducts();
+    getAllProducts(); //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getAllProducts = async () => {
@@ -27,6 +29,10 @@ function Products(props) {
     } catch (error) {
       setmsgError("HUBO UN ERROR AL INTENTAR OBTENER TODOS LOS CLIENTES");
     }
+  };
+
+  const viewProduct = (product) => {
+    navigate("/admin/productDetails", { state: product });
   };
 
   const formatDate = (initialDate) => {
@@ -43,11 +49,11 @@ function Products(props) {
           <table className="table">
             <thead>
               <tr>
+                <th>IMAGEN:</th>
                 <th>ID:</th>
                 <th>NOMBRE:</th>
                 <th>CATEGORIA:</th>
                 <th>MATERIAL:</th>
-                <th>DESCRIPCIÓN:</th>
                 <th>COLOR:</th>
                 <th>€:</th>
                 <th>CANT.:</th>
@@ -57,13 +63,15 @@ function Products(props) {
             </thead>
             {products.map((product) => {
               return (
-                <tbody className="products-table-data" key={product.id}>
+                <tbody key={product.id} onClick={() => viewProduct(product.id)}>
                   <tr>
+                    <td>
+                      <img src={product.imgUrl} alt={product.name} />
+                    </td>
                     <td>{product.id}</td>
                     <td>{product.name?.toUpperCase()}</td>
                     <td>{product.category?.toUpperCase()}</td>
                     <td>{product.material?.toUpperCase()}</td>
-                    <td>{product.description?.toUpperCase()}</td>
                     <td>{product.color}</td>
                     <td>{product.price}€</td>
                     <td>{product.quantity}</td>
@@ -74,6 +82,7 @@ function Products(props) {
               );
             })}
           </table>
+          {msgError}
         </div>
       </div>
     </div>

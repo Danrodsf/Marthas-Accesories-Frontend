@@ -1,0 +1,31 @@
+.admin-orderDetails-container {
+  padding: 1em;
+  .admin-orderDetails {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    .order,
+    .orderItems {
+      @include flex(column, center, center);
+      background: $first;
+      padding: 1em;
+      border-radius: 0.5rem;
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+      .detailTable {
+        img {
+          max-width: 5rem;
+        }
+      }
+      .grid {
+        margin: 1em;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        > * {
+          align-self: center;
+          padding: 0 1rem;
+        }
+      }
+    }
+  }
+}
