@@ -1,6 +1,5 @@
 .admin-productDetails-container {
   padding: 1em;
-  @include flex(row);
   .admin-productDetails {
     .product {
       @include flex(column, center, center);

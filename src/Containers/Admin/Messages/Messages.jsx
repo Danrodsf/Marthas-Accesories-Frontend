@@ -1,8 +1,10 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function Messages(props) {
+  const navigate = useNavigate();
   const token = {
     headers: {
       Authorization: `Bearer ${props.admin.token}`,
@@ -13,7 +15,7 @@ function Messages(props) {
   const [msgError, setmsgError] = useState("");
 
   useEffect(() => {
-    getAllMessages();
+    getAllMessages(); //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getAllMessages = async () => {
@@ -26,6 +28,10 @@ function Messages(props) {
     } catch (error) {
       setmsgError("HUBO UN ERROR AL INTENTAR OBTENER TODOS LOS CLIENTES");
     }
+  };
+
+  const viewMessage = (message) => {
+    navigate("/admin/messageDetails", { state: message });
   };
 
   const formatDate = (initialDate) => {
@@ -53,7 +59,11 @@ function Messages(props) {
             </thead>
             {messages.map((message) => {
               return (
-                <tbody className="messages-table-data" key={message.id}>
+                <tbody
+                  className="messages-table-data"
+                  key={message.id}
+                  onClick={() => viewMessage(message.id)}
+                >
                   <tr>
                     <td>{message.id}</td>
                     <td>{message.userId}</td>
@@ -67,6 +77,7 @@ function Messages(props) {
               );
             })}
           </table>
+          {msgError}
         </div>
       </div>
     </div>

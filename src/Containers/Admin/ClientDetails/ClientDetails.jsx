@@ -45,6 +45,10 @@ function ClientDetails(props) {
     navigate("/admin/orderDetails", { state: order });
   };
 
+  const viewMessage = (message) => {
+    navigate("/admin/messageDetails", { state: message });
+  };
+
   const formatDate = (initialDate) => {
     let splitDate = initialDate.split(/[- : T .]/);
     let arrayDate = [splitDate[2], splitDate[1], splitDate[0]];
@@ -131,7 +135,11 @@ function ClientDetails(props) {
                 </thead>
                 {client.Messages?.map((message) => {
                   return (
-                    <tbody className="a" key={message.id}>
+                    <tbody
+                      className="a"
+                      key={message.id}
+                      onClick={() => viewMessage(message.id)}
+                    >
                       <tr>
                         <td>{message.id}</td>
                         <td>{message.userId}</td>
