@@ -67,6 +67,7 @@ h2 {
 }
 
 .admin-main {
+  @include flex(row, flex-start);
   width: calc(100vw - 10rem);
   position: absolute;
   right: 0;

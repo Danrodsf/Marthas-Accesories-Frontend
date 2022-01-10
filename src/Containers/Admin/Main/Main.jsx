@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Logo from "../../../img/logo-black.png";
 
 function Main(props) {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ function Main(props) {
     getAllClients();
     getAllOrders();
     getAllProducts();
-    getAllMessages();
+    getAllMessages(); //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getAllClients = async () => {
@@ -79,6 +80,7 @@ function Main(props) {
   return (
     <div className="admin-main">
       <div className="admin-main-container">
+        <img src={Logo} alt="Martha's Accesorios" className="logo" />
         <h3>PANEL DE ADMINISTRADOR</h3>
         <div className="admin">
           <div className="clients">

@@ -32,7 +32,6 @@ function ClientDetails(props) {
         token
       );
       setClient(res.data);
-      console.log(res.data);
     } catch (error) {
       setmsgError("NO SE HA ENCONTRADO EL USUARIO");
     }

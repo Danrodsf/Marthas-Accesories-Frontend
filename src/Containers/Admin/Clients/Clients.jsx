@@ -15,7 +15,7 @@ function Clients(props) {
   const [msgError, setmsgError] = useState("");
 
   useEffect(() => {
-    getAllClients();
+    getAllClients(); //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getAllClients = async () => {
@@ -28,32 +28,6 @@ function Clients(props) {
     } catch (error) {
       setmsgError(error.message);
     }
-  };
-
-  const removeClient = async (userId) => {
-    const body = {
-      id: userId,
-    };
-
-    try {
-      await axios({
-        method: "delete",
-        url: "https://drs-marthas-accesories.herokuapp.com/user/delete",
-        data: body,
-        headers: {
-          Authorization: `Bearer ${props.admin.token}`,
-        },
-      });
-    } catch (error) {
-      setmsgError(
-        "NO SE HA PODIDO ELIMINAR EL CLIENTE, SI EL CLIENTE TIENE ALGÚN PEDIDO REALIZADO NO SE PUEDE ELIMINAR"
-      );
-    }
-    const res = await axios.post(
-      `https://drs-marthas-accesories.herokuapp.com/user/`,
-      token
-    );
-    setClients(res.data);
   };
 
   const viewClient = (client) => {
