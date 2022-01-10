@@ -35,13 +35,6 @@ function Products(props) {
     navigate("/admin/productDetails", { state: product });
   };
 
-  const formatDate = (initialDate) => {
-    let splitDate = initialDate.split(/[- : T .]/);
-    let arrayDate = [splitDate[2], splitDate[1], splitDate[0]];
-    let formattedDate = arrayDate.join("-");
-    return formattedDate;
-  };
-
   return (
     <div className="admin-main">
       <div className="admin-products-container">
@@ -75,8 +68,8 @@ function Products(props) {
                     <td>{product.color}</td>
                     <td>{product.price}€</td>
                     <td>{product.quantity}</td>
-                    <td>{formatDate(product.createdAt)}</td>
-                    <td>{formatDate(product.updatedAt)}</td>
+                    <td>{product.createdAt?.substring(0, 10)}</td>
+                    <td>{product.updatedAt?.substring(0, 10)}</td>
                   </tr>
                 </tbody>
               );

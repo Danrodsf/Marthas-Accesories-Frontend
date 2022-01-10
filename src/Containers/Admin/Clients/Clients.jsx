@@ -60,13 +60,6 @@ function Clients(props) {
     navigate("/admin/clientDetails", { state: client });
   };
 
-  const formatDate = (initialDate) => {
-    let splitDate = initialDate.split(/[- : T .]/);
-    let arrayDate = [splitDate[2], splitDate[1], splitDate[0]];
-    let formattedDate = arrayDate.join("-");
-    return formattedDate;
-  };
-
   return (
     <div className="admin-main">
       <div className="admin-clients-container">
@@ -100,8 +93,8 @@ function Clients(props) {
                     <td>{client.address?.toUpperCase()}</td>
                     <td>{client.phone}</td>
                     <td>{client.email?.toUpperCase()}</td>
-                    <td>{formatDate(client.createdAt)}</td>
-                    <td>{formatDate(client.updatedAt)}</td>
+                    <td>{client.createdAt?.substring(0, 10)}</td>
+                    <td>{client.updatedAt?.substring(0, 10)}</td>
                   </tr>
                 </tbody>
               );

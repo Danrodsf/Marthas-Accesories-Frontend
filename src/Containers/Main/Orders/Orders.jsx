@@ -19,13 +19,6 @@ const Orders = (props) => {
     getByUserId(); //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const formatDate = (initialDate) => {
-    let splitDate = initialDate.split(/[- : T .]/);
-    let arrayDate = [splitDate[2], splitDate[1], splitDate[0]];
-    let formattedDate = arrayDate.join("-");
-    return formattedDate;
-  };
-
   const viewProduct = (product) => {
     navigate("/productDetail", { state: product });
   };
@@ -67,7 +60,7 @@ const Orders = (props) => {
                 return (
                   <div key={order.id} className="orders-grid">
                     <p>FECHA DEL PEDIDO:</p>
-                    <p>{formatDate(order?.createdAt)}</p>
+                    <p>{order?.createdAt?.substring(0, 10)}</p>
                     <p>NUMERO DE PEDIDO:</p>
                     <p>{order.id}</p>
                     <p>PRODUCTOS:</p>

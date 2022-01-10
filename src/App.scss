@@ -39,4 +39,8 @@
 body {
   font-family: "Roboto", sans-serif;
   color: $fifth;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }

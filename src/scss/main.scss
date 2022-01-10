@@ -67,7 +67,6 @@ h2 {
 }
 
 .admin-main {
-  @include flex(row);
   width: calc(100vw - 10rem);
   position: absolute;
   right: 0;
@@ -150,8 +149,8 @@ h2 {
     width: 70%;
   }
   .admin-main {
-    width: calc(100vw - 2rem);
-    right: 0;
+    min-width: calc(100vw - 2rem);
+    left: 2rem;
     z-index: -1;
   }
 }

@@ -40,24 +40,24 @@ function Menu(props) {
         )}
       </div>
       <div className={click ? "menu-content active" : "menu-content"}>
-        <a className="logOut" onClick={() => navigate("/admin/main")}>
+        <p className="logOut" onClick={() => navigate("/admin/main")}>
           INICIO
-        </a>
-        <a className="logOut" onClick={() => navigate("/admin/clients")}>
+        </p>
+        <p className="logOut" onClick={() => navigate("/admin/clients")}>
           CLIENTES
-        </a>
-        <a className="logOut" onClick={() => navigate("/admin/orders")}>
+        </p>
+        <p className="logOut" onClick={() => navigate("/admin/orders")}>
           PEDIDOS
-        </a>
-        <a className="logOut" onClick={() => navigate("/admin/products")}>
+        </p>
+        <p className="logOut" onClick={() => navigate("/admin/products")}>
           PRODUCTOS
-        </a>
-        <a className="logOut" onClick={() => navigate("/admin/messages")}>
+        </p>
+        <p className="logOut" onClick={() => navigate("/admin/messages")}>
           MENSAJES
-        </a>
-        <a className="logOut" onClick={logOut}>
+        </p>
+        <p className="logOut" onClick={logOut}>
           SALIR
-        </a>
+        </p>
       </div>
     </div>
   );

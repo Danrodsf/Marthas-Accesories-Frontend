@@ -46,13 +46,6 @@ function OrderDetails(props) {
     navigate("/admin/productDetails", { state: product });
   };
 
-  const formatDate = (initialDate) => {
-    let splitDate = initialDate.split(/[- : T .]/);
-    let arrayDate = [splitDate[2], splitDate[1], splitDate[0]];
-    let formattedDate = arrayDate.join("-");
-    return formattedDate;
-  };
-
   return (
     <div className="admin-main">
       <div className="admin-orderDetails-container">
@@ -77,7 +70,7 @@ function OrderDetails(props) {
               <p>PRODUCTOS: </p>
               <p>{order?.OrderDetails?.length}</p>
               <p>FECHA DEL PEDIDO: </p>
-              <p>{formatDate(order?.createdAt)}</p>
+              <p>{order?.createdAt?.substring(0, 10)}</p>
             </div>
           </div>
           <div className="orderItems">

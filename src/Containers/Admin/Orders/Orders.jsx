@@ -35,13 +35,6 @@ function Orders(props) {
     navigate("/admin/orderDetails", { state: order });
   };
 
-  const formatDate = (initialDate) => {
-    let splitDate = initialDate.split(/[- : T .]/);
-    let arrayDate = [splitDate[2], splitDate[1], splitDate[0]];
-    let formattedDate = arrayDate.join("-");
-    return formattedDate;
-  };
-
   return (
     <div className="admin-main">
       <div className="admin-orders-container">
@@ -71,8 +64,8 @@ function Orders(props) {
                     <td>{order.ammount}</td>
                     <td>{order.shipping}</td>
                     <td>{order.status?.toUpperCase()}</td>
-                    <td>{formatDate(order.createdAt)}</td>
-                    <td>{formatDate(order.updatedAt)}</td>
+                    <td>{order.createdAt?.substring(0, 10)}</td>
+                    <td>{order.updatedAt?.substring(0, 10)}</td>
                   </tr>
                 </tbody>
               );

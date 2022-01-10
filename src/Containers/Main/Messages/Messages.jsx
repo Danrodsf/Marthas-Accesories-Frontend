@@ -16,13 +16,6 @@ const Messages = (props) => {
     getByUserId(); //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const formatDate = (initialDate) => {
-    let splitDate = initialDate.split(/[- : T .]/);
-    let arrayDate = [splitDate[2], splitDate[1], splitDate[0]];
-    let formattedDate = arrayDate.join("-");
-    return formattedDate;
-  };
-
   const getByUserId = async () => {
     const body = {
       userId: creds.id,
@@ -59,14 +52,14 @@ const Messages = (props) => {
                 return (
                   <div key={message.id} className="messages-grid">
                     <p>FECHA DEL MENSAJE:</p>
-                    <p>{formatDate(message?.createdAt)}</p>
+                    <p>{message?.createdAt?.substring(0, 10)}</p>
                     <p>MENSAJE:</p>
                     <p>{message?.message.toUpperCase()}</p>
                     <p>FECHA DE RESPUESTA:</p>
                     <p>
                       {message?.updatedAt === message?.createdAt
                         ? "SIN RESPUESTA"
-                        : ` ${formatDate(message?.updatedAt)}`}
+                        : ` ${message?.updatedAt?.substring(0, 10)}`}
                     </p>
                     <p>RESPUESTA:</p>
                     <p>

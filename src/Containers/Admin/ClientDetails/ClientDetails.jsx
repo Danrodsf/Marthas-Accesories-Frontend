@@ -32,6 +32,7 @@ function ClientDetails(props) {
         token
       );
       setClient(res.data);
+      console.log(res.data);
     } catch (error) {
       setmsgError("NO SE HA ENCONTRADO EL USUARIO");
     }
@@ -47,13 +48,6 @@ function ClientDetails(props) {
 
   const viewMessage = (message) => {
     navigate("/admin/messageDetails", { state: message });
-  };
-
-  const formatDate = (initialDate) => {
-    let splitDate = initialDate.split(/[- : T .]/);
-    let arrayDate = [splitDate[2], splitDate[1], splitDate[0]];
-    let formattedDate = arrayDate.join("-");
-    return formattedDate;
   };
 
   return (
@@ -79,9 +73,9 @@ function ClientDetails(props) {
                 <p>EMAIL: </p>
                 <p>{client.email?.toUpperCase()}</p>
                 <p>FECHA ALTA: </p>
-                <p>{formatDate(client.createdAt)}</p>
+                <p>{client.createdAt?.substring(0, 10)}</p>
                 <p>FECHA ÚLTIMA ACTUALIZACIÓN: </p>
-                <p>{formatDate(client.updatedAt)}</p>
+                <p>{client.updatedAt?.substring(0, 10)}</p>
               </div>
             </div>
           </div>
@@ -92,8 +86,7 @@ function ClientDetails(props) {
                 <thead>
                   <tr>
                     <th>ID: </th>
-                    <th>ID USUARIO: </th>
-                    <th>CANTIDAD: </th>
+                    <th>MONTO: </th>
                     <th>ENVIO: </th>
                     <th>ESTADO: </th>
                     <th>FECHA ALTA: </th>
@@ -105,12 +98,11 @@ function ClientDetails(props) {
                     <tbody key={order.id} onClick={() => viewOrder(order)}>
                       <tr>
                         <td>{order.id}</td>
-                        <td>{order.userId}</td>
-                        <td>{order.ammount}</td>
-                        <td>{order.shipping}</td>
+                        <td>{order.ammount}€</td>
+                        <td>{order.shipping}€</td>
                         <td>{order.status?.toUpperCase()}</td>
-                        <td>{formatDate(order.createdAt)}</td>
-                        <td>{formatDate(order.updatedAt)}</td>
+                        <td>{order.createdAt?.substring(0, 10)}</td>
+                        <td>{order.updatedAt?.substring(0, 10)}</td>
                       </tr>
                     </tbody>
                   );
@@ -125,7 +117,6 @@ function ClientDetails(props) {
                 <thead>
                   <tr>
                     <th>ID: </th>
-                    <th>ID USUARIO: </th>
                     <th>MENSAJE: </th>
                     <th>ID ADMIN: </th>
                     <th>RESPUESTA: </th>
@@ -142,12 +133,11 @@ function ClientDetails(props) {
                     >
                       <tr>
                         <td>{message.id}</td>
-                        <td>{message.userId}</td>
                         <td>{message.message?.toUpperCase()}</td>
                         <td>{message.adminId}</td>
                         <td>{message.response?.toUpperCase()}</td>
-                        <td>{formatDate(message.createdAt)}</td>
-                        <td>{formatDate(message.updatedAt)}</td>
+                        <td>{message.createdAt?.substring(0, 10)}</td>
+                        <td>{message.updatedAt?.substring(0, 10)}</td>
                       </tr>
                     </tbody>
                   );
@@ -162,7 +152,6 @@ function ClientDetails(props) {
                 <thead>
                   <tr>
                     <th>ID: </th>
-                    <th>ID USUARIO: </th>
                     <th>ID PRODUCTO: </th>
                     <th>FECHA ALTA: </th>
                     <th>FECHA ACT.: </th>
@@ -177,10 +166,9 @@ function ClientDetails(props) {
                     >
                       <tr>
                         <td>{product.id}</td>
-                        <td>{product.userId}</td>
                         <td>{product.productId}</td>
-                        <td>{formatDate(product.createdAt)}</td>
-                        <td>{formatDate(product.updatedAt)}</td>
+                        <td>{product.createdAt?.substring(0, 10)}</td>
+                        <td>{product.updatedAt?.substring(0, 10)}</td>
                       </tr>
                     </tbody>
                   );

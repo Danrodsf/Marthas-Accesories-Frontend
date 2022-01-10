@@ -34,13 +34,6 @@ function Messages(props) {
     navigate("/admin/messageDetails", { state: message });
   };
 
-  const formatDate = (initialDate) => {
-    let splitDate = initialDate.split(/[- : T .]/);
-    let arrayDate = [splitDate[2], splitDate[1], splitDate[0]];
-    let formattedDate = arrayDate.join("-");
-    return formattedDate;
-  };
-
   return (
     <div className="admin-main">
       <div className="admin-messages-container">
@@ -70,8 +63,8 @@ function Messages(props) {
                     <td>{message.message?.toUpperCase()}</td>
                     <td>{message.adminId}</td>
                     <td>{message.response?.toUpperCase()}</td>
-                    <td>{formatDate(message.createdAt)}</td>
-                    <td>{formatDate(message.updatedAt)}</td>
+                    <td>{message.createdAt?.substring(0, 10)}</td>
+                    <td>{message.updatedAt?.substring(0, 10)}</td>
                   </tr>
                 </tbody>
               );

@@ -6,6 +6,13 @@
     position: absolute;
     top: 0;
     bottom: 0;
+    p:hover {
+      font-weight: 1000;
+    }
+    p:active {
+      transform: scale(0.9);
+      user-select: none;
+    }
 
     .logOut {
       text-align: center;

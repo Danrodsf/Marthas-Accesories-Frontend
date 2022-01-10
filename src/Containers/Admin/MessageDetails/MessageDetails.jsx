@@ -62,7 +62,7 @@ function MessageDetails(props) {
               <p>RESPUESTA: </p>
               <p>{message?.response?.toUpperCase()}€</p>
               <p>FECHA ENVIADO: </p>
-              <p>{message?.createdAt}</p>
+              <p>{message.createdAt?.substring(0, 10)}</p>
             </div>
           </div>
           {msgError}
