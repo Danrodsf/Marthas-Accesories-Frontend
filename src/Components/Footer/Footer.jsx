@@ -44,6 +44,24 @@ const Footer = (props) => {
           </div>
           <div
             className={
+              location.pathname === "/cart" ? "nav-item active" : "nav-item"
+            }
+          >
+            <Link to="/cart" className="nav-links" onClick={clickHandler}>
+              CESTA DE COMPRA
+            </Link>
+          </div>
+          <div
+            className={
+              location.pathname === "/userHub" ? "nav-item active" : "nav-item"
+            }
+          >
+            <Link to="/userHub" className="nav-links" onClick={clickHandler}>
+              ZONA USUARIO
+            </Link>
+          </div>
+          <div
+            className={
               location.pathname === "/contact" ? "nav-item active" : "nav-item"
             }
           >

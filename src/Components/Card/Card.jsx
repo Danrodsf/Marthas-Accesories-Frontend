@@ -75,7 +75,7 @@ function Card(props) {
         />
         <div className="card-info">
           <h4 className="title" onClick={viewProduct}>
-            {product.name}
+            {product.name.toUpperCase()}
           </h4>
           <p className="price">{product.price}€</p>
         </div>

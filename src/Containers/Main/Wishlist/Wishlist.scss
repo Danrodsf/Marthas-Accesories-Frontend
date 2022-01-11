@@ -12,6 +12,10 @@
       padding: 0.5rem;
       width: min(100%, 1080px);
       @include flex(row, space-between, center);
+      background: $first;
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+      margin-top: 1rem;
       img {
         max-width: 20%;
         flex-basis: 30%;

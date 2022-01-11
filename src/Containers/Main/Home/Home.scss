@@ -15,6 +15,8 @@
       margin-bottom: 1rem;
       img {
         display: block;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+          rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
       }
       display: grid;
       grid-template-columns: repeat(5, 1fr);
@@ -23,7 +25,11 @@
     .random > * {
       border: 1px solid $fourth;
     }
+    img:hover {
+      transform: scale(1.1);
+    }
   }
+
   .bg {
     background-image: url(../../../img/bg-girl.jpg);
     background-size: cover;

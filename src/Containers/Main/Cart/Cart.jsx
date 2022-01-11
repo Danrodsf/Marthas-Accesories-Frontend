@@ -86,11 +86,11 @@ const Cart = (props) => {
           body,
           token
         );
-        setmsgError("Pedido realizado con éxito");
+        setmsgError("PEDIDO REALIZADO CON ÉXITO! TE ESTAMOS REDIRIGIENDO...");
 
         setTimeout(() => {
           props.dispatch({ type: CLEAN, payload: [] });
-          navigate("/orders");
+          navigate("/orderConfirm");
         }, 1000);
       } catch (error) {
         setmsgError(error.message);
@@ -124,7 +124,9 @@ const Cart = (props) => {
                       alt={product.name}
                       onClick={() => viewProduct(product)}
                     />
-                    <p onClick={() => viewProduct(product)}>{product.name}</p>
+                    <p onClick={() => viewProduct(product)}>
+                      {product.name.toUpperCase()}
+                    </p>
                     <p>{product.price}€</p>
                     <i
                       className="fa fa-trash"
@@ -133,7 +135,7 @@ const Cart = (props) => {
                   </div>
                 );
               })}
-              <div className="error sm">{msgError}</div>
+              <div className="error">{msgError}</div>
               <div className="order">
                 <h3>Total productos: {total}€</h3>
                 <Button

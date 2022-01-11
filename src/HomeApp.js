@@ -14,6 +14,7 @@ import ProductDetail from "./Containers/Main/ProductDetail/ProductDetail";
 import Wishlist from "./Containers/Main/Wishlist/Wishlist";
 import Cart from "./Containers/Main/Cart/Cart";
 import Orders from "./Containers/Main/Orders/Orders";
+import OrderConfirm from "./Containers/Main/OrderConfirm/OrderConfirm";
 import "./App.scss";
 import "./scss/main.scss";
 
@@ -35,6 +36,7 @@ const HomeApp = () => {
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/orders" element={<Orders />} />
+        <Route path="/orderConfirm" element={<OrderConfirm />} />
       </Routes>
       <Footer />
     </div>

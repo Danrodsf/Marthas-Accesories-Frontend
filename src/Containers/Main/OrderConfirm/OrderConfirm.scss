@@ -1,0 +1,10 @@
+.orderConfirm-container {
+  @include flex(column, center, center);
+  min-height: 100%;
+  .orderConfirm {
+    text-align: center;
+    .buttons {
+      @include flex(row, space-evenly, center);
+    }
+  }
+}
