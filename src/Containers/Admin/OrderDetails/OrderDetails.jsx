@@ -32,7 +32,6 @@ function OrderDetails(props) {
         token
       );
       setOrder(res.data[0]);
-      console.log(res.data[0]);
     } catch (error) {
       setmsgError("NO SE HA ENCONTRADO EL USUARIO");
     }

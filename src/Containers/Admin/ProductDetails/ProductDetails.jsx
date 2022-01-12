@@ -129,6 +129,7 @@ function ProductDetails(props) {
                   <p>NOMBRE: </p>
                   {edit ? (
                     <input
+                      className="input"
                       type="text"
                       name="name"
                       onChange={inputHandler}
@@ -140,6 +141,7 @@ function ProductDetails(props) {
                   <p>CATEGORIA: </p>
                   {edit ? (
                     <input
+                      className="input"
                       type="text"
                       name="category"
                       onChange={inputHandler}
@@ -151,6 +153,7 @@ function ProductDetails(props) {
                   <p>MATERIAL: </p>
                   {edit ? (
                     <input
+                      className="input"
                       type="text"
                       name="material"
                       onChange={inputHandler}
@@ -162,6 +165,7 @@ function ProductDetails(props) {
                   <p>DESCRIPCIÓN: </p>
                   {edit ? (
                     <input
+                      className="input"
                       type="text"
                       name="description"
                       onChange={inputHandler}
@@ -173,6 +177,7 @@ function ProductDetails(props) {
                   <p>COLOR: </p>
                   {edit ? (
                     <input
+                      className="input"
                       type="text"
                       name="color"
                       onChange={inputHandler}
@@ -184,6 +189,7 @@ function ProductDetails(props) {
                   <p>PRECIO: </p>
                   {edit ? (
                     <input
+                      className="input"
                       type="number"
                       name="price"
                       onChange={inputHandler}
@@ -195,6 +201,7 @@ function ProductDetails(props) {
                   <p>CANTIDAD: </p>
                   {edit ? (
                     <input
+                      className="input"
                       type="number"
                       name="quantity"
                       onChange={inputHandler}
@@ -206,6 +213,7 @@ function ProductDetails(props) {
                   <p>URL IMAGEN: </p>
                   {edit ? (
                     <input
+                      className="input"
                       type="number"
                       name="imgUrl"
                       onChange={inputHandler}

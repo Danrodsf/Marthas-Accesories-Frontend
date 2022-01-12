@@ -25,7 +25,6 @@ function Products(props) {
         token
       );
       setProducts(res.data);
-      console.log(res.data);
     } catch (error) {
       setmsgError("HUBO UN ERROR AL INTENTAR OBTENER TODOS LOS CLIENTES");
     }

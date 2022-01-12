@@ -46,6 +46,11 @@
           border-bottom: 1px solid $fourth;
           padding-left: 1rem;
         }
+        .input {
+          align-self: center;
+          border: none;
+          outline: 1px solid $fourth;
+        }
       }
     }
   }

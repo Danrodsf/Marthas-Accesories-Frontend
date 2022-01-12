@@ -42,7 +42,6 @@ function MessageDetails(props) {
         token
       );
       setMessage(res.data[0]);
-      console.log(res.data[0]);
     } catch (error) {
       setmsgError("NO SE HA ENCONTRADO EL MENSAJE");
     }
@@ -123,6 +122,7 @@ function MessageDetails(props) {
                 <p>ID USUARIO: </p>
                 {edit ? (
                   <input
+                    className="input"
                     type="number"
                     name="userId"
                     onChange={inputHandler}
@@ -134,6 +134,7 @@ function MessageDetails(props) {
                 <p>MENSAJE: </p>
                 {edit ? (
                   <input
+                    className="input"
                     type="text"
                     name="message"
                     onChange={inputHandler}
@@ -145,6 +146,7 @@ function MessageDetails(props) {
                 <p>ID ADMIN: </p>
                 {edit ? (
                   <input
+                    className="input"
                     type="number"
                     name="adminId"
                     onChange={inputHandler}
@@ -156,6 +158,7 @@ function MessageDetails(props) {
                 <p>RESPUESTA: </p>
                 {edit ? (
                   <input
+                    className="input"
                     type="text"
                     name="response"
                     onChange={inputHandler}
