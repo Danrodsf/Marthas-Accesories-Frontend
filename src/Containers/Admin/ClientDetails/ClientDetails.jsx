@@ -14,7 +14,17 @@ function ClientDetails(props) {
   };
 
   const [client, setClient] = useState(location.state);
+  const [edit, setEdit] = useState(false);
+  const [input, setInput] = useState();
   const [msgError, setmsgError] = useState("");
+
+  const clickHandler = () => {
+    setEdit(!edit);
+  };
+
+  const inputHandler = (e) => {
+    setInput({ ...input, [e.target.name]: e.target.value });
+  };
 
   useEffect(() => {
     getUserById(); //eslint-disable-next-line react-hooks/exhaustive-deps
@@ -24,7 +34,6 @@ function ClientDetails(props) {
     const body = {
       id: client.id,
     };
-
     try {
       const res = await axios.post(
         `https://drs-marthas-accesories.herokuapp.com/user/getById`,
@@ -34,6 +43,53 @@ function ClientDetails(props) {
       setClient(res.data);
     } catch (error) {
       setmsgError("NO SE HA ENCONTRADO EL USUARIO");
+    }
+  };
+
+  const editClient = async () => {
+    const body = {
+      id: client.id,
+      firstName: input.firstName,
+      lastName: input.lastName,
+      age: input.age,
+      address: input.address,
+      phone: input.phone,
+      email: input.email,
+    };
+    try {
+      await axios.put(
+        `https://drs-marthas-accesories.herokuapp.com/user/update`,
+        body,
+        token
+      );
+      const res = await axios.post(
+        `https://drs-marthas-accesories.herokuapp.com/user/getById`,
+        body,
+        token
+      );
+      setClient(res.data);
+      setEdit(false);
+    } catch (error) {
+      setmsgError("NO SE HA ENCONTRADO EL USUARIO");
+    }
+  };
+
+  const removeClient = async () => {
+    const body = {
+      id: client.id,
+    };
+    try {
+      await axios({
+        method: "delete",
+        url: "https://drs-marthas-accesories.herokuapp.com/user/delete",
+        data: body,
+        headers: {
+          Authorization: `Bearer ${props.admin.token}`,
+        },
+      });
+      navigate("/admin/clients");
+    } catch (error) {
+      setmsgError(error.message);
     }
   };
 
@@ -54,27 +110,98 @@ function ClientDetails(props) {
       <div className="admin-clientDetails-container">
         <div className="admin-clientDetails">
           <div className="client">
-            <div className="clientDetails">
-              <h3>DATOS DEL CLIENTE: </h3>
+            <div>
+              <div className="clientDetails">
+                <h3>DATOS DEL CLIENTE: </h3>
+                <div className="btn" onClick={removeClient}>
+                  <i className="fa fa-minus-square"></i>
+                  <p>ELIMINAR</p>
+                </div>
+                <div className="btn" onClick={clickHandler}>
+                  <i className="fa fa-pencil-square-o"></i>
+                  <p>EDITAR</p>
+                </div>
+                {edit ? (
+                  <div className="btn" onClick={editClient}>
+                    <i className="fa fa-check-square-o"></i>
+                    <p>ENVIAR</p>
+                  </div>
+                ) : null}
+              </div>
               <div className="grid">
                 <p>ID DE CLIENTE: </p>
                 <p>{client.id}</p>
                 <p>NOMBRE: </p>
-                <p>{client.firstName?.toUpperCase()}</p>
+                {edit ? (
+                  <input
+                    type="text"
+                    name="firstName"
+                    onChange={inputHandler}
+                    placeholder={client.firstName?.toUpperCase()}
+                  ></input>
+                ) : (
+                  <p>{client.firstName?.toUpperCase()}</p>
+                )}
                 <p>APELLIDOS: </p>
-                <p>{client.lastName?.toUpperCase()}</p>
+                {edit ? (
+                  <input
+                    type="text"
+                    name="lastName"
+                    onChange={inputHandler}
+                    placeholder={client.lastName?.toUpperCase()}
+                  ></input>
+                ) : (
+                  <p>{client.lastName?.toUpperCase()}</p>
+                )}
                 <p>EDAD: </p>
-                <p>{client.age}</p>
+                {edit ? (
+                  <input
+                    type="number"
+                    name="age"
+                    onChange={inputHandler}
+                    placeholder={client.age}
+                  ></input>
+                ) : (
+                  <p>{client.age}</p>
+                )}
                 <p>DIRECCIÓN: </p>
-                <p>{client.address?.toUpperCase()}</p>
+                {edit ? (
+                  <input
+                    type="text"
+                    name="address"
+                    onChange={inputHandler}
+                    placeholder={client.address?.toUpperCase()}
+                  ></input>
+                ) : (
+                  <p>{client.address?.toUpperCase()}</p>
+                )}
                 <p>TELÉFONO: </p>
-                <p>{client.phone}</p>
+                {edit ? (
+                  <input
+                    type="text"
+                    name="phone"
+                    onChange={inputHandler}
+                    placeholder={client.phone}
+                  ></input>
+                ) : (
+                  <p>{client.phone}</p>
+                )}
                 <p>EMAIL: </p>
-                <p>{client.email?.toUpperCase()}</p>
+                {edit ? (
+                  <input
+                    type="email"
+                    name="email"
+                    onChange={inputHandler}
+                    placeholder={client.email?.toUpperCase()}
+                  ></input>
+                ) : (
+                  <p>{client.email?.toUpperCase()}</p>
+                )}
                 <p>FECHA ALTA: </p>
                 <p>{client.createdAt?.substring(0, 10)}</p>
                 <p>FECHA ÚLTIMA ACTUALIZACIÓN: </p>
                 <p>{client.updatedAt?.substring(0, 10)}</p>
+                {msgError}
               </div>
             </div>
           </div>

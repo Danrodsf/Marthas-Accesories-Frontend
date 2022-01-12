@@ -1,0 +1,26 @@
+.admin-addProduct-container {
+  @include flex(row, center, center);
+  .admin-addProduct {
+    text-align: center;
+    width: 100%;
+    @include flex(column, center, center);
+    .form {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      padding-bottom: 1rem;
+      width: min(100%, 60rem);
+    }
+  }
+}
+@media screen and (max-width: 1081px) {
+  .admin-addProduct-container {
+    align-items: unset;
+    .admin-addProduct {
+      justify-content: unset;
+      .form {
+        display: block;
+      }
+    }
+  }
+}

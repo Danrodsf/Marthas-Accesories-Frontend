@@ -76,6 +76,12 @@ function Products(props) {
             })}
           </table>
           {msgError}
+          <div
+            className="addProduct"
+            onClick={() => navigate("/admin/addProduct")}
+          >
+            <i className="fa fa-plus"></i>
+          </div>
         </div>
       </div>
     </div>

@@ -11,6 +11,10 @@ import ClientDetails from "./Containers/Admin/ClientDetails/ClientDetails";
 import OrderDetails from "./Containers/Admin/OrderDetails/OrderDetails";
 import ProductDetails from "./Containers/Admin/ProductDetails/ProductDetails";
 import MessageDetails from "./Containers/Admin/MessageDetails/MessageDetails";
+import AddClient from "./Containers/Admin/AddClient/AddClient";
+import AddProduct from "./Containers/Admin/AddProduct/AddProduct";
+import AddOrder from "./Containers/Admin/AddOrder/AddOrder";
+import AddMessage from "./Containers/Admin/AddMessage/AddMessage";
 import "./App.scss";
 
 const AdminApp = () => {
@@ -31,6 +35,10 @@ const AdminApp = () => {
         <Route exact path="/orderDetails" element={<OrderDetails />} />
         <Route exact path="/productDetails" element={<ProductDetails />} />
         <Route exact path="/messageDetails" element={<MessageDetails />} />
+        <Route exact path="/addClient" element={<AddClient />} />
+        <Route exact path="/addProduct" element={<AddProduct />} />
+        <Route exact path="/addOrder" element={<AddOrder />} />
+        <Route exact path="/addMessage" element={<AddMessage />} />
       </Routes>
     </div>
   );

@@ -1,25 +1,28 @@
 .userHub-container {
   @include flex(row, center, center);
-  height: 100%;
+  min-height: 100%;
   padding: 1rem 0;
   h2 {
     margin: 1rem;
   }
   .userHub {
-    @include flex(column, unset, center);
-    height: 100%;
+    @include flex(column, center, center);
+    min-height: 100%;
     .info {
       text-align: center;
     }
     .menu {
-      @include flex(column, space-around, flex-start);
-      height: 100%;
+      @include flex(column, space-evenly, flex-start);
+      min-height: 20rem;
       .links {
         text-decoration: none;
         padding-left: 1rem;
       }
       .links:hover {
         font-weight: 1000;
+      }
+      .fa.fa-user {
+        padding: 0 2px 0 2px;
       }
     }
   }

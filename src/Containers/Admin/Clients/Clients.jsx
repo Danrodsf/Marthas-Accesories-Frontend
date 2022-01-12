@@ -75,6 +75,12 @@ function Clients(props) {
             })}
           </table>
           <div>{msgError}</div>
+          <div
+            className="addClient"
+            onClick={() => navigate("/admin/addClient")}
+          >
+            <i className="fa fa-user-plus"></i>
+          </div>
         </div>
       </div>
     </div>

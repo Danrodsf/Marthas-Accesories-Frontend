@@ -1,6 +1,8 @@
 .admin-productDetails-container {
   padding: 1em;
+  min-width: 100%;
   .admin-productDetails {
+    margin-bottom: 1rem;
     .product {
       @include flex(column, center, center);
       background: $first;
@@ -8,23 +10,65 @@
       border-radius: 0.5rem;
       box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
         rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-      .flex {
-        margin: 1em;
-        @include flex(row, center, center);
-        img {
-          max-width: 20rem;
-          border: 1px solid $fourth;
-          box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-            rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-          margin-right: 2rem;
-        }
-        .grid {
-          display: grid;
-          grid-template-columns: 15rem 1fr;
-          > * {
-            align-self: end;
-            border-bottom: 1px solid $fourth;
+      .productDetails {
+        min-width: 100%;
+        .productDetails-title {
+          @include flex(row, center, center);
+          .btn {
+            @include flex(row, center, center);
+            cursor: pointer;
+          }
+          i {
+            padding-right: 0.2rem;
             padding-left: 1rem;
+          }
+          .send {
+            padding-left: 1rem;
+          }
+        }
+      }
+    }
+    .flex {
+      margin: 1em;
+      @include flex(row, space-between, center);
+      img {
+        max-width: 20rem;
+        border: 1px solid $fourth;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+          rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 15rem 1fr;
+        flex-basis: 70%;
+        > * {
+          align-self: end;
+          border-bottom: 1px solid $fourth;
+          padding-left: 1rem;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1081px) {
+    .admin-productDetails {
+      .product {
+        .productDetails {
+          .productDetails-title {
+            flex-direction: column;
+          }
+          .flex {
+            flex-direction: column;
+            img {
+              max-width: 15rem;
+            }
+            .grid {
+              display: block;
+              width: 100%;
+              input {
+                width: 100%;
+              }
+            }
           }
         }
       }
