@@ -71,10 +71,9 @@ function ProductDetails(props) {
         token
       );
       setProduct(res.data[0]);
-      console.log(res.data);
       setEdit(false);
     } catch (error) {
-      setmsgError("NO SE HA ENCONTRADO EL USUARIO");
+      setmsgError("HUBO UN ERROR AL EDITAR EL PRODUCTO");
     }
   };
 

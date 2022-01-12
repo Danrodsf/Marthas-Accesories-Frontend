@@ -57,7 +57,7 @@ const Messages = (props) => {
                     <p>{message?.message.toUpperCase()}</p>
                     <p>FECHA DE RESPUESTA:</p>
                     <p>
-                      {message?.updatedAt === message?.createdAt
+                      {message?.response === null
                         ? "SIN RESPUESTA"
                         : ` ${message?.updatedAt?.substring(0, 10)}`}
                     </p>

@@ -58,6 +58,7 @@ const Contact = (props) => {
               RESPUESTAS EN TU <Link to="/messages">SECCIÓN DE MENSAJES</Link>
             </p>
             <textarea
+              rows="10"
               className="text md"
               placeholder="TU MENSAJE"
               onChange={inputHandler}

@@ -1,0 +1,34 @@
+.admin-addMessage-container {
+  @include flex(row, center, center);
+  .admin-addMessage {
+    width: 100%;
+    @include flex(column, center, center);
+    .form {
+      @include flex(column, center, center);
+      padding-bottom: 1rem;
+      width: min(100%, 60rem);
+      input {
+        width: 100%;
+        margin-bottom: 1rem;
+        background-color: $first;
+        padding: 1rem;
+        border: none;
+        border: 1px solid $fourth;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+          rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+      }
+      textarea {
+        width: 100%;
+        resize: none;
+        background-color: $first;
+        border: none;
+        border: 1px solid $fourth;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+          rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+      }
+      :nth-child(4) {
+        margin: 1rem;
+      }
+    }
+  }
+}

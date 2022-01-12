@@ -71,6 +71,12 @@ function Messages(props) {
             })}
           </table>
           {msgError}
+          <div
+            className="addMessage"
+            onClick={() => navigate("/admin/addMessage")}
+          >
+            <i className="fa fa-plus"></i>
+          </div>
         </div>
       </div>
     </div>

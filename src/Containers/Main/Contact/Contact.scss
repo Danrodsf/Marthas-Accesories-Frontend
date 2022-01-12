@@ -5,11 +5,12 @@
     text-align: center;
     width: min(100%, 40rem);
     .text {
-      min-height: 10rem;
-      height: 10rem;
       width: 100%;
-      border: 2px solid $third;
       resize: none;
+      background-color: $first;
+      border: 1px solid $fourth;
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
       margin-bottom: 1rem;
     }
     .description {
