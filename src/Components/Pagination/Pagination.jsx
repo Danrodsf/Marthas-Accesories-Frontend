@@ -10,24 +10,27 @@ function Pagination(props) {
   }
 
   return (
-    <div className="numbers">
-      {pageNumbers.map((number) => {
-        return (
-          <div
-            key={number}
-            className={
-              location.pathname == `${props.path}/${number}`
-                ? "ind-number active"
-                : "ind-number"
-            }
-            onClick={() =>
-              navigate(`${props.path}/${number}`, { state: number })
-            }
-          >
-            {number}
-          </div>
-        );
-      })}
+    <div className="pagination">
+      <p>PÁGINA</p>
+      <div className="numbers">
+        {pageNumbers.map((number) => {
+          return (
+            <div
+              key={number}
+              className={
+                location.pathname == `${props.path}/${number}`
+                  ? "ind-number active"
+                  : "ind-number"
+              }
+              onClick={() =>
+                navigate(`${props.path}/${number}`, { state: number })
+              }
+            >
+              {number}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

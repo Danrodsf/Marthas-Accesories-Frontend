@@ -19,39 +19,13 @@ const Products = (props) => {
     },
   };
 
-  const getProductsByPage = (page) => {
-    switch (page) {
-      case 1:
-        getProducts(0);
-        break;
-      case 2:
-        getProducts(9);
-        break;
-      case 3:
-        getProducts(18);
-        break;
-      case 4:
-        getProducts(27);
-        break;
-      case 5:
-        getProducts(36);
-        break;
-      case 6:
-        getProducts(45);
-        break;
-
-      default:
-        break;
-    }
-  };
-
   useEffect(() => {
     navigate("/products/1");
     getProducts();
   }, []);
 
   useEffect(() => {
-    getProductsByPage(location.state);
+    getProducts(parseInt(location.state - 1) * limit);
   }, [location.pathname]);
 
   const getProducts = async (num) => {

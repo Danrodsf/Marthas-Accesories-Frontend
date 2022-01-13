@@ -2,11 +2,19 @@
   @include flex(column, center, center);
   margin: 0;
   width: 100%;
-  .logo {
-    padding: 1rem;
-  }
+
   .hero {
+    position: relative;
     width: 100%;
+    max-width: 2050px;
+    height: 800px;
+    background-image: url(../../../img/hero.jpg);
+    .cta {
+      position: absolute;
+      text-align: center;
+      top: 30rem;
+      left: 21.5rem;
+    }
   }
   .top-10 {
     width: 60%;
@@ -43,15 +51,24 @@
     padding: 10rem;
   }
 
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 900px) {
     .hero {
-      width: 100em;
+      background-image: url(../../../img/hero-portrait.jpg);
+      background-size: cover;
+      background-position: bottom;
+      .cta {
+        text-align: center;
+        position: initial;
+        margin-top: 650px;
+        font-size: 0.9rem;
+      }
     }
     .about {
       padding: 1rem;
     }
     .top-10 {
       width: 100%;
+      padding: 1rem;
       .random {
         grid-template-columns: 1fr 1fr 1fr;
         :last-child {

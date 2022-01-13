@@ -1,5 +1,3 @@
-import Logo from "../../../img/logo-black.png";
-import Hero from "../../../img/hero.jpg";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../../Components/Button/Button";
@@ -34,8 +32,16 @@ const Home = () => {
   return (
     <div className="main">
       <div className="home-container">
-        <img className="hero" src={Hero} alt="hero" />
-        <img className="logo" src={Logo} alt="martha's accesorios" />
+        <div className="hero" alt="hero">
+          <div className="cta">
+            <p>PRECIOSOS ACCESORIOS PARA TU DÍA A DÍA</p>
+            <p>PERFECTOS PARA COMPLEMENTAR CUALQUIER OUTFIT</p>
+            <Button
+              text="VER COLECCIÓN"
+              click={() => navigate("/products/1")}
+            ></Button>
+          </div>
+        </div>
         <div className="top-10">
           <h1>UN POCO DE NOSOTROS</h1>
           <div className="random">
@@ -55,7 +61,7 @@ const Home = () => {
           <div className="error">{msgError}</div>
           <Button
             text="VER COLECCIÓN"
-            click={() => navigate("/products")}
+            click={() => navigate("/products/1")}
           ></Button>
         </div>
         <div className="bg">
@@ -74,13 +80,6 @@ const Home = () => {
               omnis minima ipsam. Provident, doloribus adipisci corrupti dicta
               esse numquam quisquam iusto natus impedit, voluptas, eos quaerat
               quos sint? Expedita, ab culpa.
-            </p>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Doloribus aliquid quidem ipsa saepe, culpa asperiores laborum
-              temporibus, repellat omnis minima ipsam. Provident, doloribus
-              adipisci corrupti dicta esse numquam quisquam iusto natus impedit,
-              voluptas, eos quaerat quos sint? Expedita, ab culpa.
             </p>
           </div>
         </div>
