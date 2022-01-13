@@ -54,9 +54,8 @@ const Products = (props) => {
   return (
     <div className="main">
       <div className="products-container container">
-        <div className="paging">
-          <Pagination count={count} limit={limit} path="/products"></Pagination>
-        </div>
+        <Pagination count={count} limit={limit} path="/products"></Pagination>
+
         <div className="products">
           {products?.map((product) => {
             return (

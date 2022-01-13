@@ -2,10 +2,6 @@
   display: grid;
   justify-items: center;
   padding-top: 1rem;
-  .paging {
-    @include flex(row, space-between, center);
-    margin-bottom: 1rem;
-  }
   .products {
     width: min(100%, 1080px);
     display: grid;
