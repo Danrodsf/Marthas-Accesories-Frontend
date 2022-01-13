@@ -10,6 +10,7 @@ import SignUp from "./Containers/Main/SignUp/SignUp";
 import Contact from "./Containers/Main/Contact/Contact";
 import Messages from "./Containers/Main/Messages/Messages";
 import Products from "./Containers/Main/Products/Products";
+import SearchProducts from "./Containers/Main/SearchProducts/SearchProducts";
 import ProductDetail from "./Containers/Main/ProductDetail/ProductDetail";
 import Wishlist from "./Containers/Main/Wishlist/Wishlist";
 import Cart from "./Containers/Main/Cart/Cart";
@@ -31,8 +32,9 @@ const HomeApp = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/messages" element={<Messages />} />
         <Route path="/card" element={<Card />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/productDetail" element={<ProductDetail />} />
+        <Route path="/products/:page" element={<Products />} />
+        <Route path="/searchProducts" element={<SearchProducts />} />
+        <Route path="/productDetail/:name" element={<ProductDetail />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/orders" element={<Orders />} />

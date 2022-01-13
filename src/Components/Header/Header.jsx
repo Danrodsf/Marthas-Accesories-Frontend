@@ -1,8 +1,14 @@
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { connect } from "react-redux";
+import SearchBar from "../SearchBar/SearchBar";
 
 const Header = (props) => {
   const navigate = useNavigate();
+
+  const [click, setClick] = useState(false);
+
+  const clickHandler = () => setClick(!click);
 
   return (
     <div className="nav">
@@ -18,7 +24,16 @@ const Header = (props) => {
           onClick={() => navigate("/cart")}
         ></i>
         <i className="fa fa-heart-o" onClick={() => navigate("/wishlist")}></i>
-        <i className="fa fa-undo" onClick={() => navigate(-1)}></i>
+        {click ? (
+          <div className="search">
+            <i className="fa fa-search" onClick={clickHandler}></i>
+            <div className="searchBar">
+              <SearchBar></SearchBar>
+            </div>
+          </div>
+        ) : (
+          <i className="fa fa-search" onClick={clickHandler}></i>
+        )}
       </div>
     </div>
   );

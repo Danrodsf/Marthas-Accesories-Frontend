@@ -9,3 +9,5 @@ export const EDIT = "edit";
 export const REMOVE = "remove";
 export const CLEAN = "clean";
 export const TOTAL_CART = "totalcart";
+export const ADDSEARCH = "addsearch";
+export const RESETSEARCH = "resetsearch";

@@ -61,7 +61,9 @@ function Card(props) {
   };
 
   const viewProduct = () => {
-    navigate("/productDetail", { state: product });
+    navigate(`/productDetail/${product.name.split(" ").join("_")}`, {
+      state: product,
+    });
   };
 
   return (

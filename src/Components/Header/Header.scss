@@ -1,10 +1,25 @@
 .nav {
   height: 3rem;
   background: $fourth;
-}
-
-.nav-container {
-  @include flex(row, space-between, center);
-  height: 100%;
-  max-width: 1080px;
+  .nav-container {
+    @include flex(row, space-between, center);
+    height: 100%;
+    max-width: 1080px;
+  }
+  .search {
+    position: relative;
+    .searchBar {
+      position: absolute;
+      top: -10px;
+      right: 20px;
+      input {
+        background-color: $first;
+        padding: 0.5rem;
+        border: none;
+        border: 1px solid $fourth;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+          rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+      }
+    }
+  }
 }

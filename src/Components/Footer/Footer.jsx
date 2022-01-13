@@ -35,10 +35,12 @@ const Footer = (props) => {
         <div className={click ? "nav-menu active" : "nav-menu"}>
           <div
             className={
-              location.pathname === "/products" ? "nav-item active" : "nav-item"
+              location.pathname === "/products/"
+                ? "nav-item active"
+                : "nav-item"
             }
           >
-            <Link to="/products" className="nav-links" onClick={clickHandler}>
+            <Link to="/products/1" className="nav-links" onClick={clickHandler}>
               COLECCIÓN
             </Link>
           </div>

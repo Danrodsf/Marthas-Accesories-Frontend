@@ -26,7 +26,9 @@ const Home = () => {
   };
 
   const viewProduct = (product) => {
-    navigate("/productDetail", { state: product });
+    navigate(`/productDetail/${product.name.split(" ").join("_")}`, {
+      state: product,
+    });
   };
 
   return (

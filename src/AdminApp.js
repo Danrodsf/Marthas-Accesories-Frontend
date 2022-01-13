@@ -15,6 +15,7 @@ import AddClient from "./Containers/Admin/AddClient/AddClient";
 import AddProduct from "./Containers/Admin/AddProduct/AddProduct";
 import AddOrder from "./Containers/Admin/AddOrder/AddOrder";
 import AddMessage from "./Containers/Admin/AddMessage/AddMessage";
+import SearchBar from "./Components/SearchBar/SearchBar";
 import "./App.scss";
 
 const AdminApp = () => {
@@ -39,6 +40,7 @@ const AdminApp = () => {
         <Route exact path="/addProduct" element={<AddProduct />} />
         <Route exact path="/addOrder" element={<AddOrder />} />
         <Route exact path="/addMessage" element={<AddMessage />} />
+        <Route exact path="/searchBar" element={<SearchBar />} />
       </Routes>
     </div>
   );

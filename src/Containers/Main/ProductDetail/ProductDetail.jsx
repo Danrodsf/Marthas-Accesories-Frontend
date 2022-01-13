@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { ADD } from "../../../redux/types";
+
 import axios from "axios";
 
 function Product(props) {

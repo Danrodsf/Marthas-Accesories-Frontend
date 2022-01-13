@@ -14,7 +14,17 @@ function OrderDetails(props) {
   };
 
   const [order, setOrder] = useState(location.state);
+  const [edit, setEdit] = useState(false);
+  const [input, setInput] = useState();
   const [msgError, setmsgError] = useState("");
+
+  const clickHandler = () => {
+    setEdit(!edit);
+  };
+
+  const inputHandler = (e) => {
+    setInput({ ...input, [e.target.name]: e.target.value });
+  };
 
   useEffect(() => {
     getOrderById();
@@ -77,11 +87,12 @@ function OrderDetails(props) {
             <table className="detailTable">
               <thead>
                 <tr>
+                  <th>IMAGEN:</th>
                   <th>ID:</th>
                   <th>NOMBRE:</th>
                   <th>CATEGORIA:</th>
                   <th>€:</th>
-                  <th>CANT?.:</th>
+                  <th>CANT:</th>
                 </tr>
               </thead>
               {order?.OrderDetails?.map((product) => {
