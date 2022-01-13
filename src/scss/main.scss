@@ -1,0 +1,157 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+///// Color Palette /////
+$white: white;
+$first: #f6f1ec;
+$second: #f1ece3;
+$third: #eee6db;
+$fourth: #d3c0b2;
+$fifth: #1f1f1f;
+
+///// Global Classes /////
+@mixin flex($direction: row, $justify: unset, $align: unset) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+a {
+  color: $fifth;
+}
+
+button {
+  all: unset;
+}
+
+i {
+  cursor: pointer;
+}
+i:active {
+  font-size: 0.8rem;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1,
+h2 {
+  font-family: "amethyst";
+  font-size: 4rem;
+}
+
+.main {
+  height: calc(100vh - 8rem);
+  overflow: auto;
+  padding-bottom: 3rem;
+  background-image: url("../img/bg.png");
+}
+
+.admin-main {
+  @include flex(row, flex-start);
+  width: calc(100vw - 10rem);
+  position: absolute;
+  right: 0;
+  height: 100vh;
+  overflow: auto;
+}
+
+.container {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.logo {
+  width: 20rem;
+}
+
+.error {
+  margin: 1rem;
+  text-align: center;
+}
+
+.lg {
+  font-size: 1.5em;
+}
+
+.md {
+  font-size: 1em;
+}
+
+.sm {
+  font-size: 0.8em;
+}
+
+.table {
+  border-collapse: collapse;
+  th {
+    border: 1px solid $fourth;
+    background: $fourth;
+  }
+  td {
+    border: 1px solid $fourth;
+    padding: 0.5rem;
+  }
+  tbody:nth-child(odd) {
+    background: $third;
+  }
+  tbody:hover {
+    background: $first;
+  }
+}
+
+.detailTable {
+  border-collapse: collapse;
+  height: 100%;
+  width: 100%;
+  th {
+    padding: 1em;
+    border-bottom: 1px solid $fourth;
+  }
+  td {
+    padding: 1em;
+    border-bottom: 1px solid $fourth;
+  }
+  tbody:hover {
+    background: $third;
+    cursor: pointer;
+  }
+}
+
+.link {
+  text-decoration: underline;
+}
+.link:hover {
+  cursor: pointer;
+  font-weight: 1000;
+}
+
+@media screen and (max-width: 1081px) {
+  .logo {
+    width: 70%;
+  }
+  .admin-main {
+    min-width: calc(100vw - 2rem);
+    left: 2rem;
+    z-index: -1;
+  }
+}

@@ -1,0 +1,27 @@
+.admin-clients-container {
+  height: 100%;
+  width: 100%;
+  .admin-clients {
+    height: 100%;
+    width: 100%;
+    .table {
+      height: 100%;
+      width: 100%;
+      tbody {
+        cursor: pointer;
+      }
+    }
+    .addClient {
+      position: fixed;
+      bottom: 1rem;
+      right: 1.5rem;
+      font-size: 1.5rem;
+      height: 3rem;
+      width: 3rem;
+      background: $fifth;
+      color: $first;
+      border-radius: 50%;
+      @include flex(row, center, center);
+    }
+  }
+}

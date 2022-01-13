@@ -1,0 +1,22 @@
+.pagination {
+  text-align: center;
+  p {
+    margin: 0;
+  }
+  .numbers {
+    width: 100%;
+    @include flex(row, flex-start, center);
+    .ind-number {
+      font-size: 1.2rem;
+      padding: 1rem;
+      cursor: pointer;
+    }
+    .active {
+      font-weight: 1000;
+      font-size: 1.5rem;
+    }
+    .ind-number:hover {
+      font-weight: 1000;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+.button {
+  background-color: $third;
+  border: 1px solid $fourth;
+  padding: 1em;
+  margin-bottom: 0.5em;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.button:hover {
+  background-color: $fourth;
+  transition: all 0.5s ease;
+}
+
+.button:active {
+  transform: scale(0.98);
+  transition: 0.3s;
+}

@@ -1,0 +1,81 @@
+.admin-clientDetails-container {
+  padding: 1em;
+  .admin-clientDetails {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1em;
+    .client {
+      grid-column: span 3;
+    }
+    .orders {
+      grid-column: span 3;
+    }
+    .messages {
+      grid-column: span 5;
+    }
+    .clientDetails {
+      @include flex(row, center, center);
+      .btn {
+        @include flex(row, center, center);
+        cursor: pointer;
+      }
+      i {
+        padding-right: 0.2rem;
+        padding-left: 1rem;
+      }
+      .send {
+        padding-left: 1rem;
+      }
+    }
+    .client,
+    .orders,
+    .messages,
+    .wishlist {
+      @include flex(row, center, center);
+      background: $first;
+      padding: 1em;
+      border-radius: 0.5rem;
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+      .grid {
+        margin: 1em;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        > * {
+          align-self: center;
+          padding: 0 1rem;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 1300px) {
+    .admin-clientDetails {
+      grid-template-columns: 1fr 1fr;
+      .client,
+      .orders,
+      .messages {
+        grid-column: unset;
+      }
+    }
+  }
+  @media screen and (max-width: 1081px) {
+    .admin-clientDetails {
+      grid-template-columns: 1fr;
+      .client,
+      .orders,
+      .messages,
+      .wishlist {
+        grid-column: unset;
+      }
+      .orders {
+        .orderDetails {
+          .detailTable {
+            table {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+}

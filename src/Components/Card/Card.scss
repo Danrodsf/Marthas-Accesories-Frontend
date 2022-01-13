@@ -1,0 +1,30 @@
+.card {
+  text-align: center;
+  width: 100%;
+  background-color: $second;
+  outline: 1px solid $fourth;
+  border-radius: 0.5rem;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
+  .card-info {
+    min-height: 5rem;
+  }
+  .title {
+    cursor: pointer;
+  }
+  .buttons {
+    @include flex(row, space-evenly, center);
+    background-color: $fourth;
+    padding: 1rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+  img {
+    border-bottom: 1px solid $fourth;
+    border-radius: 0.5rem 0.5rem 0 0;
+    cursor: pointer;
+  }
+}
+.card:hover {
+  transform: scale(1.03);
+}

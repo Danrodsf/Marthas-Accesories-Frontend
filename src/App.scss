@@ -1,0 +1,54 @@
+@import "./scss/main.scss";
+@import "Containers/Main/Home/Home.scss";
+@import "Components/Header/Header.scss";
+@import "Components/Footer/Footer.scss";
+@import "Components/Button/Button.scss";
+@import "Components/FormInput/FormInput.scss";
+@import "Components/Card/Card.scss";
+@import "Components/Menu/Menu.scss";
+@import "Components/SearchBar/SearchBar.scss";
+@import "Components/Pagination/Pagination.scss";
+@import "Containers/Main/SignIn/SignIn.scss";
+@import "Containers/Main/UserHub/UserHub.scss";
+@import "Containers/Main/Profile/Profile.scss";
+@import "Containers/Main/SignUp/SignUp.scss";
+@import "Containers/Main/Contact/Contact.scss";
+@import "Containers/Main/Messages/Messages.scss";
+@import "Containers/Main/Products/Products.scss";
+@import "Containers/Main/SearchProducts/SearchProducts.scss";
+@import "Containers/Main/ProductDetail/ProductDetail.scss";
+@import "Containers/Main/Wishlist/Wishlist.scss";
+@import "Containers/Main/Cart/Cart.scss";
+@import "Containers/Main/Orders/Orders.scss";
+@import "Containers/Main/OrderConfirm/OrderConfirm.scss";
+@import "Containers/Admin/Main/Main.scss";
+@import "Containers/Admin/SignIn/SignIn.scss";
+@import "Containers/Admin/Clients/Clients.scss";
+@import "Containers/Admin/Orders/Orders.scss";
+@import "Containers/Admin/Products/Products.scss";
+@import "Containers/Admin/Messages/Messages.scss";
+@import "Containers/Admin/ClientDetails/ClientDetails.scss";
+@import "Containers/Admin/OrderDetails/OrderDetails.scss";
+@import "Containers/Admin/ProductDetails/ProductDetails.scss";
+@import "Containers/Admin/MessageDetails/MessageDetails.scss";
+@import "Containers/Admin/AddClient/AddClient.scss";
+@import "Containers/Admin/AddProduct/AddProduct.scss";
+@import "Containers/Admin/AddOrder/AddOrder.scss";
+@import "Containers/Admin/AddMessage/AddMessage.scss";
+
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+@font-face {
+  font-family: "amethyst";
+  src: url("./fonts/amethyst.woff2") format("woff2"),
+    url("./fonts/amethyst.woff") format("woff");
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: $fifth;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

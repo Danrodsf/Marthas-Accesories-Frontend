@@ -1,0 +1,13 @@
+export const LOGIN = "login";
+export const LOGOUT = "logout";
+export const UPDATE_USER = "update_user";
+export const ADMIN_LOGIN = "admin_login";
+export const ADMIN_LOGOUT = "admin_logout";
+export const UPDATE_ADMIN = "update_admin";
+export const ADD = "add";
+export const EDIT = "edit";
+export const REMOVE = "remove";
+export const CLEAN = "clean";
+export const TOTAL_CART = "totalcart";
+export const ADDSEARCH = "addsearch";
+export const RESETSEARCH = "resetsearch";

@@ -1,0 +1,15 @@
+.profile-container {
+  @include flex(row, center, center);
+  min-height: 100%;
+  padding: 1rem 0;
+  .profile {
+    @include flex(column, center, center);
+    width: min(100%, 20rem);
+    .form {
+      width: 100%;
+    }
+    .description {
+      text-align: justify;
+    }
+  }
+}

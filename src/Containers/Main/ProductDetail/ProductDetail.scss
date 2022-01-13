@@ -1,0 +1,47 @@
+.product-details-container {
+  @include flex(column, center, center);
+  min-height: 100%;
+  padding-top: 1rem;
+  .product-details {
+    @include flex(row);
+    width: min(100%, 1080px);
+    background: $first;
+    border: 1px solid $fourth;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    .product-details-img {
+      flex-basis: 65%;
+      img {
+        display: block;
+      }
+      .buttons {
+        @include flex(row, space-evenly, center);
+        padding: 0.5rem;
+        background-color: $third;
+      }
+    }
+    .product-details-info {
+      flex-basis: 35%;
+      h3 {
+        padding: 1rem;
+        margin-top: 0;
+        background-color: $fourth;
+      }
+      .product-details-item {
+        h4 {
+          background: $third;
+          padding: 0 0.5rem;
+        }
+        p {
+          padding: 0 0.5em;
+          text-align: justify;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 700px) {
+    .product-details {
+      flex-direction: column;
+    }
+  }
+}

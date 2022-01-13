@@ -1,0 +1,13 @@
+.signIn-container {
+  @include flex(row, center, center);
+  min-height: 100%;
+  .signIn {
+    text-align: center;
+    width: min(100%, 20rem);
+
+    .signUp-link {
+      line-height: 0.5;
+      text-align: center;
+    }
+  }
+}

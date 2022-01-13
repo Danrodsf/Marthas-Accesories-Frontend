@@ -1,0 +1,79 @@
+.admin-messageDetails-container {
+  padding: 1em;
+  min-width: 100%;
+  .admin-messageDetails {
+    margin-bottom: 1rem;
+    .message {
+      @include flex(column, center, center);
+      background: $first;
+      padding: 1em;
+      border-radius: 0.5rem;
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+      .messageDetails {
+        min-width: 100%;
+        .messageDetails-title {
+          @include flex(row, center, center);
+          .btn {
+            @include flex(row, center, center);
+            cursor: pointer;
+          }
+          i {
+            padding-right: 0.2rem;
+            padding-left: 1rem;
+          }
+          .send {
+            padding-left: 1rem;
+          }
+        }
+        .grid {
+          display: grid;
+          grid-template-columns: 15rem 1fr;
+          > * {
+            align-self: end;
+            border-bottom: 1px solid $fourth;
+          }
+          .input {
+            align-self: center;
+            border: none;
+            outline: 1px solid $fourth;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .MessageDetails-title {
+    text-align: center;
+    display: block;
+  }
+  .grid {
+    :nth-child(5),
+    :nth-child(6),
+    :nth-child(9),
+    :nth-child(10) {
+      grid-column: span 2;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .admin-messageDetails-container {
+    min-width: unset;
+    .admin-messageDetails {
+      .message {
+        .messageDetails {
+          .messageDetails-title {
+            display: block;
+            text-align: center;
+          }
+          .grid {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

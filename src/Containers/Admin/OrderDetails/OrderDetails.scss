@@ -1,0 +1,71 @@
+.admin-orderDetails-container {
+  padding: 1em;
+  .admin-orderDetails {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    .order,
+    .orderItems {
+      @include flex(column, center, center);
+      background: $first;
+      padding: 1em;
+      border-radius: 0.5rem;
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+      .orderItems-title {
+        @include flex(row, center, center);
+        .btn {
+          @include flex(row, center, center);
+          cursor: pointer;
+        }
+        i {
+          padding-right: 0.2rem;
+          padding-left: 1rem;
+        }
+      }
+      .detailTable {
+        tbody {
+          cursor: unset;
+        }
+        img {
+          max-width: 5rem;
+        }
+        .btn {
+          @include flex(row, center, center);
+          font-size: 1.5rem;
+        }
+        i {
+          padding-right: 1rem;
+        }
+        i:hover {
+          transform: scale(1.3);
+        }
+      }
+      .grid {
+        margin: 1em;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        > * {
+          align-self: center;
+          padding: 0 1rem;
+        }
+      }
+    }
+    .search {
+      grid-column: span 2;
+      @include flex(column, flex-start, flex-start);
+      background: $first;
+      padding: 1em;
+      border-radius: 0.5rem;
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+      .info {
+        @include flex(column);
+        text-align: justify;
+      }
+      .btn {
+        @include flex(row, center, center);
+      }
+    }
+  }
+}

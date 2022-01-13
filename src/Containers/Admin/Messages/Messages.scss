@@ -1,0 +1,25 @@
+.admin-messages {
+  .table {
+    tbody {
+      cursor: pointer;
+    }
+    tr {
+      :nth-child(3),
+      :nth-child(5) {
+        min-width: 20rem;
+      }
+    }
+  }
+  .addMessage {
+    position: fixed;
+    bottom: 1rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    height: 3rem;
+    width: 3rem;
+    background: $fifth;
+    color: $first;
+    border-radius: 50%;
+    @include flex(row, center, center);
+  }
+}

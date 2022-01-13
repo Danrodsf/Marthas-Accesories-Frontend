@@ -1,0 +1,17 @@
+.nav {
+  height: 3rem;
+  background: $fourth;
+  .nav-container {
+    @include flex(row, space-between, center);
+    height: 100%;
+    max-width: 1080px;
+  }
+  .search {
+    position: relative;
+    .searchBar {
+      position: absolute;
+      top: -5px;
+      right: 20px;
+    }
+  }
+}

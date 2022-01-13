@@ -1,0 +1,35 @@
+.wishlist-container {
+  @include flex(column, center, center);
+  min-height: 100%;
+  padding: 1rem 0;
+  .wishlist {
+    @include flex(column, center, center);
+    text-align: justify;
+  }
+  .wishlist-items {
+    @include flex(column, center, center);
+    .wishlist-items-detail {
+      padding: 0.5rem;
+      width: min(100%, 1080px);
+      @include flex(row, space-between, center);
+      background: $first;
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+      margin-top: 1rem;
+      img {
+        max-width: 20%;
+        flex-basis: 30%;
+        border: 1px solid $fourth;
+      }
+      p {
+        text-align: center;
+        flex-basis: 70%;
+      }
+      i {
+        font-size: 2rem;
+        flex-basis: 5%;
+        color: rgb(78, 78, 78);
+      }
+    }
+  }
+}
