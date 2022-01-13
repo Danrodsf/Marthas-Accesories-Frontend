@@ -70,16 +70,20 @@ const Home = () => {
               <h1>CONÓCENOS</h1>
             </div>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Doloribus aliquid quidem ipsa saepe, culpa asperiores laborum
-              temporibus, repellat omnis minima ipsam. Provident, doloribus
-              adipisci corrupti dicta esse numquam quisquam iusto natus impedit,
-              voluptas, eos quaerat quos sint? Expedita, ab culpa. Lorem ipsum,
-              dolor sit amet consectetur adipisicing elit. Doloribus aliquid
-              quidem ipsa saepe, culpa asperiores laborum temporibus, repellat
-              omnis minima ipsam. Provident, doloribus adipisci corrupti dicta
-              esse numquam quisquam iusto natus impedit, voluptas, eos quaerat
-              quos sint? Expedita, ab culpa.
+              ¡Hola! Gracias por visitar mi pequeño sitio en la web. Me llamo
+              Martha y soy una joven emprendedora, hace unos años aprendí a
+              hacer piezas de bisutería gracias a mi madre de quien herede los
+              conocimientos necesarios. Comenzó como un hobby para hacerme mis
+              propios accesorios y tuve la suerte de que mis amistades se
+              enamoraban de mis piezas y así surgieron mis primeros clientes.
+            </p>
+            <p>
+              Aunque mi colección no suele ser muy grande, siempre pongo mi
+              mayor esfuerzo para que las prendas sean únicas y especiales, y ya
+              que estoy, que reflejen un poco de mi personalidad extrovertida.
+              Espero que te gusten mis piezas, y estoy siempre a disposición
+              para cualquier duda o incluso para realizar prendas personalizadas
+              a tu gusto.
             </p>
           </div>
         </div>

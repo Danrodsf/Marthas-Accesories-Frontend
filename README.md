@@ -21,6 +21,15 @@ Daniel Rodriguez
 The site is an e-commerce web app for women accesories, created to improve the reach and contact with potential clients.
 The frontend is made in React.js, as a singlepage application, in order to allow fluid transitions withing views, without needing to reload the HTML. React Redux was used to allow user's data to persist even when closing the web app, data such as login info, Json Web Token, and shopping cart are safely stored in user's session, removing the need to login again and redo the shopping cart from start.
 
+### Screenshots.
+
+<img src=https://raw.githubusercontent.com/Danrodsf/Marthas-Accesories-Frontend/main/src/img/screens/1.png>
+<img src=https://raw.githubusercontent.com/Danrodsf/Marthas-Accesories-Frontend/main/src/img/screens/2.png>
+<img src=https://raw.githubusercontent.com/Danrodsf/Marthas-Accesories-Frontend/main/src/img/screens/3.png>
+<img src=https://raw.githubusercontent.com/Danrodsf/Marthas-Accesories-Frontend/main/src/img/screens/4.png>
+<img src=https://raw.githubusercontent.com/Danrodsf/Marthas-Accesories-Frontend/main/src/img/screens/5.png>
+<img src=https://raw.githubusercontent.com/Danrodsf/Marthas-Accesories-Frontend/main/src/img/screens/6.png>
+
 ### Views.
 
 The frontend contains 14 views
