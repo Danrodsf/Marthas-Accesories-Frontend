@@ -64,7 +64,12 @@ The frontend contains 14 views
 
 ```
 
-##### Admin CMS
+#### Admin CMS
+
+https://deploy-aws.d193hgukjbwp44.amplifyapp.com/admin
+
+admin: admin@admin.com
+password: password
 
 ```
 ● Admin DashBoard with general data.
