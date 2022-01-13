@@ -1,0 +1,33 @@
+.searchBar {
+  input {
+    background-color: $third;
+    padding: 0.5rem;
+    border: 1px solid $fourth;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  }
+  input:focus {
+    outline: 2px solid $fifth;
+  }
+  .results {
+    background: $third;
+    padding: 0.5rem;
+    border: 1px solid $fourth;
+    height: 7rem;
+    overflow: auto;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    .result-items {
+      @include flex(row, flex-start, center);
+      height: 100%;
+      .searchImg {
+        width: 5rem;
+        border: 1px solid $fourth;
+      }
+    }
+    .result-items:hover {
+      background: $fourth;
+      cursor: pointer;
+    }
+  }
+}

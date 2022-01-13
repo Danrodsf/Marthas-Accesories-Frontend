@@ -23,7 +23,7 @@ The frontend is made in React.js, as a singlepage application, in order to allow
 
 ### Views.
 
-The frontend contains 12 views
+The frontend contains 14 views
 
 1. `Home` - Landing page of the site.
 2. `SignUp` - User's can register an account in this view.
@@ -34,9 +34,11 @@ The frontend contains 12 views
 7. `Wishlist` - User's wishlish view with all products added by the user.
 8. `Orders` - View containing all orders made by the user. With detailed information for each order.
 9. `Products` - A main view of all the products in the store.
-10. `ProductDetail` - Individual detailed information of the product choosen by the user.
-11. `Cart` - Shopping cart, with all products added the cart by the user to make an order.
-12. `Contact` - User's can send a message to an admin via this view.
+10. `SearchProducts` - View with dynamic search results.
+11. `ProductDetail` - Individual detailed information of the product choosen by the user.
+12. `Cart` - Shopping cart, with all products added the cart by the user to make an order.
+13. `OrderConfirm` - Shopping cart, with all products added the cart by the user to make an order.
+14. `Contact` - User's can send a message to an admin via this view.
 
 ### Features.
 
@@ -50,6 +52,19 @@ The frontend contains 12 views
 ● Users can add, view and remove products from shopping cart.
 ● Users can create orders from items in shopping cart.
 ● Users can review all of their orders.
+● Users can search for products by name.
+● Product Pagination from API.
+
+```
+
+##### Admin CMS
+
+```
+● Admin DashBoard with general data.
+● Admin Client view with data of all registered users with delete and edit functions.
+● Admin Orders view with data of all Orders made with add, delete and edit functions.
+● Admin Products view with data of all products in the DB with add, delete and edit functions.
+● Admin Messages view with data of all messages sent by users with delete and edit functions.
 ```
 
 ### Tecnologies.
@@ -76,23 +91,10 @@ The technologies used for this project were the following:
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/danielrodriguezserafin/
 
-### Work in Progress.
-
-##### Admin CMS
-
-```
-● Admin DashBoard with general data.
-● Admin Client view with data of all registered users with delete and edit functions.
-● Admin Orders view with data of all Orders made with add, delete and edit functions.
-● Admin Products view with data of all products in the DB with add, delete and edit functions.
-● Admin Messages view with data of all messages sent by users with delete and edit functions.
-```
-
 ### Future implementations.
 
 ```
 ● Payment system.
-● Pagination.
 ● Improve UI/UX.
 ● Customization of products.
 

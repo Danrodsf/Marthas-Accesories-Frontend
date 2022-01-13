@@ -20,12 +20,12 @@ const Products = (props) => {
   };
 
   useEffect(() => {
-    navigate("/products/1");
-    getProducts();
+    navigate("/products/1"); //eslint-disable-next-line react-hooks/exhaustive-deps
+    getProducts(); //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    getProducts(parseInt(location.state - 1) * limit);
+    getProducts(parseInt(location.state - 1) * limit); //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
 
   const getProducts = async (num) => {

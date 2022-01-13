@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function SearchBar(props) {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const token = {
     headers: {
@@ -24,7 +25,7 @@ function SearchBar(props) {
     const timeOut = setTimeout(() => {
       searchProducts();
     }, 500);
-    return () => clearTimeout(timeOut);
+    return () => clearTimeout(timeOut); //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [input]);
 
   const searchProducts = async () => {
@@ -37,14 +38,17 @@ function SearchBar(props) {
         body,
         token
       );
-      navigate("searchProducts", { state: res.data.rows });
+      setProducts(res.data.rows);
+      location.pathname === "/admin/orderDetails"
+        ? navigate("/admin/orderDetails")
+        : navigate("/searchProducts", { state: res.data.rows });
     } catch (error) {
       setmsgError(error.message);
     }
   };
 
   return (
-    <div>
+    <div className="searchBar">
       <input
         type="search"
         name="name"
@@ -52,6 +56,28 @@ function SearchBar(props) {
         placeholder="Buscar por nombre"
         onChange={inputHandler}
       />
+      {location.pathname === "/admin/orderDetails" && input.length > 2 ? (
+        <div className="results">
+          {products.map((product) => {
+            return (
+              <div key={product.id} className="result-items">
+                <img
+                  className="searchImg"
+                  src={product.imgUrl}
+                  alt={product.name}
+                />
+                <p
+                  onClick={() =>
+                    navigate("/admin/orderDetails", { state: product })
+                  }
+                >
+                  {product.name}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      ) : null}
       {msgError}
     </div>
   );

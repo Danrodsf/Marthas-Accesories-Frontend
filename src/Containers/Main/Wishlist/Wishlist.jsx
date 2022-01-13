@@ -22,7 +22,9 @@ const Wishlist = (props) => {
   }, []);
 
   const viewProduct = (product) => {
-    navigate("/productDetail", { state: product });
+    navigate(`/productDetail/${product.name.split(" ").join("_")}`, {
+      state: product,
+    });
   };
 
   const getByUserId = async () => {
