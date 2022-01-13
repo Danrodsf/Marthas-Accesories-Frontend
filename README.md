@@ -23,12 +23,12 @@ The frontend is made in React.js, as a singlepage application, in order to allow
 
 ### Screenshots.
 
-<img src=https://raw.githubusercontent.com/Danrodsf/Marthas-Accesories-Frontend/main/src/img/screens/1.png>
-<img src=https://raw.githubusercontent.com/Danrodsf/Marthas-Accesories-Frontend/main/src/img/screens/2.png>
-<img src=https://raw.githubusercontent.com/Danrodsf/Marthas-Accesories-Frontend/main/src/img/screens/3.png>
-<img src=https://raw.githubusercontent.com/Danrodsf/Marthas-Accesories-Frontend/main/src/img/screens/4.png>
-<img src=https://raw.githubusercontent.com/Danrodsf/Marthas-Accesories-Frontend/main/src/img/screens/5.png>
-<img src=https://raw.githubusercontent.com/Danrodsf/Marthas-Accesories-Frontend/main/src/img/screens/6.png>
+<img src="https://raw.githubusercontent.com/Danrodsf/Marthas-Accesories-Frontend/main/src/img/screens/1.png"/>
+<img src="https://raw.githubusercontent.com/Danrodsf/Marthas-Accesories-Frontend/main/src/img/screens/2.png">
+<img src="https://raw.githubusercontent.com/Danrodsf/Marthas-Accesories-Frontend/main/src/img/screens/3.png">
+<img src="https://raw.githubusercontent.com/Danrodsf/Marthas-Accesories-Frontend/main/src/img/screens/4.png" width=265px>
+<img src="https://raw.githubusercontent.com/Danrodsf/Marthas-Accesories-Frontend/main/src/img/screens/5.png" width=265px>
+<img src="https://raw.githubusercontent.com/Danrodsf/Marthas-Accesories-Frontend/main/src/img/screens/6.png" width=265px>
 
 ### Views.
 
