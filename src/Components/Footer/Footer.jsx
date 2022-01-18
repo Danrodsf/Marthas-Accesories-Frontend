@@ -58,7 +58,11 @@ const Footer = (props) => {
               location.pathname === "/userHub" ? "nav-item active" : "nav-item"
             }
           >
-            <Link to="/userHub" className="nav-links" onClick={clickHandler}>
+            <Link
+              to={props.credentials.user.id ? "/userHub" : "/signIn"}
+              className="nav-links"
+              onClick={clickHandler}
+            >
               ZONA USUARIO
             </Link>
           </div>
