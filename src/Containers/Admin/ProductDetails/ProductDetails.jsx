@@ -214,7 +214,7 @@ function ProductDetails(props) {
                   {edit ? (
                     <input
                       className="input"
-                      type="number"
+                      type="text"
                       name="imgUrl"
                       onChange={inputHandler}
                       placeholder={product.imgUrl}
