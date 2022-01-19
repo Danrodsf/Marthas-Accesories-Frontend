@@ -17,7 +17,7 @@ function OrderConfirm() {
           <div className="buttons">
             <Button
               text="SEGUIR COMPRANDO"
-              click={() => navigate("/products")}
+              click={() => navigate("/products/1")}
             ></Button>
             <Button
               text="IR A TUS PEDIDOS"
